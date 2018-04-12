@@ -12,7 +12,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-        transform.Translate.
+       // transform.Translate.
 
 	}
 }
