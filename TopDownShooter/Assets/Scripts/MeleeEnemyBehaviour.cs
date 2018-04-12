@@ -4,34 +4,28 @@ using UnityEngine;
 
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
-    public Transform playerPosition;
-    public float speed;
+    public Transform playerTarget;
+    public float speed, chargeSpeed;
 
-    private float xPosition, yPosition;
 
-	// Use this for initialization
+    private float startSpeed, distance;
+
 	void Start () {
-        xPosition = playerPosition.position.x - this.transform.position.x;
 
-        yPosition = playerPosition.position.y - this.transform.position.y;
+        startSpeed = speed;
+
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (playerPosition.position.x - this.transform.position.x > 1)
-            xPosition = 1;
-        else if (playerPosition.position.x - this.transform.position.x < -1)
-            xPosition = -1;
+
+    void Update () {
+
+        distance = Vector3.Distance(transform.position, playerTarget.position);
+
+        if (distance < 5)
+            speed = chargeSpeed - (distance/10);
         else
-            xPosition = playerPosition.position.x - this.transform.position.x;
+            speed = startSpeed;
 
-
-
-        yPosition = playerPosition.position.y - this.transform.position.y;
-        
-        
-
-        transform.Translate(new Vector3(xPosition, yPosition, 0.0f) * speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
 
 	}
 }
