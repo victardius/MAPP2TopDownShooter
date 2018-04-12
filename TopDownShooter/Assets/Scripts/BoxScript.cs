@@ -9,32 +9,38 @@ public class BoxScript : MonoBehaviour {
     Rigidbody2D rgb;
     
     // Use this for initialization
-	void Start () {
+	void Start ()
+    {
         rgb = this.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if(player.transform.position.x > this.transform.position.x)
+        if(other.gameObject.tag == "Player")
         {
-            rgb.AddForce(new Vector2(-force, 0));
+            if (player.transform.position.x > this.transform.position.x)
+            {
+                rgb.AddForce(new Vector2(-force, 0));
+            }
+            else if (player.transform.position.x < this.transform.position.x)
+            {
+                rgb.AddForce(new Vector2(force, 0));
+            }
+            else if (player.transform.position.y > this.transform.position.y)
+            {
+                rgb.AddForce(new Vector2(0, -force));
+            }
+            if (player.transform.position.y < this.transform.position.y)
+            {
+                rgb.AddForce(new Vector2(0, force));
+            }
         }
-        else if (player.transform.position.x < this.transform.position.x)
-        {
-            rgb.AddForce(new Vector2(force, 0));
-        }
-        else if (player.transform.position.y > this.transform.position.y)
-        {
-            rgb.AddForce(new Vector2(0, -force));
-        }
-        if (player.transform.position.y < this.transform.position.y)
-        {
-            rgb.AddForce(new Vector2(0, force));
-        }
+       
     }
 }

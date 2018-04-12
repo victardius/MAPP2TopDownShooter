@@ -23,7 +23,7 @@ public class StingyFLower : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
            // player.takeDamage(1);
            if(player.transform.position.x > this.transform.position.x)
