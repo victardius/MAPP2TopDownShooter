@@ -15,22 +15,25 @@ public class StingyFLower : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        if(hitPoints >= 0)
+        if (hitPoints <= 0)
         {
             this.gameObject.SetActive(false);
+
         }
- 
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
            // player.takeDamage(1);
-           if(player.transform.position.x > this.transform.position.x)
-            {
+          // if(player.transform.position.x > this.transform.position.x)
+            //{
                 Debug.Log("Damage taken, plant hp left: " + hitPoints);
-            }
-            hitPoints = hitPoints - 1;
+            //}
+            hitPoints -= 1;
+
+            
         }
     }
 
