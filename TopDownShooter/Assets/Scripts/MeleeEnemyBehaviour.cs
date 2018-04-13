@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
     public Transform playerTarget;
-    public float speed, chargeSpeed;
+    public float speed, chargeSpeed, hitCooldownTime = 1.0f, hitCooldown;
 
 
     private float startSpeed, distance;
@@ -13,10 +13,14 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 	void Start () {
 
         startSpeed = speed;
+        hitCooldown = hitCooldownTime;
 
     }
 
     void Update () {
+        
+        if (hitCooldown > 0)
+        hitCooldown -= Time.deltaTime;
 
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
@@ -33,7 +37,11 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<PlayerVariables>().takeDamage(10, transform);
+            if (hitCooldown <= 0)
+            {
+                other.GetComponent<PlayerVariables>().takeDamage(10, transform);
+                hitCooldown = hitCooldownTime;
+            }
         }
     }
 }

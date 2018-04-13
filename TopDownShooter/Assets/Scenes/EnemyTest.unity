@@ -649,6 +649,8 @@ MonoBehaviour:
   playerTarget: {fileID: 1234943414}
   speed: 1
   chargeSpeed: 1.5
+  hitCooldownTime: 1
+  hitCooldown: 0
 --- !u!58 &2027312086
 CircleCollider2D:
   m_ObjectHideFlags: 0
