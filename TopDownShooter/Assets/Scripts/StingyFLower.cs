@@ -26,11 +26,8 @@ public class StingyFLower : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-           // player.takeDamage(1);
-          // if(player.transform.position.x > this.transform.position.x)
-            //{
-                Debug.Log("Damage taken, plant hp left: " + hitPoints);
-            //}
+            other.GetComponent<PlayerVariables>().takeDamage(10);          
+            Debug.Log("Damage taken, plant hp left: " + hitPoints);
             hitPoints -= 1;
 
             
