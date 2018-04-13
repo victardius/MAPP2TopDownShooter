@@ -5,10 +5,12 @@ using UnityEngine;
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
     public Transform playerTarget;
-    public float speed, chargeSpeed, hitCooldownTime = 1.0f, hitCooldown;
+    public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce;
+    public int health;
+    
 
 
-    private float startSpeed, distance;
+    private float startSpeed, distance, hitCooldown;
 
 	void Start () {
 
@@ -30,8 +32,19 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
             speed = startSpeed;
 
         transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
+        
 
 	}
+
+    public void takeDamage(int amount, Transform source)
+    {
+        health -= amount;
+        Vector3 dir = source.position - transform.position;
+
+        dir = -dir.normalized;
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
