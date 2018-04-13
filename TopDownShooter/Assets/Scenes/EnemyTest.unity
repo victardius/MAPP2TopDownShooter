@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthSlider: {fileID: 1123331214}
+  pushbackForce: 200
 --- !u!58 &1234943417
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -534,6 +535,26 @@ Prefab:
         type: 2}
       propertyPath: m_MaxValue
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114687261658659850, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114687261658659850, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 114687261658659850, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 114687261658659850, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
