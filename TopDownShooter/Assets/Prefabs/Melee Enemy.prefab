@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58619876772142662}
   - component: {fileID: 58930170029218824}
   - component: {fileID: 50345655742878174}
+  - component: {fileID: 114540202130218616}
   m_Layer: 0
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -56,7 +57,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -105,13 +106,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4bb000a00c45d49a8d767d8145e383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTarget: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d,
-    type: 2}
-  speed: 1
-  chargeSpeed: 2
+  playerTarget: {fileID: 0}
+  speed: 500
+  chargeSpeed: 800
   hitCooldownTime: 1
   pushbackForce: 200
+  updateRate: 2
+  nextWaypointDistance: 0.1
   health: 20
+  fMode: 0
+  pathIsEnded: 0
+--- !u!114 &114540202130218616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764495841904254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask: -1
 --- !u!212 &212668025036253348
 SpriteRenderer:
   m_ObjectHideFlags: 1

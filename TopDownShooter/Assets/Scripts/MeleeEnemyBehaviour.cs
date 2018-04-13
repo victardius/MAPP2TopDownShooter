@@ -1,22 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
+
+[RequireComponent (typeof (Rigidbody2D))]
+[RequireComponent (typeof (Seeker))]
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
     public Transform playerTarget;
-    public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce;
+    public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
     public int health;
-    
+    public Path path;
+    public ForceMode2D fMode;
 
+    [HideInInspector]
+    public bool pathIsEnded = false;
 
+    private Seeker seeker;
+    private Rigidbody2D rb;
     private float startSpeed, distance, hitCooldown;
+    private int currentWaypoint = 0;
+
 
 	void Start () {
 
         startSpeed = speed;
         hitCooldown = hitCooldownTime;
 
+        seeker = GetComponent<Seeker>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (playerTarget == null)
+        {
+            Debug.LogError("No Player found!");
+        }
+
+        seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
+
+        StartCoroutine(UpdatePath());
     }
 
     void Update () {
@@ -27,14 +49,37 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
         if (distance < 5)
-            speed = chargeSpeed - (distance/10);
+            speed = chargeSpeed - (distance * 60);
         else
             speed = startSpeed;
 
-        transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
-        
+        //transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
 
+        
 	}
+
+    public void OnPathComplete(Path p)
+    {
+        //Debug.Log("Got path, error? " + p.error);
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
+    }
+
+    IEnumerator UpdatePath()
+    {
+        if (playerTarget == null)
+        {
+            
+        }
+
+        seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
+
+        yield return new WaitForSeconds(1.0f / updateRate);
+        StartCoroutine(UpdatePath());
+    }
 
     public void takeDamage(int amount, Transform source)
     {
@@ -43,6 +88,38 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
         dir = -dir.normalized;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
+
+    }
+    private void FixedUpdate()
+    {
+        if (playerTarget == null)
+        {
+            return;
+        }
+
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            if (pathIsEnded)
+                return;
+            //Debug.Log("End of path reached.");
+            pathIsEnded = true;
+            return;
+        }
+
+        pathIsEnded = false;
+
+        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+        dir *= speed * Time.fixedDeltaTime;
+
+        rb.AddForce(dir, fMode);
+
+        float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+
+        if (dist < nextWaypointDistance)
+        {
+            currentWaypoint++;
+            return;
+        }
 
     }
 
