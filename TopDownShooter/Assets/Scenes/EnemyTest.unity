@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthSlider: {fileID: 1123331214}
+  pushbackForce: 200
 --- !u!58 &1234943417
 CircleCollider2D:
   m_ObjectHideFlags: 0

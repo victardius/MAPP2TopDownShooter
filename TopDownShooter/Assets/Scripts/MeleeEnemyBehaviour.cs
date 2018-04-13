@@ -33,7 +33,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<PlayerVariables>().takeDamage(10);
+            other.GetComponent<PlayerVariables>().takeDamage(10, transform);
         }
     }
 }
