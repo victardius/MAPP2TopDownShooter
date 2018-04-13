@@ -19,11 +19,10 @@ public class PlayerVariables : MonoBehaviour {
         
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void takeDamage(int amount)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            health -= 10;
-        }
+        health -= amount;
+
     }
+
 }
