@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerVariables : MonoBehaviour {
 
-    public int health;
+    public int health = 100;
     public Slider healthSlider;
+    public float pushbackForce = 10;
 
 	void Start () {
 		
@@ -19,11 +20,14 @@ public class PlayerVariables : MonoBehaviour {
         
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void takeDamage(int amount, Transform enemy)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            health -= 10;
-        }
+        health -= amount;
+        Vector3 dir = enemy.position - transform.position;
+
+        dir = -dir.normalized;
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
+
     }
+
 }

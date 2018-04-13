@@ -28,4 +28,12 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
 
 	}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerVariables>().takeDamage(10, transform);
+        }
+    }
 }
