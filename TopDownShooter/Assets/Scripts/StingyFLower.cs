@@ -26,7 +26,7 @@ public class StingyFLower : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<PlayerVariables>().takeDamage(10);          
+            other.GetComponent<PlayerVariables>().takeDamage(10, transform);          
             Debug.Log("Damage taken, plant hp left: " + hitPoints);
             hitPoints -= 1;
 
