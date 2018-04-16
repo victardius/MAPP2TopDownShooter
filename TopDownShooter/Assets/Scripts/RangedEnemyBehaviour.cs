@@ -9,7 +9,7 @@ using Pathfinding;
 public class RangedEnemyBehaviour : MonoBehaviour
 {
 
-    public Transform playerTarget;
+    
     public float speed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
     public int health;
     public Path path;
@@ -25,14 +25,13 @@ public class RangedEnemyBehaviour : MonoBehaviour
     private float startSpeed, distance, hitCooldown;
     private int currentWaypoint = 0;
     private bool fire = false;
-
+    private Transform playerTarget;
 
     void Start()
     {
-
-        startSpeed = speed;
+        playerTarget = PlayerVariables.playerTarget;
         hitCooldown = hitCooldownTime;
-
+        startSpeed = 1.0f;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         firePoint = transform.Find("FirePoint");
@@ -46,6 +45,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
         StartCoroutine(UpdatePath());
         StartCoroutine(ShootPlayer());
+
 
     }
 
@@ -61,6 +61,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
         {
             speed = 0f;
             fire = true;
+
         }
         else
         {
@@ -90,15 +91,20 @@ public class RangedEnemyBehaviour : MonoBehaviour
         {
             Instantiate(bullets, firePoint.position, firePoint.rotation);
 
-            yield return new WaitForSeconds(1.0f / updateRate);
+            yield return new WaitForSeconds(1.0f);
             Debug.Log("shooting working");
 
             StartCoroutine(ShootPlayer());
-            
-        }
-        yield return new WaitForSeconds(1.0f / updateRate);
 
-        StartCoroutine(ShootPlayer());
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            Debug.Log("not shooting");
+
+            StartCoroutine(ShootPlayer());
+        }
 
     }
 
@@ -122,35 +128,36 @@ public class RangedEnemyBehaviour : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (playerTarget == null)
+        if (path != null)
         {
-            return;
-        }
 
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            if (pathIsEnded)
+
+
+            if (currentWaypoint >= path.vectorPath.Count)
+            {
+                if (pathIsEnded)
+                    return;
+                //Debug.Log("End of path reached.");
+                pathIsEnded = true;
                 return;
-            //Debug.Log("End of path reached.");
-            pathIsEnded = true;
-            return;
+            }
+
+            pathIsEnded = false;
+
+            Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            dir *= speed * Time.fixedDeltaTime;
+
+            rb.AddForce(dir, fMode);
+
+            float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+
+            if (dist < nextWaypointDistance)
+            {
+                currentWaypoint++;
+                return;
+            }
+
         }
-
-        pathIsEnded = false;
-
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        dir *= speed * Time.fixedDeltaTime;
-
-        rb.AddForce(dir, fMode);
-
-        float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
-
-        if (dist < nextWaypointDistance)
-        {
-            currentWaypoint++;
-            return;
-        }
-
     }
 
     

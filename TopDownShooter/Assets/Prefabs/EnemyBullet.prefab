@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4910606256586692}
   - component: {fileID: 212169857962274136}
-  - component: {fileID: 114122692633508606}
   - component: {fileID: 50176057834774588}
   - component: {fileID: 70217276840180250}
+  - component: {fileID: 114049487093392648}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -107,7 +107,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.25, y: 0.1}
   m_Direction: 0
---- !u!114 &114122692633508606
+--- !u!114 &114049487093392648
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -115,12 +115,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062952223614954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e6757dc78551a4580cfc5449f0402d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e30b95bfec3eec4dbd495a07e1f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  target: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
   timeToLive: 2
+  target: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
 --- !u!212 &212169857962274136
 SpriteRenderer:
   m_ObjectHideFlags: 1
