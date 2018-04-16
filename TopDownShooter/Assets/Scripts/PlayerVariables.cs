@@ -8,9 +8,10 @@ public class PlayerVariables : MonoBehaviour {
     public int health = 100;
     public Slider healthSlider;
     public float pushbackForce = 10;
+    public static Transform playerTarget;
 
 	void Start () {
-		
+        playerTarget = transform;
 	}
 	
 

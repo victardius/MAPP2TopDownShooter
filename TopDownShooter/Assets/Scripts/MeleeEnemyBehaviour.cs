@@ -8,7 +8,6 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
-    public Transform playerTarget;
     public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
     public int health;
     public Path path;
@@ -21,10 +20,12 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     private Rigidbody2D rb;
     private float startSpeed, distance, hitCooldown;
     private int currentWaypoint = 0;
+    private Transform playerTarget;
 
 
-	void Start () {
+    void Start () {
 
+        playerTarget = PlayerVariables.playerTarget;
         startSpeed = speed;
         hitCooldown = hitCooldownTime;
 
