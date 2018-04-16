@@ -31,10 +31,9 @@ public class Projectile : MonoBehaviour {
         Debug.DrawLine(firePointPosition, fireTargetPosition );
         if (hit.collider != null)
         {
+            hit.collider.GetComponent<MeleeEnemyBehaviour>().takeDamage((int)Damage, transform);
             //Debug.DrawLine(firePointPosition, hit.point, Color.red);
            // Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
         }
     }
-
-   
 }
