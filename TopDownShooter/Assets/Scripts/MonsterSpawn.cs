@@ -7,10 +7,11 @@ public class MonsterSpawn : MonoBehaviour {
     public Transform[] spawnGate;
     public float timeBetweenWaves, spawnRate;
     public int[] waveSize;
-    public GameObject monsterType;
-    public Transform playerTarget;
+    public GameObject[] monsterType;
+    public static int numberOfMonsters = 0;
 
     private int currentWave;
+    private bool spawnPause;
 
     void Start() {
         currentWave = 0;
@@ -21,8 +22,14 @@ public class MonsterSpawn : MonoBehaviour {
     {
         foreach (Transform t in spawnGate)
         {
-            Instantiate(monsterType, t.position, Quaternion.identity);
+            while (numberOfMonsters > 10)
+            {
+                yield return null;
+            }
+            Instantiate(monsterType[0], t.position, Quaternion.identity);
+
         }
+
         yield return new WaitForSeconds(spawnRate);
         waveSize[currentWave]--;
         if (waveSize[currentWave] > 0)

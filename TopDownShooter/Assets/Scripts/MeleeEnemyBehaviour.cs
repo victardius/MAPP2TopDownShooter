@@ -28,6 +28,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         playerTarget = PlayerVariables.playerTarget;
         startSpeed = speed;
         hitCooldown = hitCooldownTime;
+        MonsterSpawn.numberOfMonsters++;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
