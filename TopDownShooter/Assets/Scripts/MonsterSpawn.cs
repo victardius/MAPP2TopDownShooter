@@ -5,20 +5,36 @@ using UnityEngine;
 public class MonsterSpawn : MonoBehaviour {
 
     public Transform[] spawnGate;
-    public float timeBetweenWaves;
+    public float timeBetweenWaves, spawnRate;
+    public int[] waveSize;
+    public GameObject monsterType;
+    public Transform playerTarget;
 
-    private float timeBetweenWavesStart;
+    private int currentWave;
 
-	// Use this for initialization
-	void Start () {
-        timeBetweenWavesStart = timeBetweenWaves;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (timeBetweenWaves > 0)
+    void Start() {
+        currentWave = 0;
+        StartCoroutine(spawnMonster());
+    }
+
+    IEnumerator spawnMonster()
+    {
+        foreach (Transform t in spawnGate)
         {
-            timeBetweenWaves -= Time.deltaTime;
+            Instantiate(monsterType, t.position, Quaternion.identity);
         }
-	}
+        yield return new WaitForSeconds(spawnRate);
+        waveSize[currentWave]--;
+        if (waveSize[currentWave] > 0)
+            StartCoroutine(spawnMonster());
+        else
+        {
+            currentWave++;
+            if (currentWave < waveSize.Length)
+            {
+                yield return new WaitForSeconds(timeBetweenWaves);
+                StartCoroutine(spawnMonster());
+            }
+        }
+    }
 }
