@@ -19,6 +19,7 @@ public class ObjectRandom : MonoBehaviour {
         int spawnCheck = (int)Random.Range(0,100);
         int objectSpawn = (int)Random.Range(0, 3);
         boxScale = Random.Range(0.0f,1.0f);
+        box.transform.localScale = new Vector3(1, 1, 0f);
 
         if (spawnCheck <= spawnChance)
         {
@@ -26,8 +27,9 @@ public class ObjectRandom : MonoBehaviour {
             {
                 Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y,this.transform.position.z);
                 Debug.Log(boxScale);
+                
                 box.transform.localScale += new Vector3(boxScale, boxScale, 0f);
-                Instantiate(box, position, Quaternion.identity);
+                Instantiate(this.box, position, Quaternion.identity);
             }
             else if(objectSpawn == 1)
             {
