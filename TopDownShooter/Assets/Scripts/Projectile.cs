@@ -31,22 +31,10 @@ public class Projectile : MonoBehaviour {
         Debug.DrawLine(firePointPosition, fireTargetPosition );
         if (hit.collider != null)
         {
-            Debug.DrawLine(firePointPosition, hit.point, Color.red);
-            Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
+            //Debug.DrawLine(firePointPosition, hit.point, Color.red);
+           // Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        contact = collision.contacts[0];
-        dot = Vector3.Dot(contact.normal, (-transform.forward));
-        dot *= 2;
-        reflection = contact.normal * dot;
-        reflection = reflection + transform.forward;
-    }
-
-
-    void Update () {
-		
-	}
+   
 }
