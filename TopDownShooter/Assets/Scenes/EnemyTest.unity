@@ -194,10 +194,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
+    - target: {fileID: 114319515705708604, guid: c1ed3078a0dd8014081c51c82855849d,
+        type: 2}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 1123331214}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
   m_IsPrefabParent: 0
@@ -292,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIey5L6M/PgIAAMwEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMuOmzAU/ZXI66YiTEmV7lqSSbvIJBpadcPG4EuwYmxkm8ljlH/vtYFAqbrKzTn3ce7DvBMuTQ25VXqrOdspBuTLjDibfJgR6rlXarlCeIEIN6oCq3n+VR6F8w0QbCQvlK427AixMtYgXFBhACmtrIuWCL3PyAV/5isXckUr/OysG1qrYHZHMwdpQQ+uvWPv1no1Mhe0qoEl/AaD86L3XrRuEnvpPJzwXAnBTaeE2GvtG03qEjS4Vhmn2JivHnyMECiBH0vrZI6j90VhwHaaNL2uucYJtWnJN2VLl6ui5tQKe6Oi8Qq8pDbl7h923tKFVtX3vuoicBVsyfPTK73m1NjRVMfwehC+8NM5U3GimYDfJcgXtdWqkQxJqxsX2hgI18PfR2NxCflpwFupE7Cp/78b18Pd936JBa8yP8dPLZAI5cftNw8aF/MDBfu7MF0KRJ2KXwZ+0uP4gDrimWtjkeq6lE5ephrtXMnGz8x109hYaQke7kTXIKmw1wOmsdMFTrhR2QnzTN0T6Yp3XP8CJiEeHvyDYEId1PmxLFOq8w5MuW+s4BIG0Y54wTnFSsr2vsYz6cOSRhc0H4UdG87+Pi0ShsswipZPyyjIAgZP8zxbFWG0ylY0KhZFVhB/e1xin1QcWqHdeHBrckgu8c76j8Nsq2ntb51pet7yW6VGI+eyUEmuAeS+zfAQDhqL4KNkG8ZxQAlYy6XfN3lPiVD5CVj6SJT6TjcXq2k6ZElJzd+UdUhKYv/JSMmd3P8AUEsDBBQAAAgIAAAIIezGKUOEbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz1DM00lFQSi9KLMgoBooYgjilmSkgdrSSkZGZkampmbGZqUGSQUqqsW5ykmWakallkmWiaZphWlKaUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIey5L6M/PgIAAMwEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIezGKUOEbQAAAHgAAAAJACQAAAAAAAAAAAAAAIsCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAQwMAAAAA
+    dataString: UEsDBBQAAAgIAAAIIewBPKtmQQIAAM4EAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMuOmzAU/ZXI66YCpqRKdy3JpF1kEg2tumFj8CVYMTayzeQxyr/32kCgqbrKzTn3ce7DvBMuTQOFVXqjOdsqBuTLjDibfJgR6rlXarlCOESEG1WD1bz4Kg/C+QYItpKXStdrdoBEGWsQLqkwgJRW1kVLhN5n5Iw/86ULuaAVfXbWFa1lMLuhWYC0oEfXwXFw67xaWQhaN8BSfoXRORy8w85NYi+9hxNeKCG46ZUQe2l8o2lTgQbXKuMUG/PVg48xAhXwQ2WdzGn0riwN2F6TppcV1zihLi35pmzlctXUHDthb1S0rlAcRl5Ul3T7Dz8PPV1qVX8f6oaBq2ErXhxf6aWgxk7mOoVXo/TQz+dExZHmAn5XIF/URqtWMiStbl1oayBajX/vrSUVFMcR76Q+gG3z/+24Hm6++3MieJ37SX7qgFQoP3C/e9C4mh8o2F+G6VMg6lT8MvCTHqYn1BPPXBuLVN+ldPJy1WrnStZ+Zq6b1iZKS/BwL7oBSYW97DGNfVzhAzcp+8A8U/dI+uI9N7yBhxAPj/5B8EDt1em+LFOp0xZMtWut4BJG0Y54wTklSsruwqYzGcLSVpe0mIQdWs7+Pi0SRYsojhdPizjIAwZP8yJfllG8zJc0LsMyL4m/PS6xTyr2ndB+PLg1OSaXeGfD52G20bTx1840PW34tVaTkXNZqrTQAHLXZbgLB41F8FmyNeM4oBSs5dLvm7xnRKjiCCy7J8p8p+uz1TQbs2Sk4W/KOiQjif9oZORGbn8AUEsDBBQAAAgIAAAIIezGKUOEbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz1DM00lFQSi9KLMgoBooYgjilmSkgdrSSkZGZkampmbGZqUGSQUqqsW5ykmWakallkmWiaZphWlKaUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIewBPKtmQQIAAM4EAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIezGKUOEbQAAAHgAAAAJACQAAAAAAAAAAAAAAI4CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAARgMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -378,30 +379,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &511359046 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d,
-    type: 2}
-  m_PrefabInternal: {fileID: 358103265}
 --- !u!4 &511359051 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d,
     type: 2}
   m_PrefabInternal: {fileID: 358103265}
---- !u!114 &511359052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 511359046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec53760034122364ca9f07e57d3fbbf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  healthSlider: {fileID: 1123331214}
-  pushbackForce: 250
 --- !u!1 &1017981713
 GameObject:
   m_ObjectHideFlags: 0
