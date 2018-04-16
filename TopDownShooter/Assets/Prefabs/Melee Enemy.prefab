@@ -106,8 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4bb000a00c45d49a8d767d8145e383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTarget: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d,
-    type: 2}
+  playerTarget: {fileID: 0}
   speed: 500
   chargeSpeed: 800
   hitCooldownTime: 1
