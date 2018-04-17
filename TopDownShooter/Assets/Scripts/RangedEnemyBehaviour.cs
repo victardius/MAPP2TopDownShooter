@@ -31,7 +31,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     {
         playerTarget = PlayerVariables.playerTarget;
         hitCooldown = hitCooldownTime;
-        startSpeed = 1.0f;
+        startSpeed = speed;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         firePoint = transform.Find("FirePoint");
@@ -57,7 +57,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
-        if (distance < 5)
+        if (distance < 3)
         {
             speed = 0f;
             fire = true;

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50176057834774588}
   - component: {fileID: 70217276840180250}
   - component: {fileID: 114049487093392648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4481080749693000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,9 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e30b95bfec3eec4dbd495a07e1f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 6
   timeToLive: 2
-  target: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
 --- !u!212 &212169857962274136
 SpriteRenderer:
   m_ObjectHideFlags: 1
