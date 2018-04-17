@@ -8,7 +8,6 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
-    public Transform playerTarget;
     public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
     public int health;
     public Path path;
@@ -21,12 +20,15 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     private Rigidbody2D rb;
     private float startSpeed, distance, hitCooldown;
     private int currentWaypoint = 0;
+    private Transform playerTarget;
 
 
-	void Start () {
+    void Start () {
 
+        playerTarget = PlayerVariables.playerTarget;
         startSpeed = speed;
         hitCooldown = hitCooldownTime;
+        MonsterSpawn.numberOfMonsters++;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -92,33 +94,33 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        if (playerTarget == null)
+        if (path != null)
         {
-            return;
-        }
 
-        if (currentWaypoint >= path.vectorPath.Count)
-        {
-            if (pathIsEnded)
+
+            if (currentWaypoint >= path.vectorPath.Count)
+            {
+                if (pathIsEnded)
+                    return;
+                //Debug.Log("End of path reached.");
+                pathIsEnded = true;
                 return;
-            //Debug.Log("End of path reached.");
-            pathIsEnded = true;
-            return;
-        }
+            }
 
-        pathIsEnded = false;
+            pathIsEnded = false;
 
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        dir *= speed * Time.fixedDeltaTime;
+            Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            dir *= speed * Time.fixedDeltaTime;
 
-        rb.AddForce(dir, fMode);
+            rb.AddForce(dir, fMode);
 
-        float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
 
-        if (dist < nextWaypointDistance)
-        {
-            currentWaypoint++;
-            return;
+            if (dist < nextWaypointDistance)
+            {
+                currentWaypoint++;
+                return;
+            }
         }
 
     }
