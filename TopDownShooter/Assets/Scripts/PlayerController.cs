@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 5;
     Rigidbody2D rgbd;
 
+    
+
     void Start()
     {
 
@@ -19,6 +21,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 #if UNITY_STANDALONE_WIN
+
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 dir = Input.mousePosition - pos;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
 
         float h = Input.GetAxisRaw("Horizontal") * moveForce;
         float v = Input.GetAxisRaw("Vertical") * moveForce;
