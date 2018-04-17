@@ -322,12 +322,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnGate:
   - {fileID: 1455662376}
-  - {fileID: 1758984456}
-  - {fileID: 1078842857}
-  - {fileID: 1836859666}
   timeBetweenWaves: 4
   spawnRate: 1
-  waveSize: 050000000a000000
+  waveSize: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
   monsterType:
   - {fileID: 1764495841904254, guid: 3d36a8817c933914c97c8147bf60508d, type: 2}
 --- !u!4 &1017981715
@@ -514,6 +511,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1354254014
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1559888665}
+    m_Modifications:
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.241
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448454893251522, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4056b1d5aa23ece4c80ec2f84e6c4554, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1455662375
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +642,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9461a3f24a002ec4d877e4caab8d7324, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1559888665 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4642075021485362, guid: c1ed3078a0dd8014081c51c82855849d,
+    type: 2}
+  m_PrefabInternal: {fileID: 358103265}
 --- !u!1001 &1565076817
 Prefab:
   m_ObjectHideFlags: 0

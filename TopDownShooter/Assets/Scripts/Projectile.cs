@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    public float Damage = 10;
+    public int damage = 10;
     public LayerMask whatToHit;
-    public Transform bulletTrailPrefab;
+    //public Transform bulletTrailPrefab;
 
     
     private float dot;
@@ -31,7 +31,9 @@ public class Projectile : MonoBehaviour {
         Debug.DrawLine(firePointPosition, fireTargetPosition );
         if (hit.collider != null)
         {
-            hit.collider.GetComponent<MeleeEnemyBehaviour>().takeDamage((int)Damage, transform);
+            hit.collider.gameObject.GetComponent<MeleeEnemyBehaviour>().takeDamage(damage, transform);
+            DestroyObject(this.gameObject);
+            //hit.collider.gameObject.GetComponent<MeleeEnemyBehaviour>().takeDamage((int)Damage, transform);
             //Debug.DrawLine(firePointPosition, hit.point, Color.red);
            // Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
         }
