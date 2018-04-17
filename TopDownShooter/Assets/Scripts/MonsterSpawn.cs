@@ -22,10 +22,11 @@ public class MonsterSpawn : MonoBehaviour {
     {
         foreach (Transform t in spawnGate)
         {
-            while (numberOfMonsters > 10)
-            {
-                yield return null;
-            }
+            Debug.Log(numberOfMonsters);
+            
+            yield return new WaitUntil(() => numberOfMonsters < 10);
+            
+            
             Instantiate(monsterType[0], t.position, Quaternion.identity);
 
         }

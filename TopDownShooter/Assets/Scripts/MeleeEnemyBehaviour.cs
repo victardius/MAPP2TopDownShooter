@@ -91,6 +91,12 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         dir = -dir.normalized;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
 
+        if (health <= 0)
+        {
+            MonsterSpawn.numberOfMonsters--;
+            DestroyObject(this.gameObject);
+        }
+
     }
     private void FixedUpdate()
     {

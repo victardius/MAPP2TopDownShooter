@@ -148,11 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb9e9e7e5bd17c49b22e83210417bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  damage: 10
   whatToHit:
     serializedVersion: 2
-    m_Bits: 1
-  bulletTrailPrefab: {fileID: 0}
+    m_Bits: 1024
 --- !u!114 &114162487204689672
 MonoBehaviour:
   m_ObjectHideFlags: 1
