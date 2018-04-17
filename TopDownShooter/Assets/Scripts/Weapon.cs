@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+#if UNITY_STANDALONE_WIN
         if (fireRate == 0)
         {
             if (Input.GetButtonDown("Fire1")){
@@ -40,8 +41,19 @@ public class Weapon : MonoBehaviour {
                 Shoot();
             }
         }
-		
-	}
+#endif
+
+#if UNITY_ANDROID
+
+        
+            if (PlayerController.shooting && Time.time > timeToFire)
+            {
+                timeToFire = Time.time + 1 / fireRate;
+                Shoot();
+            }
+        
+#endif
+    }
 
     void Shoot()
     {

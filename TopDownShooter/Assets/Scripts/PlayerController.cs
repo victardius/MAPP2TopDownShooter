@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 5;
     Rigidbody2D rgbd;
 
-    
+    public static bool shooting;
 
     void Start()
     {
@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
         float h = Input.GetAxisRaw("Horizontal") * moveForce;
         float v = Input.GetAxisRaw("Vertical") * moveForce;
-
         rgbd.AddForce(new Vector2(h, v));
 #endif
 #if UNITY_ANDROID
@@ -40,9 +39,15 @@ public class PlayerController : MonoBehaviour
 
              Vector3 lookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_2"),
                  CrossPlatformInputManager.GetAxis("Vertical_2"), 4000);
-
-             if(lookVec.x != 0 && lookVec.y != 0)
+        shooting = lookVec.x != 0 && lookVec.y != 0;
+             if(shooting){
                  transform.rotation = Quaternion.LookRotation(lookVec, Vector3.back);
+        
+        }
+                
+        
+       
+        
 
              rgbd.AddForce(moveVec);
 #endif
