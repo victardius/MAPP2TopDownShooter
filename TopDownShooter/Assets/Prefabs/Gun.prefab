@@ -114,5 +114,5 @@ MonoBehaviour:
   whatToHit:
     serializedVersion: 2
     m_Bits: 0
-  bulletTrailPrefab: {fileID: 4766821845112474, guid: 54b8355f77648524384449b7128ff9c8,
+  bulletTrailPrefab: {fileID: 4766821845112474, guid: 1896dfac339ffdc4f9e973b644061fda,
     type: 2}
