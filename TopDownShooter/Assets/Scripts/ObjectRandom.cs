@@ -26,7 +26,7 @@ public class ObjectRandom : MonoBehaviour {
             if(objectSpawn == 0)
             {
                 Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y,this.transform.position.z);
-                Debug.Log(boxScale);
+                //Debug.Log(boxScale);
                 
                 box.transform.localScale += new Vector3(boxScale, boxScale, 0f);
                 Instantiate(this.box, position, Quaternion.identity);

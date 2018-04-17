@@ -7,11 +7,11 @@ public class StingyFLower : MonoBehaviour {
     private int damage = 1;
     private int hitPoints = 3;
     public GameObject player;
-    Rigidbody2D playerRigd;
+    //Rigidbody2D playerRigd;
 
     private void Start()
     {
-        playerRigd = player.GetComponent<Rigidbody2D>();
+        //playerRigd = player.GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
     void Update () {

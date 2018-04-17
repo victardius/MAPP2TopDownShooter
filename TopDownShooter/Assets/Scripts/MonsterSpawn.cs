@@ -22,7 +22,7 @@ public class MonsterSpawn : MonoBehaviour {
     {
         foreach (Transform t in spawnGate)
         {
-            Debug.Log(numberOfMonsters);
+            //Debug.Log(numberOfMonsters);
             
             yield return new WaitUntil(() => numberOfMonsters < 10);
             
