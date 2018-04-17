@@ -17,8 +17,13 @@ TagManager:
   - 
   - Player
   - Obstacles (for enemies)
+<<<<<<< HEAD
   - 
   - Enemy Projectiles
+=======
+  - Enemy
+  - 
+>>>>>>> 399b02f66269e192d166240879c077f6feaa8056
   - 
   - 
   - 
