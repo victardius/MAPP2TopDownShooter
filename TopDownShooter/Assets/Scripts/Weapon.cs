@@ -11,12 +11,11 @@ public class Weapon : MonoBehaviour {
 
     float timeToFire = 0;
     Transform firePoint;
-    Transform firePointDirection;
+    
 
 
     void Awake () {
         firePoint = transform.Find("FirePoint");
-        firePointDirection = transform.Find("FirePointDirection");
         if (firePoint == null)
         {
             Debug.LogError("No firepoint");
@@ -46,7 +45,7 @@ public class Weapon : MonoBehaviour {
 #if UNITY_ANDROID
 
         
-            if (PlayerController.shooting && Time.time > timeToFire)
+            if (PlayerController.primaryShooting && Time.time > timeToFire)
             {
                 timeToFire = Time.time + 1 / fireRate;
                 Shoot();

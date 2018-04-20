@@ -18,7 +18,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     private Seeker seeker;
     private Rigidbody2D rb;
-    private float startSpeed, distance, hitCooldown;
+    private float startSpeed, distance, hitCooldown, updateRateStart;
     private int currentWaypoint = 0;
     private Transform playerTarget;
 
@@ -29,6 +29,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         startSpeed = speed;
         hitCooldown = hitCooldownTime;
         MonsterSpawn.numberOfMonsters++;
+        updateRateStart = updateRate;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -104,6 +105,26 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     }
     private void FixedUpdate()
     {
+        if (hitCooldown > 0)
+            hitCooldown -= Time.deltaTime;
+
+        distance = Vector3.Distance(transform.position, playerTarget.position);
+
+        if (distance < 5)
+        {
+            speed = chargeSpeed - (distance * 60);
+            updateRate = updateRateStart * 2;
+        }
+        else
+        {
+            speed = startSpeed;
+            updateRate = updateRateStart;
+        }
+
+        var lookDir = playerTarget.position - transform.position;
+        var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         if (path != null)
         {
 

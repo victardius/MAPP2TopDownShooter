@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 5;
     Rigidbody2D rgbd;
 
-    public static bool shooting;
+    public static bool primaryShooting;
+    public bool secondaryShooting;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle = angle - 90;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
                  CrossPlatformInputManager.GetAxis("Vertical_2"), 4000);
 
             Vector3 secondaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"),
-                 CrossPlatformInputManager.GetAxis("Vertical")), 4000);
+                 CrossPlatformInputManager.GetAxis("Vertical"), 4000);
 
        
         primaryShooting = primaryLookVec.x != 0 && primaryLookVec.y != 0;
