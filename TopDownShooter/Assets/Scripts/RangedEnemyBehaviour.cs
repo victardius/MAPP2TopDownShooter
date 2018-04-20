@@ -30,6 +30,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
     void Start()
     {
+
+        MonsterSpawn.numberOfMonsters++;
         playerTarget = PlayerVariables.playerTarget;
         hitCooldown = hitCooldownTime;
         startSpeed = speed;

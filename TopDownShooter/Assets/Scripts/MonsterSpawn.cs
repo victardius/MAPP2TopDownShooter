@@ -8,31 +8,52 @@ public class MonsterSpawn : MonoBehaviour {
     public float timeBetweenWaves, spawnRate;
     public int[] waveSize;
     public GameObject[] monsterType;
+    public int monsterLimit;
+
+    [HideInInspector]
     public static int numberOfMonsters = 0;
 
-    private int currentWave;
+    private int currentWave, monsterIndex = 0, monsterCounter = 0;
     private bool spawnPause;
+    private int[] divideMonster;
 
     void Start() {
         currentWave = 0;
         StartCoroutine(spawnMonster());
+        divideMonster = new int[monsterType.Length];
+
+        for (int i = 0; i < divideMonster.Length; i++)
+        {
+            divideMonster[i] = i * 3;
+        }
+        
     }
 
     IEnumerator spawnMonster()
     {
         foreach (Transform t in spawnGate)
         {
-            //Debug.Log(numberOfMonsters);
             
-            yield return new WaitUntil(() => numberOfMonsters < 10);
+            yield return new WaitUntil(() => numberOfMonsters < monsterLimit);
             
-            
-            Instantiate(monsterType[0], t.position, Quaternion.identity);
+            if (waveSize[currentWave] > 0)
+            {
+                for (int i = 0; i < divideMonster.Length; i++)
+                    if (divideMonster[i] == 0 || monsterCounter % divideMonster[i] == 0)
+                        monsterIndex = i;
+                    
+                Instantiate(monsterType[monsterIndex], t.position, Quaternion.identity);
+                monsterCounter++;
+                waveSize[currentWave]--;
+
+            }
+            Debug.Log(numberOfMonsters);
+            yield return new WaitForSeconds(0.1f);
 
         }
 
         yield return new WaitForSeconds(spawnRate);
-        waveSize[currentWave]--;
+
         if (waveSize[currentWave] > 0)
             StartCoroutine(spawnMonster());
         else
