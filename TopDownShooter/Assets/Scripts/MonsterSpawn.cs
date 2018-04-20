@@ -12,12 +12,15 @@ public class MonsterSpawn : MonoBehaviour {
 
     [HideInInspector]
     public static int numberOfMonsters = 0;
+    [HideInInspector]
+    public static bool monstersSpawned;
 
     private int currentWave, monsterIndex = 0, monsterCounter = 0;
     private bool spawnPause;
     private int[] divideMonster;
 
     void Start() {
+        monstersSpawned = false;
         currentWave = 0;
         StartCoroutine(spawnMonster());
         divideMonster = new int[monsterType.Length];
@@ -66,6 +69,10 @@ public class MonsterSpawn : MonoBehaviour {
             {
                 yield return new WaitForSeconds(timeBetweenWaves);
                 StartCoroutine(spawnMonster());
+            }
+            else
+            {
+                monstersSpawned = true;
             }
         }
     }
