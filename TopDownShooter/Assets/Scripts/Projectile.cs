@@ -46,7 +46,7 @@ public class Projectile : MonoBehaviour {
                 DestroyObject(this.gameObject);
             else if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                hit.collider.gameObject.GetComponent<MeleeEnemyBehaviour>().takeDamage(damage, transform);
+                hit.collider.gameObject.GetComponent<EnemyVariables>().takeDamage(damage, transform);
                 DestroyObject(this.gameObject);
             }
             //hit.collider.gameObject.GetComponent<MeleeEnemyBehaviour>().takeDamage((int)Damage, transform);

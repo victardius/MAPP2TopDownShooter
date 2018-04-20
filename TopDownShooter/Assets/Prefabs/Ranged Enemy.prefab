@@ -24,8 +24,9 @@ GameObject:
   - component: {fileID: 50751403171955240}
   - component: {fileID: 114587705947536974}
   - component: {fileID: 58994268668387610}
+  - component: {fileID: 114348550257735886}
   m_Layer: 10
-  m_Name: manBrown_gun
+  m_Name: Ranged Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,6 +109,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.245
+--- !u!114 &114348550257735886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1253514339957420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790bd7e2199f9df4ab6a7316ae2f7d71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  pushbackForce: 100
+  hitCooldownTime: 1
+  damage: 10
 --- !u!114 &114587705947536974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,11 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
-  hitCooldownTime: 1
-  pushbackForce: 0
   updateRate: 2
   nextWaypointDistance: 0.1
-  health: 10
   fMode: 0
   bullets: {fileID: 4910606256586692, guid: 5690dd49ffa2f444895b2379edb9c40e, type: 2}
   pathIsEnded: 0

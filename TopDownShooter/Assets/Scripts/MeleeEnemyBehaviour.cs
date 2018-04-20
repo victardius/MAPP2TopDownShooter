@@ -8,8 +8,8 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
-    public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
-    public int health;
+    public float speed, chargeSpeed, updateRate = 2.0f, nextWaypointDistance = 0.1f;
+    //public int health;
     public Path path;
     public ForceMode2D fMode;
 
@@ -18,7 +18,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     private Seeker seeker;
     private Rigidbody2D rb;
-    private float startSpeed, distance, hitCooldown, updateRateStart;
+    private float startSpeed, distance, updateRateStart;
     private int currentWaypoint = 0;
     private Transform playerTarget;
 
@@ -27,7 +27,6 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
         playerTarget = PlayerVariables.playerTarget;
         startSpeed = speed;
-        hitCooldown = hitCooldownTime;
         MonsterSpawn.numberOfMonsters++;
         updateRateStart = updateRate;
 
@@ -44,26 +43,6 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         StartCoroutine(UpdatePath());
     }
 
-    void Update () {
-        
-        if (hitCooldown > 0)
-        hitCooldown -= Time.deltaTime;
-
-        distance = Vector3.Distance(transform.position, playerTarget.position);
-
-        if (distance < 5)
-            speed = chargeSpeed - (distance * 60);
-        else
-            speed = startSpeed;
-
-        var dir = playerTarget.position - transform.position;
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        //transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
-
-
-    }
 
     public void OnPathComplete(Path p)
     {
@@ -77,10 +56,6 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     IEnumerator UpdatePath()
     {
-        if (playerTarget == null)
-        {
-            
-        }
 
         seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
 
@@ -88,7 +63,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         StartCoroutine(UpdatePath());
     }
 
-    public void takeDamage(int amount, Transform source)
+    /*public void takeDamage(int amount, Transform source)
     {
         health -= amount;
         Vector3 dir = source.position - transform.position;
@@ -102,11 +77,10 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
             DestroyObject(this.gameObject);
         }
 
-    }
+    }*/
     private void FixedUpdate()
     {
-        if (hitCooldown > 0)
-            hitCooldown -= Time.deltaTime;
+        
 
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
@@ -156,15 +130,5 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (hitCooldown <= 0)
-            {
-                other.GetComponent<PlayerVariables>().takeDamage(10, transform);
-                hitCooldown = hitCooldownTime;
-            }
-        }
-    }
+    
 }

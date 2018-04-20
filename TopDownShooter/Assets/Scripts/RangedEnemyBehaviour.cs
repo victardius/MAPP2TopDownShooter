@@ -10,8 +10,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 {
 
     
-    public float speed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
-    public int health;
+    public float speed, updateRate = 2.0f, nextWaypointDistance = 0.1f;
+    //public int health;
     public Path path;
     public ForceMode2D fMode;
     public Transform bullets;
@@ -33,7 +33,6 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
         MonsterSpawn.numberOfMonsters++;
         playerTarget = PlayerVariables.playerTarget;
-        hitCooldown = hitCooldownTime;
         startSpeed = speed;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -100,7 +99,6 @@ public class RangedEnemyBehaviour : MonoBehaviour
             Instantiate(bullets, firePoint.position, firePoint.rotation);
 
             yield return new WaitForSeconds(1.0f);
-            Debug.Log("shooting working");
 
             StartCoroutine(ShootPlayer());
 
@@ -109,7 +107,6 @@ public class RangedEnemyBehaviour : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
 
-            Debug.Log("not shooting");
 
             StartCoroutine(ShootPlayer());
         }
@@ -125,7 +122,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
 
-    public void takeDamage(int amount, Transform source)
+    /*public void takeDamage(int amount, Transform source)
     {
         health -= amount;
         Vector3 dir = source.position - transform.position;
@@ -133,7 +130,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
         dir = -dir.normalized;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
 
-    }
+    }*/
     private void FixedUpdate()
     {
         if (path != null)
