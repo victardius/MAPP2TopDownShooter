@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour {
         //Vector2 fireTargetPosition = new Vector2(firePointDirection.position.x, firePointDirection.position.y);
         //Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         //RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 100, whatToHit);
-        Effect();
+        Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
         /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
         if (hit.collider != null)
         {
@@ -68,9 +68,5 @@ public class Weapon : MonoBehaviour {
         }*/
     }
 
-    void Effect()
-    {
-        Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
-
-    }
+    
 }

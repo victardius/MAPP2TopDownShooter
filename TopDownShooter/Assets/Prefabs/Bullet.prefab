@@ -35,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4766821845112474}
   - component: {fileID: 212304544965702794}
-  - component: {fileID: 114162487204689672}
   - component: {fileID: 114121025862501176}
   - component: {fileID: 50514652239335186}
   - component: {fileID: 70096813988620254}
@@ -112,12 +111,12 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 6b4dc1c6fecf2104f913514615d85c58, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -151,18 +150,7 @@ MonoBehaviour:
   damage: 10
   whatToHit:
     serializedVersion: 2
-    m_Bits: 1024
---- !u!114 &114162487204689672
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1256221974474504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e6757dc78551a4580cfc5449f0402d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+    m_Bits: 9216
   moveSpeed: 15
   target: {fileID: 4703654031384726}
   timeToLive: 3
