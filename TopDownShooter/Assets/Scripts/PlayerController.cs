@@ -37,12 +37,21 @@ public class PlayerController : MonoBehaviour
             Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
                  CrossPlatformInputManager.GetAxis("Vertical")) * moveForce;
 
-             Vector3 lookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_2"),
+             Vector3 primaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_2"),
                  CrossPlatformInputManager.GetAxis("Vertical_2"), 4000);
-        shooting = lookVec.x != 0 && lookVec.y != 0;
-             if(shooting){
-                 transform.rotation = Quaternion.LookRotation(lookVec, Vector3.back);
-        
+
+            Vector3 secondaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"),
+                 CrossPlatformInputManager.GetAxis("Vertical")), 4000);
+
+       
+        primaryShooting = primaryLookVec.x != 0 && primaryLookVec.y != 0;
+        secondaryShooting = secondaryLookVec.x != 0 && secondaryLookVec.y != 0;
+
+             if(primaryShooting){
+                 transform.rotation = Quaternion.LookRotation(primaryLookVec, Vector3.back);
+        }
+             else if(secondaryShooting){
+                 transform.rotation = Quaternion.LookRotation(secondaryLookVec, Vector3.back);
         }
                 
         
