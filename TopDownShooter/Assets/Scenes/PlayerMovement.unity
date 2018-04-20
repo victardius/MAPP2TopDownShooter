@@ -519,13 +519,14 @@ GameObject:
   - component: {fileID: 1444896360}
   - component: {fileID: 1444896363}
   - component: {fileID: 1444896362}
+  - component: {fileID: 1444896364}
   m_Layer: 13
   m_Name: Bouncing wall
-  m_TagString: Walls
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1444896360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -605,6 +606,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!50 &1444896364
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444896359}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 6b4dc1c6fecf2104f913514615d85c58, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1471736023
 GameObject:
   m_ObjectHideFlags: 0
