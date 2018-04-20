@@ -24,7 +24,7 @@ public class MonsterSpawn : MonoBehaviour {
 
         for (int i = 0; i < divideMonster.Length; i++)
         {
-            divideMonster[i] = i * 3;
+            divideMonster[i] = i * 4 -1;
         }
         
     }
@@ -38,16 +38,19 @@ public class MonsterSpawn : MonoBehaviour {
             
             if (waveSize[currentWave] > 0)
             {
-                for (int i = 0; i < divideMonster.Length; i++)
-                    if (divideMonster[i] == 0 || monsterCounter % divideMonster[i] == 0)
-                        monsterIndex = i;
-                    
+                if (monsterCounter != 0)
+                    for (int i = 0; i < divideMonster.Length; i++)
+                        if (divideMonster[i] == -1 || monsterCounter % divideMonster[i] == 0)
+                            monsterIndex = i;
+
+                
+
                 Instantiate(monsterType[monsterIndex], t.position, Quaternion.identity);
                 monsterCounter++;
                 waveSize[currentWave]--;
 
             }
-            Debug.Log(numberOfMonsters);
+            
             yield return new WaitForSeconds(0.1f);
 
         }
