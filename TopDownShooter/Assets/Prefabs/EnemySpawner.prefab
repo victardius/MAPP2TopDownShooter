@@ -58,3 +58,5 @@ MonoBehaviour:
   waveSize: 010000000200000003000000
   monsterType:
   - {fileID: 1764495841904254, guid: 3d36a8817c933914c97c8147bf60508d, type: 2}
+  - {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835, type: 2}
+  monsterLimit: 0
