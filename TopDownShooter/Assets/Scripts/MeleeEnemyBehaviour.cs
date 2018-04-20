@@ -55,10 +55,14 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         else
             speed = startSpeed;
 
+        var dir = playerTarget.position - transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         //transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
 
-        
-	}
+
+    }
 
     public void OnPathComplete(Path p)
     {

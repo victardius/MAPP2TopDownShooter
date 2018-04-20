@@ -15,6 +15,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
     public Path path;
     public ForceMode2D fMode;
     public Transform bullets;
+   
     Transform firePoint;
 
     [HideInInspector]
@@ -68,7 +69,12 @@ public class RangedEnemyBehaviour : MonoBehaviour
             speed = startSpeed;
             fire = false;
         }
-            
+
+        var dir = playerTarget.position - transform.position;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+
 
         //transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
 
@@ -158,6 +164,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
             }
 
         }
+
+
     }
 
     
