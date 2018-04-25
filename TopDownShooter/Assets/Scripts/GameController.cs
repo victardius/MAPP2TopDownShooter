@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
         levelEnd.gameObject.SetActive(false);
         waveAnnouncement.gameObject.SetActive(false);
         wave = 0;
+        StartCoroutine(waveControl());
     }
 
     private void FixedUpdate()
@@ -43,7 +44,7 @@ public class GameController : MonoBehaviour {
     IEnumerator waveControl()
     {
         waveAnnouncement.gameObject.SetActive(true);
-        waveAnnouncement.text = "Wave " + spawner.GetComponent<MonsterSpawn>().getCurrentWave() + " incoming!";
+        waveAnnouncement.text = "Wave " + (spawner.GetComponent<MonsterSpawn>().getCurrentWave() + 1) + " incoming!";
         yield return new WaitForSeconds(2.0f);
         waveAnnouncement.gameObject.SetActive(false);
     }

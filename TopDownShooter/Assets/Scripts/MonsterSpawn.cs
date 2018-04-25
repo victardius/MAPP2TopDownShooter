@@ -58,7 +58,7 @@ public class MonsterSpawn : MonoBehaviour {
                 }
                 else
                 {
-                    yield return new WaitForSeconds(2.0f);
+                    yield return new WaitForSeconds(timeBetweenWaves);
                 }
 
                 
@@ -79,9 +79,9 @@ public class MonsterSpawn : MonoBehaviour {
             StartCoroutine(spawnMonster());
         else
         {
-            currentWave++;
-            if (currentWave < waveSize.Length)
+            if (currentWave < (waveSize.Length - 1))
             {
+                currentWave++;
                 yield return new WaitForSeconds(timeBetweenWaves);
                 StartCoroutine(spawnMonster());
             }
