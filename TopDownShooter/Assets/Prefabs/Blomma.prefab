@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61967572049327280}
   - component: {fileID: 114994227780405652}
   - component: {fileID: 58148079446390008}
+  - component: {fileID: 114075584457648900}
   m_Layer: 9
   m_Name: Blomma
   m_TagString: Untagged
@@ -83,6 +84,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &114075584457648900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815037704461726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 1505426513702319024
+  updateError: 1
+  checkTime: 0.2
 --- !u!114 &114994227780405652
 MonoBehaviour:
   m_ObjectHideFlags: 1
