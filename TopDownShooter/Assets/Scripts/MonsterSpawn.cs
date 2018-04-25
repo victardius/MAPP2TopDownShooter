@@ -32,6 +32,11 @@ public class MonsterSpawn : MonoBehaviour {
         
     }
 
+    public int getCurrentWave()
+    {
+        return currentWave;
+    }
+
     IEnumerator spawnMonster()
     {
         foreach (Transform t in spawnGate)
@@ -42,9 +47,19 @@ public class MonsterSpawn : MonoBehaviour {
             if (waveSize[currentWave] > 0)
             {
                 if (monsterCounter != 0)
+                {
                     for (int i = 0; i < divideMonster.Length; i++)
+                    {
                         if (divideMonster[i] == -1 || monsterCounter % divideMonster[i] == 0)
+                        {
                             monsterIndex = i;
+                        }
+                    }
+                }
+                else
+                {
+                    yield return new WaitForSeconds(2.0f);
+                }
 
                 
 

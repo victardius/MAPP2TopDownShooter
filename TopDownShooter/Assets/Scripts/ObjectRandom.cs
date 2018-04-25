@@ -10,7 +10,7 @@ public class ObjectRandom : MonoBehaviour {
     public GameObject blomma;
     public GameObject lyse;
     static int ammountOfFlowers = 0;
-    private float boxScale;
+    private float boxScale, randXPos, randYPos;
 
     private int spawnChance = 35;
 
@@ -20,12 +20,14 @@ public class ObjectRandom : MonoBehaviour {
         int objectSpawn = (int)Random.Range(0, 3);
         boxScale = Random.Range(0.0f,1.0f);
         box.transform.localScale = new Vector3(1, 1, 0f);
+        randXPos = Random.Range(0.0f, 2.0f) - 1.0f;
+        randYPos = Random.Range(0.0f, 2.0f) - 1.0f;
+        Vector3 position = new Vector3(this.transform.position.x + randXPos, this.transform.position.y + randYPos, this.transform.position.z);
 
         if (spawnCheck <= spawnChance)
         {
             if(objectSpawn == 0)
             {
-                Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y,this.transform.position.z);
                 //Debug.Log(boxScale);
                 
                 box.transform.localScale += new Vector3(boxScale, boxScale, 0f);
@@ -33,19 +35,16 @@ public class ObjectRandom : MonoBehaviour {
             }
             else if(objectSpawn == 1)
             {
-                Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
                 Instantiate(lyse, position, Quaternion.identity);
             }
             else
             {
                 if(ammountOfFlowers < 5)
                 {
-                    Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
                     Instantiate(blomma, position, Quaternion.identity);
                 }
                 else
                 {
-                    Vector3 position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
                     Instantiate(box, position, Quaternion.identity);
                 }
 
