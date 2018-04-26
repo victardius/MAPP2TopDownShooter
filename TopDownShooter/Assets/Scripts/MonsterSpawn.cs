@@ -8,7 +8,7 @@ public class MonsterSpawn : MonoBehaviour {
     public float timeBetweenWaves, spawnRate;
     public int[] waveSize;
     public GameObject[] monsterType;
-    public int monsterLimit;
+    public int monsterLimit, nextWaveLimit;
 
     [HideInInspector]
     public static int numberOfMonsters = 0;
@@ -16,6 +16,7 @@ public class MonsterSpawn : MonoBehaviour {
     public static bool monstersSpawned;
 
     private int currentWave, monsterIndex = 0, monsterCounter = 0;
+    private float nextWaveTimeLimit;
     private bool spawnPause;
     private int[] divideMonster;
 
@@ -39,6 +40,7 @@ public class MonsterSpawn : MonoBehaviour {
 
     IEnumerator spawnMonster()
     {
+        StartCoroutine(countDown(timeBetweenWaves));
         foreach (Transform t in spawnGate)
         {
             
@@ -58,7 +60,7 @@ public class MonsterSpawn : MonoBehaviour {
                 }
                 else
                 {
-                    yield return new WaitForSeconds(timeBetweenWaves);
+                    yield return new WaitForSeconds(2.0f);
                 }
 
                 
@@ -81,14 +83,33 @@ public class MonsterSpawn : MonoBehaviour {
         {
             if (currentWave < (waveSize.Length - 1))
             {
+
+
+                yield return new WaitUntil(() => numberOfMonsters < nextWaveLimit || nextWaveTimeLimit == 0);
+
+                
                 currentWave++;
-                yield return new WaitForSeconds(timeBetweenWaves);
+                yield return new WaitForSeconds(2.0f);
                 StartCoroutine(spawnMonster());
             }
             else
             {
                 monstersSpawned = true;
             }
+        }
+    }
+
+    IEnumerator countDown(float time)
+    {
+        yield return new WaitForSeconds(1.0f);
+        time--;
+        if (time > 0)
+        { 
+            StartCoroutine(countDown(time));
+        }
+        else
+        {
+            nextWaveTimeLimit = time;
         }
     }
 }
