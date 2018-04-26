@@ -6,15 +6,20 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-    public Text amountOfEnemies, levelEnd, waveAnnouncement;
+    public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
     public GameObject spawner;
+
+    [HideInInspector]
+    public static bool missionFailed = false;
 
     private int wave;
 
     private void Start()
     {
+        Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
         waveAnnouncement.gameObject.SetActive(false);
+        gameOver.gameObject.SetActive(false);
         wave = 0;
         StartCoroutine(waveControl());
     }
@@ -22,7 +27,10 @@ public class GameController : MonoBehaviour {
     private void FixedUpdate()
     {
         if (MonsterSpawn.monstersSpawned && MonsterSpawn.numberOfMonsters == 0)
-            StartCoroutine(levelComplete());
+        {
+            levelEnd.gameObject.SetActive(true);
+            StartCoroutine(levelEnded(0));
+        }
 
         amountOfEnemies.text = "" + MonsterSpawn.numberOfMonsters;
 
@@ -32,13 +40,19 @@ public class GameController : MonoBehaviour {
             wave = spawner.GetComponent<MonsterSpawn>().getCurrentWave();
         }
 
+        if (missionFailed)
+        {
+            gameOver.gameObject.SetActive(true);
+            StartCoroutine(levelEnded(0));
+        }
+
     }
 
-    IEnumerator levelComplete()
+    IEnumerator levelEnded(int n)
     {
-        levelEnd.gameObject.SetActive(true);
+        Time.timeScale = 0.1f;
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(n);
     }
 
     IEnumerator waveControl()

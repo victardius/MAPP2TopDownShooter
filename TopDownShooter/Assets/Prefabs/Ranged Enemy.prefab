@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   updateRate: 2
-  nextWaypointDistance: 0.1
+  nextWaypointDistance: 0.5
   fMode: 0
   bullets: {fileID: 4910606256586692, guid: 5690dd49ffa2f444895b2379edb9c40e, type: 2}
   pathIsEnded: 0

@@ -18,6 +18,9 @@ public class PlayerVariables : MonoBehaviour {
 	void Update () {
 
         healthSlider.value = health;
+
+        if (health <= 0)
+            GameController.missionFailed = true;
         
 	}
 

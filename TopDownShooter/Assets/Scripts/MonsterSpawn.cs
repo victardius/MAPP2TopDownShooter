@@ -41,6 +41,7 @@ public class MonsterSpawn : MonoBehaviour {
     IEnumerator spawnMonster()
     {
         StartCoroutine(countDown(timeBetweenWaves));
+        nextWaveTimeLimit = timeBetweenWaves;
         foreach (Transform t in spawnGate)
         {
             

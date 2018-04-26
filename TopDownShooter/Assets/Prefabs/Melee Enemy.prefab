@@ -110,7 +110,7 @@ MonoBehaviour:
   speed: 500
   chargeSpeed: 900
   updateRate: 2
-  nextWaypointDistance: 0.1
+  nextWaypointDistance: 0.5
   fMode: 0
   pathIsEnded: 0
 --- !u!114 &114540202130218616
