@@ -11,7 +11,7 @@ public class MonsterSpawn : MonoBehaviour {
     public int monsterLimit, nextWaveLimit;
 
     [HideInInspector]
-    public static int numberOfMonsters = 0;
+    public static int numberOfMonsters;
     [HideInInspector]
     public static bool monstersSpawned;
 
@@ -23,6 +23,7 @@ public class MonsterSpawn : MonoBehaviour {
     void Start() {
         monstersSpawned = false;
         currentWave = 0;
+        numberOfMonsters = 0;
         StartCoroutine(spawnMonster());
         divideMonster = new int[monsterType.Length];
 
