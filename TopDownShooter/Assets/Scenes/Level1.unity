@@ -1215,7 +1215,7 @@ Prefab:
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
       propertyPath: waveSize.Array.data[1]
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
@@ -1225,12 +1225,12 @@ Prefab:
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
       propertyPath: waveSize.Array.data[0]
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
       propertyPath: monsterLimit
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}

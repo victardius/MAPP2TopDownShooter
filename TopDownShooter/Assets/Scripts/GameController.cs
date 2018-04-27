@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
         gameOver.gameObject.SetActive(false);
         wave = 0;
         StartCoroutine(waveControl());
+        missionFailed = false;
     }
 
     private void FixedUpdate()
