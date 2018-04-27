@@ -12,6 +12,7 @@ public class PlayerVariables : MonoBehaviour {
 
 	void Start () {
         playerTarget = transform;
+        health = 100;
 	}
 	
 
