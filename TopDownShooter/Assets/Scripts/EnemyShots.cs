@@ -35,7 +35,7 @@ public class EnemyShots : MonoBehaviour {
 
         if (hit.collider != null)
         {
-            Debug.Log("enemy shot hit");
+            //Debug.Log("enemy shot hit");
             if (hit.collider.gameObject.CompareTag("Walls"))
                 DestroyObject(this.gameObject);
             else if (hit.collider.gameObject.CompareTag("Player"))

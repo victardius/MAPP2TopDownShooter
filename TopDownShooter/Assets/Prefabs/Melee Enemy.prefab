@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 50345655742878174}
   - component: {fileID: 114540202130218616}
   - component: {fileID: 114805431838550956}
+  - component: {fileID: 82082032559034234}
   m_Layer: 10
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -96,6 +97,104 @@ CircleCollider2D:
   m_Offset: {x: 0.024971962, y: -0.6367751}
   serializedVersion: 2
   m_Radius: 3.5986478
+--- !u!82 &82082032559034234
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764495841904254}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 10
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.1
+      value: 1
+      inSlope: -1.135204
+      outSlope: -1.135204
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.31797713
+      value: 0.77500534
+      inSlope: -0.98019576
+      outSlope: -0.98019576
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.57415617
+      value: 0.48332977
+      inSlope: -1.2759879
+      outSlope: -1.2759879
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.7943848
+      value: 0.2749939
+      inSlope: -0.85575324
+      outSlope: -0.85575324
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.1
+      inSlope: -0.10003988
+      outSlope: -0.10003988
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114360918584887992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,8 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4bb000a00c45d49a8d767d8145e383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
-  chargeSpeed: 900
+  speed: 1000
+  chargeSpeed: 1800
   updateRate: 2
   nextWaypointDistance: 1
   fMode: 0
@@ -154,6 +253,8 @@ MonoBehaviour:
   pushbackForce: 200
   hitCooldownTime: 1
   damage: 10
+  damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
+  player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
 --- !u!212 &212668025036253348
 SpriteRenderer:
   m_ObjectHideFlags: 1

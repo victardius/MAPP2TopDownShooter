@@ -12,8 +12,14 @@ public class PlayerVariables : MonoBehaviour {
     public Slider shieldSlider;
     public float pushbackForce = 10;
     public static Transform playerTarget;
+    public AudioClip damageSound;
 
-	void Start () {
+    private AudioSource source;
+    private float volLowRange = 0.5f;
+    private float volHighRange = 1.0f;
+
+    void Start () {
+        source = GetComponent<AudioSource>();
         playerTarget = transform;
         shieldSprite.SetActive(true);
 
@@ -28,8 +34,11 @@ public class PlayerVariables : MonoBehaviour {
 
         if (health <= 0)
             GameController.missionFailed = true;
-        
-	}
+
+        if (shield <= 0)
+            shieldSprite.SetActive(false);
+
+    }
 
     public void healthPack(int x)
     {
@@ -55,7 +64,8 @@ public class PlayerVariables : MonoBehaviour {
         }
         else
         {
-            shieldSprite.SetActive(false);
+            float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(damageSound, vol);
             health -= amount;
         }
         Vector3 dir = enemy.position - transform.position;

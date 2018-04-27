@@ -39,7 +39,7 @@ public class Projectile : MonoBehaviour {
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 0.3f, whatToHit);
 
-        //Debug.DrawLine(firePointPosition, hit.point );
+      //  Debug.DrawLine(firePointPosition, fireTargetPosition );
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.CompareTag("Walls") || hit.collider.gameObject.CompareTag("Objects"))

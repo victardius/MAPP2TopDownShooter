@@ -150,7 +150,7 @@ MonoBehaviour:
   damage: 10
   whatToHit:
     serializedVersion: 2
-    m_Bits: 8448
+    m_Bits: 8960
   moveSpeed: 6
   timeToLive: 2
 --- !u!212 &212169857962274136

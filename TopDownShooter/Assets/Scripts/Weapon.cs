@@ -6,15 +6,20 @@ public class Weapon : MonoBehaviour {
 
     public float fireRate = 0;
     public float Damage = 10;
+    public AudioClip pistol;
     //public LayerMask whatToHit;
     public Transform bulletTrailPrefab;
 
     float timeToFire = 0;
     Transform firePoint;
-    
+
+    private AudioSource source;
+    private float volLowRange = 0.5f;
+    private float volHighRange = 1.0f;
 
 
     void Awake () {
+        source = GetComponent<AudioSource>();
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
         {
@@ -56,6 +61,8 @@ public class Weapon : MonoBehaviour {
 
     void Shoot()
     {
+        float vol = Random.Range(volLowRange, volHighRange);
+        source.PlayOneShot(pistol, vol);
         //Vector2 fireTargetPosition = new Vector2(firePointDirection.position.x, firePointDirection.position.y);
         //Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         //RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 100, whatToHit);

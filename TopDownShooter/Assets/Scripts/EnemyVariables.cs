@@ -7,16 +7,23 @@ public class EnemyVariables : MonoBehaviour {
     public int health;
     public float pushbackForce, hitCooldownTime = 1.0f;
     public int damage;
-
+    public AudioClip damageSound;
+    public GameObject player;
+    
+    private float volLowRange = 0.5f;
+    private float volHighRange = 1.0f;
+    private float vol;
     private float hitCooldown;
+    private AudioSource aSource;
 
-    void Start () {
+    void Start ()
+    {
         hitCooldown = hitCooldownTime;
 
-
+        aSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+
     void FixedUpdate () {
         if (hitCooldown > 0)
             hitCooldown -= Time.deltaTime;
@@ -25,6 +32,10 @@ public class EnemyVariables : MonoBehaviour {
 
     public void takeDamage(int amount, Transform source)
     {
+        vol = Random.Range(volLowRange, volHighRange);
+
+        aSource.PlayOneShot(damageSound, 1);
+
         health -= amount;
         Vector3 dir = source.position - transform.position;
 
