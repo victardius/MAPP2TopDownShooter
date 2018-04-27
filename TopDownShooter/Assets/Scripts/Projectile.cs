@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour {
         //Debug.DrawLine(firePointPosition, hit.point );
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.CompareTag("Walls"))
+            if (hit.collider.gameObject.CompareTag("Walls") || hit.collider.gameObject.CompareTag("Objects"))
                 DestroyObject(this.gameObject);
             else if (hit.collider.gameObject.CompareTag("Enemy"))
             {

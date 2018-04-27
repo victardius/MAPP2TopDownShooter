@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 198446741009214984}
   m_Layer: 9
   m_Name: Reactor
-  m_TagString: Untagged
+  m_TagString: Objects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
-  disabled: {fileID: 21300000, guid: cb7bded4a02fe04469a5cd5b57df42d5, type: 3}
+  disabled: {fileID: 21300000, guid: 71acc0384adbbda4b8be8129c22ec08f, type: 3}
 --- !u!198 &198446741009214984
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -18,8 +18,8 @@ public class ObjectRandom : MonoBehaviour {
 	void Start () {
         int spawnCheck = (int)Random.Range(0,100);
         int objectSpawn = (int)Random.Range(0, 3);
-        boxScale = Random.Range(0.0f,1.0f);
-        box.transform.localScale = new Vector3(1, 1, 0f);
+        boxScale = Random.Range(0.0f,0.3f);
+        box.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
         randXPos = Random.Range(0.0f, 2.0f) - 1.0f;
         randYPos = Random.Range(0.0f, 2.0f) - 1.0f;
         Vector3 position = new Vector3(this.transform.position.x + randXPos, this.transform.position.y + randYPos, this.transform.position.z);
