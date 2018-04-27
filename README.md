@@ -11,4 +11,4 @@ Two Pager (Google Docs):
 https://docs.google.com/document/d/1WBQZgaUu_R16zxUlmd7BOgcqFaecYm_1vqoOXoji9d0/edit
 
 Two pager Draft
-https://docs.google.com/document/d/19LmEJpJF4VinLUIyWSLESDbHaf7RIz4qLcKCUTT9AAc/edit
+https://docs.google.com/document/d/19LmEJpJF4VinLUIyWSLESDbHaf7RIz4qLcKCUTT9AAc/edit?usp=sharing
