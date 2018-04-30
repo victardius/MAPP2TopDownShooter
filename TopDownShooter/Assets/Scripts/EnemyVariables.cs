@@ -8,7 +8,7 @@ public class EnemyVariables : MonoBehaviour {
     public float pushbackForce, hitCooldownTime = 1.0f;
     public int damage;
     public AudioClip damageSound;
-    public GameObject player;
+    public GameObject player, healthPack;
     
     private float volLowRange = 0.5f;
     private float volHighRange = 1.0f;
@@ -44,6 +44,9 @@ public class EnemyVariables : MonoBehaviour {
 
         if (health <= 0)
         {
+            if (Random.Range(0.0f, 1.0f) > 0.8f)
+                Instantiate(healthPack, transform.position, Quaternion.identity);
+            Debug.Log(transform.position);
             MonsterSpawn.numberOfMonsters--;
             DestroyObject(this.gameObject);
         }

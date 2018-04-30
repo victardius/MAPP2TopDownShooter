@@ -14,6 +14,7 @@ public class HealthPack : MonoBehaviour {
             Debug.Log(Player.GetComponent<PlayerVariables>().health);
             Player.GetComponent<PlayerVariables>().healthPack(health);
             Debug.Log(Player.GetComponent<PlayerVariables>().health);
+            DestroyObject(this.gameObject);
         }
     }
 

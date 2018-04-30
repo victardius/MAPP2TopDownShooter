@@ -218,11 +218,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  pushbackForce: 100
+  pushbackForce: 300
   hitCooldownTime: 1
   damage: 10
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
+  healthPack: {fileID: 1383641062182692, guid: 7098293f043de6e4891ca67600bec7b8, type: 2}
 --- !u!114 &114587705947536974
 MonoBehaviour:
   m_ObjectHideFlags: 1
