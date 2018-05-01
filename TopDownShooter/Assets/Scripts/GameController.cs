@@ -51,8 +51,8 @@ public class GameController : MonoBehaviour {
 
     IEnumerator levelEnded(int n)
     {
-        //Time.timeScale = 0.1f;
-        yield return new WaitForSeconds(5.0f);
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(5.0f);
         SceneManager.LoadScene(n);
     }
 

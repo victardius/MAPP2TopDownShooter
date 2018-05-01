@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour {
     
 
 
-    void FixedUpdate()
+    void Update()
     {
         Vector2 fireTargetPosition = new Vector2(firePointDirection.position.x, firePointDirection.position.y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
