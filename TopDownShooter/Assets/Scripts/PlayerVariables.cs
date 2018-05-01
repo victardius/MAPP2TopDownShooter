@@ -77,4 +77,9 @@ public class PlayerVariables : MonoBehaviour {
 
     }
 
+    public GameObject getPlayer()
+    {
+        return this.gameObject;
+    }
+
 }

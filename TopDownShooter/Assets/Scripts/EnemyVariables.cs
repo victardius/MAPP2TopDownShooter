@@ -44,7 +44,7 @@ public class EnemyVariables : MonoBehaviour {
 
         if (health <= 0)
         {
-            if (Random.Range(0.0f, 1.0f) > 0.8f)
+            if (Random.Range(0.0f, 1.0f) > 0.85f)
                 Instantiate(healthPack, transform.position, Quaternion.identity);
             Debug.Log(transform.position);
             MonsterSpawn.numberOfMonsters--;

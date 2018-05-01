@@ -5,15 +5,21 @@ using UnityEngine;
 public class HealthPack : MonoBehaviour {
 
     public int health = 10;
-    public GameObject Player;
+
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("hitman1_gun");
+    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(Player.GetComponent<PlayerVariables>().health);
-            Player.GetComponent<PlayerVariables>().healthPack(health);
-            Debug.Log(Player.GetComponent<PlayerVariables>().health);
+            Debug.Log(player.GetComponent<PlayerVariables>().health);
+            player.GetComponent<PlayerVariables>().healthPack(health);
+            Debug.Log(player.GetComponent<PlayerVariables>().health);
             DestroyObject(this.gameObject);
         }
     }

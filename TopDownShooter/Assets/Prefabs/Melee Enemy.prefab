@@ -255,7 +255,7 @@ MonoBehaviour:
   damage: 10
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
-  healthPack: {fileID: 1383641062182692, guid: 7098293f043de6e4891ca67600bec7b8, type: 2}
+  healthPack: {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
 --- !u!212 &212668025036253348
 SpriteRenderer:
   m_ObjectHideFlags: 1
