@@ -7,8 +7,8 @@ public class ObjectRandom : MonoBehaviour {
 
     public GameObject[] objects = new GameObject[3];
     public GameObject box;
-    public GameObject blomma;
-    public GameObject lyse;
+    public GameObject teslaCoil;
+    public GameObject oildrum;
     static int ammountOfFlowers = 0;
     private float boxScale, randXPos, randYPos;
 
@@ -35,13 +35,13 @@ public class ObjectRandom : MonoBehaviour {
             }
             else if(objectSpawn == 1)
             {
-                Instantiate(lyse, position, Quaternion.identity);
+                Instantiate(oildrum, position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0, 359)));
             }
             else
             {
                 if(ammountOfFlowers < 5)
                 {
-                    Instantiate(blomma, position, Quaternion.identity);
+                    Instantiate(teslaCoil, position, Quaternion.identity);
                 }
                 else
                 {

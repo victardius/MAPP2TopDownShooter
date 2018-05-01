@@ -56,5 +56,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   box: {fileID: 1478495274812272, guid: 9fc70d8176641e949b5ec50cc0e694c0, type: 2}
-  blomma: {fileID: 1815037704461726, guid: e152131ecdaed8c4e93b0a8bef499d26, type: 2}
-  lyse: {fileID: 1383841167039812, guid: c5c32c8508b71754299bcc3645820643, type: 2}
+  teslaCoil: {fileID: 1815037704461726, guid: e152131ecdaed8c4e93b0a8bef499d26, type: 2}
+  oildrum: {fileID: 1383841167039812, guid: c5c32c8508b71754299bcc3645820643, type: 2}

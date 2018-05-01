@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4700165154604326}
   - component: {fileID: 212753933396925782}
   - component: {fileID: 114871844988437508}
-  - component: {fileID: 50892904193066594}
   - component: {fileID: 61555307040969624}
-  m_Layer: 13
+  - component: {fileID: 114290618267825294}
+  m_Layer: 9
   m_Name: Box
   m_TagString: Objects
   m_Icon: {fileID: 0}
@@ -43,26 +43,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50892904193066594
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1478495274812272}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 10
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!61 &61555307040969624
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -88,6 +68,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.6162767, y: 5.604889}
   m_EdgeRadius: 0
+--- !u!114 &114290618267825294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478495274812272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 8378943067292150570
+  updateError: 1
+  checkTime: 0.2
 --- !u!114 &114871844988437508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e7de5f6998aa048b7667036c0ca6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
 --- !u!212 &212753933396925782
 SpriteRenderer:
   m_ObjectHideFlags: 1
