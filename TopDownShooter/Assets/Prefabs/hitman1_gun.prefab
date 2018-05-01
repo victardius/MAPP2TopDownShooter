@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114319515705708604}
   - component: {fileID: 60805198789770944}
   - component: {fileID: 82248473793819086}
+  - component: {fileID: 81857294730553764}
   m_Layer: 8
   m_Name: hitman1_gun
   m_TagString: Player
@@ -309,6 +310,13 @@ PolygonCollider2D:
       - {x: 0.72999996, y: -1.17}
       - {x: 0.74, y: -1.37}
       - {x: 0.75, y: -1.36}
+--- !u!81 &81857294730553764
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556998051169266}
+  m_Enabled: 1
 --- !u!82 &82248473793819086
 AudioSource:
   m_ObjectHideFlags: 1
@@ -376,7 +384,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -456,7 +464,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

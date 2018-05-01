@@ -1674,16 +1674,6 @@ Prefab:
       propertyPath: shieldSlider
       value: 
       objectReference: {fileID: 119312572}
-    - target: {fileID: 82248473793819086, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82248473793819086, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: MaxDistance
-      value: 500
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
   m_IsPrefabParent: 0
@@ -1985,13 +1975,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d,
     type: 2}
   m_PrefabInternal: {fileID: 1096354393}
---- !u!81 &1207728008
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1207728000}
-  m_Enabled: 1
 --- !u!4 &1212264650 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4579871971751360, guid: f625f1f80a471f741985e33f82078a13,
