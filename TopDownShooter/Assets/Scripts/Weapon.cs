@@ -5,9 +5,11 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
 
     public float fireRate = 0;
-    public float Damage = 10;
+    public int damage = 10;
     public AudioClip pistol;
-    //public LayerMask whatToHit;
+
+    public static int bulletDamage;
+
     public Transform bulletTrailPrefab;
 
     float timeToFire = 0;
@@ -19,6 +21,7 @@ public class Weapon : MonoBehaviour {
 
 
     void Awake () {
+        bulletDamage = damage;
         source = GetComponent<AudioSource>();
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)

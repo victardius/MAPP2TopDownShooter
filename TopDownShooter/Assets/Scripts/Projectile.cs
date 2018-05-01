@@ -6,13 +6,13 @@ public class Projectile : MonoBehaviour {
 
     //public bool ricochet;
 
-    public int damage = 10;
     public LayerMask whatToHit;
     public int moveSpeed = 230;
     public Transform target;
     public float timeToLive;
     //public PhysicsMaterial2D bounce;
 
+    private int damage;
     private float dot;
     private Rigidbody2D rgbd;
     Vector3 reflection;
@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour {
 
     private void Start()
     {
+        damage = Weapon.bulletDamage;
         //ricochet = false;
         rgbd = this.gameObject.GetComponent<Rigidbody2D>();
         Shoot();
