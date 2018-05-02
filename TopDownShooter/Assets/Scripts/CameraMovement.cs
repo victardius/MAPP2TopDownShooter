@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
     Transform target;
-    public GameObject player = new GameObject(); 
+    public GameObject player; 
         
 	// Use this for initialization
 	void Start () {

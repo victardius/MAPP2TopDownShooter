@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour {
 
-    private float force = 3;
-    public GameObject player;
-    Rigidbody2D rgb;
+    //private float force = 3;
+    //public GameObject player;
+    //Rigidbody2D rgb;
     
     // Use this for initialization
 	void Start ()
     {
-        rgb = this.GetComponent<Rigidbody2D>();
+        //rgb = this.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class BoxScript : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player")
         {
@@ -42,5 +42,5 @@ public class BoxScript : MonoBehaviour {
             }
         }
        
-    }
+    }*/
 }

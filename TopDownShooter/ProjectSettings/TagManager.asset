@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - WallCollider
   - Enemy
+  - Walls
+  - Objects
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   - 
   - Player
   - Obstacles (for enemies)
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Enemy projectiles
+  - PlayerBullets
+  - Walls
   - 
   - 
   - 
@@ -40,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1111890799
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

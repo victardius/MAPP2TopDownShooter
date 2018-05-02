@@ -32,3 +32,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+TopDownShooter/.vs/TopDownShooter/v15/Server/sqlite3/storage.ide-shm
+TopDownShooter/.vs/TopDownShooter/v15/Server/sqlite3/storage.ide
+TopDownShooter/.vs/TopDownShooter/v15/Server/sqlite3/storage.ide-shm
+TopDownShooter/.vs/TopDownShooter/v15/Server/sqlite3/storage.ide-wal

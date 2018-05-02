@@ -4,49 +4,68 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    public float Damage = 10;
-    public LayerMask whatToHit;
-    public Transform bulletTrailPrefab;
+    //public bool ricochet;
 
-    
+    public LayerMask whatToHit;
+    public int moveSpeed = 230;
+    public Transform target;
+    public float timeToLive;
+    //public PhysicsMaterial2D bounce;
+
+    private int damage;
     private float dot;
+    private Rigidbody2D rgbd;
     Vector3 reflection;
 
     Transform firePoint;
     Transform firePointDirection;
     ContactPoint2D contact;
 
-    void Awake () {
+    private void Start()
+    {
+        damage = Weapon.bulletDamage;
+        //ricochet = false;
+        rgbd = this.gameObject.GetComponent<Rigidbody2D>();
+        Shoot();
         firePoint = transform.Find("FirePoint");
         firePointDirection = transform.Find("FirePointDirection");
     }
 
+    
 
-    void FixedUpdate()
+
+    void Update()
     {
         Vector2 fireTargetPosition = new Vector2(firePointDirection.position.x, firePointDirection.position.y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
-        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 100, whatToHit);
+        RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 0.3f, whatToHit);
 
-        Debug.DrawLine(firePointPosition, fireTargetPosition );
+      //  Debug.DrawLine(firePointPosition, fireTargetPosition );
         if (hit.collider != null)
         {
-            Debug.DrawLine(firePointPosition, hit.point, Color.red);
-            Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
+            if (hit.collider.gameObject.CompareTag("Walls") || hit.collider.gameObject.CompareTag("Objects"))
+                DestroyObject(this.gameObject);
+            else if (hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                hit.collider.gameObject.GetComponent<EnemyVariables>().takeDamage(damage, transform);
+                DestroyObject(this.gameObject);
+            }
+            //hit.collider.gameObject.GetComponent<MeleeEnemyBehaviour>().takeDamage((int)Damage, transform);
+            //Debug.DrawLine(firePointPosition, hit.point, Color.red);
+           // Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+
+
+    private void Shoot()
     {
-        contact = collision.contacts[0];
-        dot = Vector3.Dot(contact.normal, (-transform.forward));
-        dot *= 2;
-        reflection = contact.normal * dot;
-        reflection = reflection + transform.forward;
+        /*if (ricochet)
+            rgbd.sharedMaterial = bounce;
+        else
+            rgbd.sharedMaterial = null;*/
+        rgbd.velocity = (target.transform.position - transform.position).normalized * moveSpeed;
+        DestroyObject(this.gameObject, timeToLive);
     }
-
-
-    void Update () {
-		
-	}
 }

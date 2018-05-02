@@ -8,9 +8,8 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class MeleeEnemyBehaviour : MonoBehaviour {
 
-    public Transform playerTarget;
-    public float speed, chargeSpeed, hitCooldownTime = 1.0f, pushbackForce, updateRate = 2.0f, nextWaypointDistance = 0.1f;
-    public int health;
+    public float speed, chargeSpeed, updateRate = 2.0f, nextWaypointDistance = 0.1f;
+    //public int health;
     public Path path;
     public ForceMode2D fMode;
 
@@ -19,14 +18,17 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     private Seeker seeker;
     private Rigidbody2D rb;
-    private float startSpeed, distance, hitCooldown;
+    private float startSpeed, distance, updateRateStart;
     private int currentWaypoint = 0;
+    private Transform playerTarget;
 
 
-	void Start () {
+    void Start () {
 
+        playerTarget = PlayerVariables.playerTarget;
         startSpeed = speed;
-        hitCooldown = hitCooldownTime;
+        MonsterSpawn.numberOfMonsters++;
+        updateRateStart = updateRate;
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -41,22 +43,6 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         StartCoroutine(UpdatePath());
     }
 
-    void Update () {
-        
-        if (hitCooldown > 0)
-        hitCooldown -= Time.deltaTime;
-
-        distance = Vector3.Distance(transform.position, playerTarget.position);
-
-        if (distance < 5)
-            speed = chargeSpeed - (distance * 60);
-        else
-            speed = startSpeed;
-
-        //transform.position = Vector2.MoveTowards(transform.position, playerTarget.position, speed * Time.fixedDeltaTime);
-
-        
-	}
 
     public void OnPathComplete(Path p)
     {
@@ -70,10 +56,6 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     IEnumerator UpdatePath()
     {
-        if (playerTarget == null)
-        {
-            
-        }
 
         seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
 
@@ -81,7 +63,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         StartCoroutine(UpdatePath());
     }
 
-    public void takeDamage(int amount, Transform source)
+    /*public void takeDamage(int amount, Transform source)
     {
         health -= amount;
         Vector3 dir = source.position - transform.position;
@@ -89,49 +71,64 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         dir = -dir.normalized;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
 
-    }
+        if (health <= 0)
+        {
+            MonsterSpawn.numberOfMonsters--;
+            DestroyObject(this.gameObject);
+        }
+
+    }*/
     private void FixedUpdate()
     {
-        if (playerTarget == null)
+        
+
+        distance = Vector3.Distance(transform.position, playerTarget.position);
+
+        if (distance < 5)
         {
-            return;
+            speed = chargeSpeed - (distance * 60);
+            updateRate = updateRateStart * 2;
+        }
+        else
+        {
+            speed = startSpeed;
+            updateRate = updateRateStart;
         }
 
-        if (currentWaypoint >= path.vectorPath.Count)
+        var lookDir = playerTarget.position - transform.position;
+        var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        if (path != null)
         {
-            if (pathIsEnded)
-                return;
-            //Debug.Log("End of path reached.");
-            pathIsEnded = true;
-            return;
-        }
 
-        pathIsEnded = false;
 
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        dir *= speed * Time.fixedDeltaTime;
-
-        rb.AddForce(dir, fMode);
-
-        float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
-
-        if (dist < nextWaypointDistance)
-        {
-            currentWaypoint++;
-            return;
-        }
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (hitCooldown <= 0)
+            if (currentWaypoint >= path.vectorPath.Count)
             {
-                other.GetComponent<PlayerVariables>().takeDamage(10, transform);
-                hitCooldown = hitCooldownTime;
+                if (pathIsEnded)
+                    return;
+                //Debug.Log("End of path reached.");
+                pathIsEnded = true;
+                return;
+            }
+
+            pathIsEnded = false;
+
+            Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            dir *= speed * Time.fixedDeltaTime;
+
+            rb.AddForce(dir, fMode);
+
+            float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
+
+            if (dist < nextWaypointDistance)
+            {
+                currentWaypoint++;
+                return;
             }
         }
+
     }
+
+    
 }
