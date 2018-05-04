@@ -51,11 +51,11 @@ public class PlayerController : MonoBehaviour
 
              if(primaryShooting){
                  transform.rotation = Quaternion.LookRotation(primaryLookVec, Vector3.back);
-            moveForce = 25;
+                 moveForce = 25;
         }
              else if(secondaryShooting){
                  transform.rotation = Quaternion.LookRotation(secondaryLookVec, Vector3.back);
-            moveForce = 40;
+                 moveForce = 40;
         }
                 
         
