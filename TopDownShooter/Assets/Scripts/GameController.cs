@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
     [HideInInspector]
     public static bool missionFailed = false;
 
-    private int wave;
+    private int wave, level;
 
     private void Start()
     {
@@ -31,7 +31,8 @@ public class GameController : MonoBehaviour {
         if (MonsterSpawn.monstersSpawned && MonsterSpawn.numberOfMonsters == 0)
         {
             levelEnd.gameObject.SetActive(true);
-            StartCoroutine(levelEnded(0));
+            levelEnded();
+            level = 0;
         }
 
         amountOfEnemies.text = "" + MonsterSpawn.numberOfMonsters;
@@ -45,17 +46,22 @@ public class GameController : MonoBehaviour {
         if (missionFailed)
         {
             gameOver.gameObject.SetActive(true);
-            StartCoroutine(levelEnded(0));
+            levelEnded();
+            level = 0;
         }
 
     }
 
-    IEnumerator levelEnded(int n)
+    public void levelEnded()
     {
         levelEndPanel.gameObject.SetActive(true);
         Time.timeScale = 0f;
-        yield return new WaitForSecondsRealtime(5.0f);
-        SceneManager.LoadScene(n);
+    }
+
+    public void changeLevel()
+    {
+
+        SceneManager.LoadScene(level);
     }
 
     IEnumerator waveControl()
