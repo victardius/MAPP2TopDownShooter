@@ -62,7 +62,7 @@ public class MonsterSpawn : MonoBehaviour {
                 }
                 else
                 {
-                    yield return new WaitForSeconds(2.0f);
+                    yield return new WaitForSeconds(5.0f);
                 }
 
                 
@@ -72,12 +72,12 @@ public class MonsterSpawn : MonoBehaviour {
                 waveSize[currentWave]--;
 
             }
-            
-            yield return new WaitForSeconds(0.1f);
+
+
+            yield return new WaitForSeconds(spawnRate);
 
         }
 
-        yield return new WaitForSeconds(spawnRate);
 
         if (waveSize[currentWave] > 0)
             StartCoroutine(spawnMonster());
@@ -87,7 +87,7 @@ public class MonsterSpawn : MonoBehaviour {
             {
 
 
-                yield return new WaitUntil(() => numberOfMonsters < nextWaveLimit || nextWaveTimeLimit == 0);
+                yield return new WaitUntil(() => numberOfMonsters <= nextWaveLimit || nextWaveTimeLimit == 0);
 
                 
                 currentWave++;

@@ -8,11 +8,13 @@ public class GameController : MonoBehaviour {
 
     public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
     public GameObject spawner, levelEndPanel, pauseScreen;
+    public Button play;
+    public Sprite pausedImage, unpausedImage;
 
     [HideInInspector]
     public static bool missionFailed = false;
 
-    private int wave, level;
+    private int wave;
 
     private void Start()
     {
@@ -33,7 +35,6 @@ public class GameController : MonoBehaviour {
         {
             levelEnd.gameObject.SetActive(true);
             levelEnded();
-            level = 0;
         }
 
         amountOfEnemies.text = "" + MonsterSpawn.numberOfMonsters;
@@ -48,7 +49,6 @@ public class GameController : MonoBehaviour {
         {
             gameOver.gameObject.SetActive(true);
             levelEnded();
-            level = 0;
         }
 
     }
@@ -59,22 +59,31 @@ public class GameController : MonoBehaviour {
         Time.timeScale = 0f;
     }
 
-    public void changeLevel()
+    public void changeLevel(int n)
     {
 
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(n);
     }
 
-    public void continueGame()
+    public void pauseContinueGame()
     {
-        pauseScreen.SetActive(false);
-        Time.timeScale = 1.0f;
+        pauseScreen.SetActive(!pauseScreen.activeSelf);
+        if (Time.timeScale == 0f)
+        {
+            Time.timeScale = 1.0f;
+            play.image.sprite = unpausedImage;
+        }
+        else
+        {
+            Time.timeScale = 0.0f;
+            play.image.sprite = pausedImage;
+        }
+            
     }
 
-    public void pauseGame()
+    public void abandonMission()
     {
-        pauseScreen.SetActive(true);
-        Time.timeScale = 0.0f;
+        changeLevel(0);
     }
 
     IEnumerator waveControl()
@@ -83,6 +92,12 @@ public class GameController : MonoBehaviour {
         waveAnnouncement.text = "Wave " + (spawner.GetComponent<MonsterSpawn>().getCurrentWave() + 1) + " incoming!";
         yield return new WaitForSeconds(2.0f);
         waveAnnouncement.gameObject.SetActive(false);
+    }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+            pauseScreen.SetActive(pauseStatus);
     }
 
 }
