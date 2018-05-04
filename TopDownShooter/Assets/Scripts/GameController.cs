@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
 
     public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
-    public GameObject spawner, levelEndPanel;
+    public GameObject spawner, levelEndPanel, pauseScreen;
 
     [HideInInspector]
     public static bool missionFailed = false;
@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
         waveAnnouncement.gameObject.SetActive(false);
         gameOver.gameObject.SetActive(false);
         levelEndPanel.gameObject.SetActive(false);
+        pauseScreen.gameObject.SetActive(false);
         wave = 0;
         StartCoroutine(waveControl());
         missionFailed = false;
@@ -62,6 +63,18 @@ public class GameController : MonoBehaviour {
     {
 
         SceneManager.LoadScene(level);
+    }
+
+    public void continueGame()
+    {
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+    public void pauseGame()
+    {
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
     IEnumerator waveControl()
