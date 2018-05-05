@@ -15,6 +15,6 @@ public class ScreenLandscapeMode : MonoBehaviour {
 
         Screen.orientation = ScreenOrientation.AutoRotation;
 
-        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        //Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 }
