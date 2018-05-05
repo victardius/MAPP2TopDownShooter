@@ -67,10 +67,10 @@ public class GameController : MonoBehaviour {
 
     public void pauseContinueGame()
     {
-        pauseScreen.SetActive(!pauseScreen.activeSelf);
-        if (Time.timeScale == 0f)
+        if (pauseScreen.activeSelf)
         {
-            Time.timeScale = 1.0f;
+            if (Time.timeScale == 0.0f)
+                Time.timeScale = 1.0f;
             play.image.sprite = unpausedImage;
         }
         else
@@ -78,7 +78,8 @@ public class GameController : MonoBehaviour {
             Time.timeScale = 0.0f;
             play.image.sprite = pausedImage;
         }
-            
+        pauseScreen.SetActive(!pauseScreen.activeSelf);
+
     }
 
     public void abandonMission()
@@ -96,8 +97,11 @@ public class GameController : MonoBehaviour {
 
     void OnApplicationPause(bool pauseStatus)
     {
-        if (pauseStatus)
-            pauseScreen.SetActive(pauseStatus);
+        if (pauseStatus && !pauseScreen.activeSelf)
+        {   
+
+            pauseContinueGame();
+        }
     }
 
 }
