@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114319515705708604}
   - component: {fileID: 82248473793819086}
   - component: {fileID: 81857294730553764}
-  - component: {fileID: 70914108379675690}
+  - component: {fileID: 58998381748453658}
   m_Layer: 8
   m_Name: hitman1_gun
   m_TagString: Player
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1405333929218718}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.22, y: 6.31, z: 0}
+  m_LocalPosition: {x: 1.22, y: 5.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4030262332254670}
@@ -156,8 +156,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &70914108379675690
-CapsuleCollider2D:
+--- !u!58 &58998381748453658
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -168,9 +168,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.42188406, y: 1.547846}
-  m_Size: {x: 5.7674756, y: 7.648597}
-  m_Direction: 0
+  m_Offset: {x: 0.5486516, y: 1.4417608}
+  serializedVersion: 2
+  m_Radius: 3.7145097
 --- !u!81 &81857294730553764
 AudioListener:
   m_ObjectHideFlags: 1
@@ -367,16 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45ff5b1feb25604bb48d164cf78a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
-  damagePistol: 10
-  damageRifle: 10
-  damageShotgun: 10
-  damageSniper: 10
   pistol: {fileID: 8300000, guid: 5663166543ffaa34295549e36d773547, type: 3}
   handGun: {fileID: 0}
   rifle: {fileID: 0}
   shotgun: {fileID: 0}
-  sniper: {fileID: 0}
   bulletTrailPrefab: {fileID: 4766821845112474, guid: 1896dfac339ffdc4f9e973b644061fda,
     type: 2}
 --- !u!114 &114928498765596490

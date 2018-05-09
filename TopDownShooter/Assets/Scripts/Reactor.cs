@@ -2,42 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reactor: MonoBehaviour {
+public class Reactor : MonoBehaviour {
+
+    public Sprite disabledSprite;
+    public GameObject explosionCollider;
 
     private int damage = 1;
-    private int hitPoints = 3;
-    public GameObject player;
-    public Sprite disabled;
-    //Rigidbody2D playerRigd;
     private ParticleSystem particleEffect;
+    private bool exploded = false;
 
-    private void Start()
-    {
-        //playerRigd = player.GetComponent<Rigidbody2D>();
+    // Use this for initialization
+    void Start () {
         particleEffect = GetComponent<ParticleSystem>();
         particleEffect.Play();
     }
-    // Update is called once per frame
-    void Update () {
-        
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
-    }
-    void OnTriggerEnter2D(Collider2D other)
+    public void explode()
     {
-        if (other.gameObject.tag == "Player")
+        if (!exploded)
         {
-            other.GetComponent<PlayerVariables>().takeDamage(10, transform);          
-            Debug.Log("Damage taken, plant hp left: " + hitPoints);
-            hitPoints -= 1;
-            if (hitPoints <= 0)
-            {
-                GetComponent<BoxCollider2D>().enabled = !GetComponent<BoxCollider2D>().enabled;
-                GetComponent<SpriteRenderer>().sprite = disabled;
-                particleEffect.Stop();
-
-            }
-
+            Debug.Log("sprängd");
+            exploded = true;
+            particleEffect.Stop();
+            GetComponent<SpriteRenderer>().sprite = disabledSprite;
+            explosionCollider.SetActive(true);
         }
     }
 
+    
 }

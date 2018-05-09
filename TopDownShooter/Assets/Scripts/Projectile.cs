@@ -50,6 +50,11 @@ public class Projectile : MonoBehaviour {
                 hit.collider.gameObject.GetComponent<EnemyVariables>().takeDamage(damage, transform);
                 DestroyObject(this.gameObject);
             }
+            else if (hit.collider.gameObject.CompareTag("Reactor"))
+            {
+                hit.collider.gameObject.GetComponent<Reactor>().explode();
+                DestroyObject(this.gameObject);
+            }
             //hit.collider.gameObject.GetComponent<MeleeEnemyBehaviour>().takeDamage((int)Damage, transform);
             //Debug.DrawLine(firePointPosition, hit.point, Color.red);
            // Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
