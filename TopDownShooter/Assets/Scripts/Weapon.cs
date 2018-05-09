@@ -22,15 +22,13 @@ public class Weapon : MonoBehaviour {
     private float volHighRange = 1.0f;
     private int weaponChoice = 1;
     private SpriteRenderer sprite;
-    private float damagePistol = 10;
-    private float damageRifle = 6;
-    private float damageShotgun = 15;
     private float fireRate = 0;
 
 
 
     void Awake () {
-        bulletDamage = damagePistol;
+        
+        bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
         source = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("FirePoint");
@@ -41,12 +39,6 @@ public class Weapon : MonoBehaviour {
 		
 	}
 
-    void increaseDamage()
-    {
-        PlayerPrefs.SetFloat("pistolDamage", (damagePistol = damagePistol * 1.1f));
-        PlayerPrefs.SetFloat("riflDamage", (damageRifle = damageRifle * 1.1f));
-        PlayerPrefs.SetFloat("shotgunDamage", (damageShotgun = damageShotgun * 1.1f));
-    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -103,21 +95,21 @@ public class Weapon : MonoBehaviour {
 
         if (weaponChoice == 1)
         {
-            bulletDamage = damagePistol;
+            bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             sprite.sprite = handGun;
             fireRate = 1;
         }
             
         else if (weaponChoice == 2)
         {
-            bulletDamage = damageRifle;
+            bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             sprite.sprite = rifle;
             fireRate = 3;
         }
             
         else if (weaponChoice == 3)
         {
-            bulletDamage = damageShotgun;
+            bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
             sprite.sprite = shotgun;
             fireRate = 0.5f;
         }
