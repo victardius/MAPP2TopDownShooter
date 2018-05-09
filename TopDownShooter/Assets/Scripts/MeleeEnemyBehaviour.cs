@@ -21,6 +21,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     private float startSpeed, distance, updateRateStart;
     private int currentWaypoint = 0;
     private Transform playerTarget;
+    private GameObject player;
 
 
     void Start () {
@@ -29,6 +30,8 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         startSpeed = speed;
         MonsterSpawn.numberOfMonsters++;
         updateRateStart = updateRate;
+
+        player = GameObject.Find("hitman1_gun");
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -117,7 +120,8 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
 
-            rb.AddForce(dir, fMode);
+            if (distance > 1.5)
+                rb.AddForce(dir, fMode);
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
 

@@ -14,6 +14,7 @@ public class EnemyVariables : MonoBehaviour {
     private float volHighRange = 1.0f;
     private float vol;
     private float hitCooldown;
+    private float distance;
     private AudioSource aSource;
 
     void Start ()
@@ -21,12 +22,22 @@ public class EnemyVariables : MonoBehaviour {
         hitCooldown = hitCooldownTime;
 
         aSource = GetComponent<AudioSource>();
+
+        player = GameObject.Find("hitman1_gun");
     }
 
 
     void FixedUpdate () {
         if (hitCooldown > 0)
             hitCooldown -= Time.deltaTime;
+
+        distance = Vector3.Distance(transform.position, player.transform.position);
+
+        if  (distance < 1.7 && hitCooldown <= 0)
+        {
+            player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
+            hitCooldown = hitCooldownTime;
+        }
 
     }
 
@@ -52,15 +63,5 @@ public class EnemyVariables : MonoBehaviour {
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (hitCooldown <= 0)
-            {
-                other.GetComponent<PlayerVariables>().takeDamage(damage, transform);
-                hitCooldown = hitCooldownTime;
-            }
-        }
-    }
+   
 }
