@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
 
-    public float fireRate = 0;
-    public int damagePistol = 10;
-    public int damageRifle = 10;
-    public int damageShotgun = 10;
-    public int damageSniper = 10;
+    
     public AudioClip pistol;
     public Sprite handGun;
     public Sprite rifle;
     public Sprite shotgun;
-    public Sprite sniper;
 
-
-    public static int bulletDamage;
+    public static float bulletDamage;
 
     public Transform bulletTrailPrefab;
 
@@ -28,7 +22,11 @@ public class Weapon : MonoBehaviour {
     private float volHighRange = 1.0f;
     private int weaponChoice = 1;
     private SpriteRenderer sprite;
-    
+    private float damagePistol = 10;
+    private float damageRifle = 6;
+    private float damageShotgun = 15;
+    private float fireRate = 0;
+
 
 
     void Awake () {
@@ -42,6 +40,13 @@ public class Weapon : MonoBehaviour {
         }
 		
 	}
+
+    void increaseDamage()
+    {
+        PlayerPrefs.SetFloat("pistolDamage", (damagePistol = damagePistol * 1.1f));
+        PlayerPrefs.SetFloat("riflDamage", (damageRifle = damageRifle * 1.1f));
+        PlayerPrefs.SetFloat("shotgunDamage", (damageShotgun = damageShotgun * 1.1f));
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -93,30 +98,30 @@ public class Weapon : MonoBehaviour {
     void selectWeapon()
     {
         weaponChoice++;
-        if (weaponChoice > 4)
+        if (weaponChoice > 3)
             weaponChoice = 1;
 
         if (weaponChoice == 1)
         {
             bulletDamage = damagePistol;
             sprite.sprite = handGun;
+            fireRate = 1;
         }
             
         else if (weaponChoice == 2)
         {
             bulletDamage = damageRifle;
             sprite.sprite = rifle;
+            fireRate = 3;
         }
             
         else if (weaponChoice == 3)
         {
             bulletDamage = damageShotgun;
             sprite.sprite = shotgun;
+            fireRate = 0.5f;
         }
-        else{
-            bulletDamage = damageSniper;
-            sprite.sprite = sniper;
-        }
+       
 
     }
 

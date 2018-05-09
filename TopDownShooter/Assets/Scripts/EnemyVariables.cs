@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyVariables : MonoBehaviour {
 
-    public int health;
+    public float health;
     public float pushbackForce, hitCooldownTime = 1.0f;
     public int damage;
     public AudioClip damageSound;
@@ -30,7 +30,7 @@ public class EnemyVariables : MonoBehaviour {
 
     }
 
-    public void takeDamage(int amount, Transform source)
+    public void takeDamage(float amount, Transform source)
     {
         vol = Random.Range(volLowRange, volHighRange);
 

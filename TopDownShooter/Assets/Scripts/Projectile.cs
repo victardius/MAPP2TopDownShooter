@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour {
     public float timeToLive;
     //public PhysicsMaterial2D bounce;
 
-    private int damage;
+    private float damage;
     private float dot;
     private Rigidbody2D rgbd;
     Vector3 reflection;
