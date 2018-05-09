@@ -31,6 +31,6 @@ public class ShopPurchase : MonoBehaviour {
 
     public void buyEnergyCells()
     {
-
+        
     }
 }
