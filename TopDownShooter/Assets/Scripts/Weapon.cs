@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour {
     public Sprite handGun;
     public Sprite rifle;
     public Sprite shotgun;
+    public bool hasteBuff = false;
 
     public static float bulletDamage;
 
@@ -97,24 +98,52 @@ public class Weapon : MonoBehaviour {
         {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             sprite.sprite = handGun;
-            fireRate = 1;
+            if (!hasteBuff)
+            {
+                fireRate = 1;
+            }
+            else
+            {
+                fireRate = 1.5f;
+            }
+           
         }
             
         else if (weaponChoice == 2)
         {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             sprite.sprite = rifle;
-            fireRate = 3;
+            if (!hasteBuff)
+            {
+                fireRate = 3;
+            }
+            else
+            {
+                fireRate = 4;
+            }
         }
             
         else if (weaponChoice == 3)
         {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
             sprite.sprite = shotgun;
-            fireRate = 0.5f;
+            if (!hasteBuff)
+            {
+                fireRate = 0.5f;
+            }
+            else
+            {
+                fireRate = 0.8f;
+            }
         }
        
 
+    }
+
+    public IEnumerator firePowerUp() {
+        hasteBuff = true;
+        yield return new WaitForSeconds(6f);
+        hasteBuff = false;
     }
 
     
