@@ -126,7 +126,7 @@ public class Weapon : MonoBehaviour {
     }
     public IEnumerator fireHelpCode() {
         fireBuff = fireRate;
-        fireRate *= 1.5f;
+        fireRate *= 2f;
         yield return new WaitForSeconds(6f);
         fireRate = fireBuff;
     }
