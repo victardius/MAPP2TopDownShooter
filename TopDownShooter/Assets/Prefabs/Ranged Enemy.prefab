@@ -23,10 +23,11 @@ GameObject:
   - component: {fileID: 114619405474622448}
   - component: {fileID: 50751403171955240}
   - component: {fileID: 114587705947536974}
+  - component: {fileID: 58037478226793614}
   - component: {fileID: 58994268668387610}
   - component: {fileID: 114348550257735886}
-  - component: {fileID: 58037478226793614}
   - component: {fileID: 82472693345526862}
+  - component: {fileID: 95041110429537580}
   m_Layer: 10
   m_Name: Ranged Enemy
   m_TagString: Enemy
@@ -206,6 +207,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95041110429537580
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1253514339957420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 044589cfa076d04499570ea38612a3e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114348550257735886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,7 +241,9 @@ MonoBehaviour:
   damage: 10
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
-  healthPack: {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
+  powerUps:
+  - {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
+  - {fileID: 1330072866091208, guid: 65add6032bc31f345a1fa4b7a35cab0d, type: 2}
 --- !u!114 &114587705947536974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,7 +320,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: c67406f4e153b9d4ca143716ffef01eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

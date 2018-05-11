@@ -27,12 +27,13 @@ public class RangedEnemyBehaviour : MonoBehaviour
     private int currentWaypoint = 0;
     private bool fire = false;
     private Transform playerTarget;
+    private Animator anim;
 
     void Start()
     {
 
         MonsterSpawn.numberOfMonsters++;
-        playerTarget = PlayerVariables.playerTarget;
+        playerTarget = GameObject.Find("hitman1_gun").transform;
         startSpeed = speed;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +46,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
         seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
 
+        anim = GetComponent<Animator>();
+
         StartCoroutine(UpdatePath());
         StartCoroutine(ShootPlayer());
 
@@ -53,6 +56,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
     void Update()
     {
+
+        anim.SetFloat("speed", speed);
 
         if (hitCooldown > 0)
             hitCooldown -= Time.deltaTime;
@@ -73,7 +78,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
         var dir = playerTarget.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if (!anim.GetBool("death"))
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
 
@@ -94,21 +100,30 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
     IEnumerator ShootPlayer()
     {
-        if (fire == true)
+        if (!anim.GetBool("death"))
         {
-            Instantiate(bullets, firePoint.position, firePoint.rotation);
+            if (fire == true)
+            {
+                anim.SetBool("shooting", true);
 
-            yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(0.5f);
 
-            StartCoroutine(ShootPlayer());
+                Instantiate(bullets, firePoint.position, firePoint.rotation);
 
-        }
-        else
-        {
-            yield return new WaitForSeconds(0.5f);
+                anim.SetBool("shooting", false);
+
+                yield return new WaitForSeconds(1.0f);
+
+                StartCoroutine(ShootPlayer());
+
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
 
 
-            StartCoroutine(ShootPlayer());
+                StartCoroutine(ShootPlayer());
+            }
         }
 
     }
@@ -152,7 +167,8 @@ public class RangedEnemyBehaviour : MonoBehaviour
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
 
-            rb.AddForce(dir, fMode);
+            if (!anim.GetBool("death"))
+                rb.AddForce(dir, fMode);
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
 

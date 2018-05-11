@@ -8,7 +8,8 @@ public class EnemyVariables : MonoBehaviour {
     public float pushbackForce, hitCooldownTime = 1.0f;
     public int damage;
     public AudioClip damageSound;
-    public GameObject player, healthPack;
+    public GameObject player;
+    public GameObject[] powerUps;
     
     private float volLowRange = 0.5f;
     private float volHighRange = 1.0f;
@@ -16,6 +17,7 @@ public class EnemyVariables : MonoBehaviour {
     private float hitCooldown;
     private float distance;
     private AudioSource aSource;
+    private Animator anim;
 
     void Start ()
     {
@@ -24,6 +26,8 @@ public class EnemyVariables : MonoBehaviour {
         aSource = GetComponent<AudioSource>();
 
         player = GameObject.Find("hitman1_gun");
+
+        anim = GetComponent<Animator>();
     }
 
 
@@ -33,7 +37,7 @@ public class EnemyVariables : MonoBehaviour {
 
         distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if  (distance < 1.7 && hitCooldown <= 0)
+        if  (distance < 1.7 && hitCooldown <= 0 && !anim.GetBool("death"))
         {
             player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
             hitCooldown = hitCooldownTime;
@@ -43,25 +47,48 @@ public class EnemyVariables : MonoBehaviour {
 
     public void takeDamage(float amount, Transform source)
     {
-        vol = Random.Range(volLowRange, volHighRange);
-
-        aSource.PlayOneShot(damageSound, 1);
-
-        health -= amount;
-        Vector3 dir = source.position - transform.position;
-
-        dir = -dir.normalized;
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
-
-        if (health <= 0)
+        if (!anim.GetBool("death"))
         {
-            if (Random.Range(0.0f, 1.0f) > 0.85f)
-                Instantiate(healthPack, transform.position, Quaternion.identity);
-            Debug.Log(transform.position);
-            MonsterSpawn.numberOfMonsters--;
-            DestroyObject(this.gameObject);
+            vol = Random.Range(volLowRange, volHighRange);
+
+            aSource.PlayOneShot(damageSound, 1);
+
+            health -= amount;
+            Vector3 dir = source.position - transform.position;
+
+            if (health > 0)
+            {
+                dir = -dir.normalized;
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
+            }
+
+            if (health <= 0)
+            {
+                StartCoroutine(death());
+            }
+
         }
 
+    }
+
+    IEnumerator death()
+    {
+        int i = (int)(Random.Range(0.0f, 1.0f) * 10);
+        if (i >= 9)
+        {
+            Instantiate(powerUps[0], transform.position, Quaternion.identity);
+        }
+        else if (i >= 7 && i < 9)
+        {
+            Instantiate(powerUps[1], transform.position, Quaternion.identity);
+        }
+        Debug.Log(transform.position);
+        MonsterSpawn.numberOfMonsters--;
+        GetComponent<CircleCollider2D>().enabled = false;
+        this.gameObject.layer = 2;
+        anim.SetBool("death", true);
+        yield return new WaitForSeconds(5f);
+        DestroyObject(this.gameObject);
     }
    
 }

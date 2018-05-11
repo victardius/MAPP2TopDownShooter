@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4034612480703574}
   - component: {fileID: 212668025036253348}
   - component: {fileID: 114360918584887992}
-  - component: {fileID: 58619876772142662}
   - component: {fileID: 58930170029218824}
+  - component: {fileID: 58619876772142662}
   - component: {fileID: 50345655742878174}
   - component: {fileID: 114540202130218616}
   - component: {fileID: 114805431838550956}
   - component: {fileID: 82082032559034234}
+  - component: {fileID: 95968806326678144}
   m_Layer: 10
   m_Name: Melee Enemy
   m_TagString: Enemy
@@ -195,6 +196,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95968806326678144
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764495841904254}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f274649afdbdaa14f9e91de15849a723, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114360918584887992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,7 +273,9 @@ MonoBehaviour:
   damage: 10
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
-  healthPack: {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
+  powerUps:
+  - {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
+  - {fileID: 1330072866091208, guid: 65add6032bc31f345a1fa4b7a35cab0d, type: 2}
 --- !u!212 &212668025036253348
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -289,7 +309,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: d27a7b3c01250e44bb836d6b9034f688, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

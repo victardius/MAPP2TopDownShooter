@@ -22,6 +22,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     private int currentWaypoint = 0;
     private Transform playerTarget;
     private GameObject player;
+    private Animator anim;
 
 
     void Start () {
@@ -44,6 +45,8 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
         seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
 
         StartCoroutine(UpdatePath());
+
+        anim = GetComponent<Animator>();
     }
 
 
@@ -100,7 +103,8 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
         var lookDir = playerTarget.position - transform.position;
         var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if (!anim.GetBool("death"))
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         if (path != null)
         {
@@ -120,7 +124,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
 
-            if (distance > 1.5)
+            if (distance > 1.5 && !anim.GetBool("death"))
                 rb.AddForce(dir, fMode);
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
