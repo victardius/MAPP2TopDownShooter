@@ -6,6 +6,7 @@ public class Reactor : MonoBehaviour {
 
     public Sprite disabledSprite;
     public GameObject explosionCollider;
+    public GameObject explosionEffect;
 
     private int damage = 1;
     private ParticleSystem particleEffect;
@@ -30,7 +31,9 @@ public class Reactor : MonoBehaviour {
             exploded = true;
             particleEffect.Stop();
             GetComponent<SpriteRenderer>().sprite = disabledSprite;
+            explosionEffect.SetActive(true);
             explosionCollider.SetActive(true);
+            explosionCollider.GetComponent<ReactorExplosion>().explosionTrigger();
         }
     }
 

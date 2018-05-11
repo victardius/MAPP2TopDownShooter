@@ -67,11 +67,6 @@ public class Weapon : MonoBehaviour {
         
             if (PlayerController.primaryShooting && Time.time > timeToFire)
             {
-                if (hasteBuff && !hasteIncrease)
-                {
-                    fireBuff = fireRate * 1.4f;
-                    hasteIncrease = true;
-                }
                 timeToFire = Time.time + 1 / fireRate;
                 Shoot();
             }
