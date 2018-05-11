@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour {
     public Sprite handGun;
     public Sprite rifle;
     public Sprite shotgun;
-    public bool hasteBuff = false;
+    
 
     public static float bulletDamage;
 
@@ -18,12 +18,14 @@ public class Weapon : MonoBehaviour {
     float timeToFire = 0;
     Transform firePoint;
 
+    private float fireBuff = 0;
+
     private AudioSource source;
     private float volLowRange = 0.5f;
     private float volHighRange = 1.0f;
     private int weaponChoice = 1;
     private SpriteRenderer sprite;
-    private float fireRate = 0;
+    private float fireRate = 1;
 
 
 
@@ -65,6 +67,11 @@ public class Weapon : MonoBehaviour {
         
             if (PlayerController.primaryShooting && Time.time > timeToFire)
             {
+                if (hasteBuff && !hasteIncrease)
+                {
+                    fireBuff = fireRate * 1.4f;
+                    hasteIncrease = true;
+                }
                 timeToFire = Time.time + 1 / fireRate;
                 Shoot();
             }
@@ -98,52 +105,31 @@ public class Weapon : MonoBehaviour {
         {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             sprite.sprite = handGun;
-            if (!hasteBuff)
-            {
-                fireRate = 1;
-            }
-            else
-            {
-                fireRate = 1.5f;
-            }
-           
+            fireRate = 1;
         }
             
         else if (weaponChoice == 2)
         {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             sprite.sprite = rifle;
-            if (!hasteBuff)
-            {
-                fireRate = 3;
-            }
-            else
-            {
-                fireRate = 4;
-            }
+            fireRate = 3;
         }
             
         else if (weaponChoice == 3)
         {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
             sprite.sprite = shotgun;
-            if (!hasteBuff)
-            {
                 fireRate = 0.5f;
-            }
-            else
-            {
-                fireRate = 0.8f;
-            }
         }
        
 
     }
 
     public IEnumerator firePowerUp() {
-        hasteBuff = true;
+        fireBuff = fireRate;
+        fireRate *= 10f;
         yield return new WaitForSeconds(6f);
-        hasteBuff = false;
+        fireRate = fireBuff;
     }
 
     
