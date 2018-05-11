@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour {
     private float volHighRange = 1.0f;
     private int weaponChoice = 1;
     private SpriteRenderer sprite;
-    private float fireRate = 1;
+    private float fireRate = 1.4f;
 
 
 
@@ -120,9 +120,13 @@ public class Weapon : MonoBehaviour {
 
     }
 
-    public IEnumerator firePowerUp() {
+    public void firePowerUp()
+    {
+        StartCoroutine(fireHelpCode());
+    }
+    public IEnumerator fireHelpCode() {
         fireBuff = fireRate;
-        fireRate *= 10f;
+        fireRate *= 1.5f;
         yield return new WaitForSeconds(6f);
         fireRate = fireBuff;
     }
