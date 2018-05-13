@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveForce = 20;
     Rigidbody2D rgbd;
+    private Animator anim;
 
     public static bool primaryShooting;
     public bool secondaryShooting;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     {
 
         rgbd = this.GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -57,9 +59,11 @@ public class PlayerController : MonoBehaviour
                  transform.rotation = Quaternion.LookRotation(secondaryLookVec, Vector3.back);
                  moveForce = 40;
         }
-                
-        
-       
+
+        float speed = CrossPlatformInputManager.GetAxis("Horizontal") + CrossPlatformInputManager.GetAxis("Vertical");
+        if (speed < 0)
+            speed *= -1;
+        anim.SetFloat("speed", speed);
         
 
              rgbd.AddForce(moveVec);

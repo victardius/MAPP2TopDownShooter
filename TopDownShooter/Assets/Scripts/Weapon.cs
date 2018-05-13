@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour {
     private int weaponChoice = 1;
     private SpriteRenderer sprite;
     private float fireRate = 1.4f;
+    private Animator anim;
 
 
 
@@ -35,6 +36,7 @@ public class Weapon : MonoBehaviour {
         source = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("FirePoint");
+        anim = GetComponentInParent<Animator>();
         if (firePoint == null)
         {
             Debug.LogError("No firepoint");
@@ -43,7 +45,6 @@ public class Weapon : MonoBehaviour {
 	}
 
 	
-	// Update is called once per frame
 	void Update () {
 #if UNITY_STANDALONE_WIN
         if (fireRate == 0)
@@ -67,9 +68,14 @@ public class Weapon : MonoBehaviour {
         
             if (PlayerController.primaryShooting && Time.time > timeToFire)
             {
-                timeToFire = Time.time + 1 / fireRate;
+            anim.SetBool("shooting", true);
+                timeToFire = Time.time + 1 / (fireRate + fireBuff);
                 Shoot();
-            }
+        }
+        else
+        {
+            anim.SetBool("shooting", false);
+        }
         
 #endif
     }
@@ -122,13 +128,14 @@ public class Weapon : MonoBehaviour {
 
     public void firePowerUp()
     {
-        StartCoroutine(fireHelpCode());
+        StartCoroutine(firePUHelpCode());
     }
-    public IEnumerator fireHelpCode() {
-        fireBuff = fireRate;
-        fireRate *= 2f;
+    public IEnumerator firePUHelpCode() {
+        fireBuff += 1;
+        Debug.Log(fireBuff);
         yield return new WaitForSeconds(6f);
-        fireRate = fireBuff;
+        fireBuff -= 1;
+        Debug.Log(fireBuff);
     }
 
     
