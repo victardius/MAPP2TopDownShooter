@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 20;
     Rigidbody2D rgbd;
     private Animator anim;
+    private float speed = 0;
 
     public static bool primaryShooting;
     public bool secondaryShooting;
@@ -19,6 +20,18 @@ public class PlayerController : MonoBehaviour
         rgbd = this.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+    }
+
+    public void increaseMovement(){
+        StartCoroutine(movementPowerUp());
+    }
+    public IEnumerator movementPowerUp()
+    {
+        speed += 10f;
+        Debug.Log(speed);
+        yield return new WaitForSeconds(6f);
+        speed -= 10;
+        Debug.Log(speed);
     }
 
     void FixedUpdate()
@@ -32,8 +45,8 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
-        float h = Input.GetAxisRaw("Horizontal") * moveForce;
-        float v = Input.GetAxisRaw("Vertical") * moveForce;
+        float h = Input.GetAxisRaw("Horizontal") * (moveForce + speed);
+        float v = Input.GetAxisRaw("Vertical") * (moveForce + speed);
         rgbd.AddForce(new Vector2(h, v));
 #endif
 #if UNITY_ANDROID
