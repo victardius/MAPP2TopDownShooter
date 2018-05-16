@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour {
     public Sprite handGun;
     public Sprite rifle;
     public Sprite shotgun;
+    public Sprite sniper;
     
 
     public static float bulletDamage;
@@ -99,31 +100,26 @@ public class Weapon : MonoBehaviour {
     void selectWeapon()
     {
         weaponChoice++;
-        if (weaponChoice > 3)
+        if (weaponChoice > 4)
             weaponChoice = 1;
 
-        if (weaponChoice == 1)
-        {
+        if (weaponChoice == 1){
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             sprite.sprite = handGun;
             fireRate = 1;
-        }
-            
-        else if (weaponChoice == 2)
-        {
+        }else if (weaponChoice == 2){
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             sprite.sprite = rifle;
             fireRate = 3;
-        }
-            
-        else if (weaponChoice == 3)
-        {
+        }else if (weaponChoice == 3){
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
             sprite.sprite = shotgun;
                 fireRate = 0.5f;
+        }else if(weaponChoice == 4){
+            bulletDamage = PlayerPrefs.GetFloat("sniperDamage", 20f);
+            sprite.sprite = sniper;
+            fireRate = 0.2f;
         }
-       
-
     }
 
     public void firePowerUp()

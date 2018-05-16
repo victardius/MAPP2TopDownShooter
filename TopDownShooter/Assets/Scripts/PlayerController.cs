@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator movementPowerUp()
     {
-        speed += 10f;
+        speed += 20f;
         Debug.Log(speed);
         yield return new WaitForSeconds(6f);
-        speed -= 10;
+        speed -= 20;
         Debug.Log(speed);
     }
 

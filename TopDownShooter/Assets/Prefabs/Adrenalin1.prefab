@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 60069423963455062}
   - component: {fileID: 114619881583797264}
   m_Layer: 0
-  m_Name: Adrenalin1
+  m_Name: HpTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  Player: {fileID: 0}
 --- !u!212 &212460417877411680
 SpriteRenderer:
   m_ObjectHideFlags: 1
