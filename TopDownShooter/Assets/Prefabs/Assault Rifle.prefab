@@ -137,7 +137,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -161,8 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45ff5b1feb25604bb48d164cf78a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 3
-  damage: 10
   pistol: {fileID: 8300000, guid: 5663166543ffaa34295549e36d773547, type: 3}
+  handGun: {fileID: 0}
+  rifle: {fileID: 0}
+  shotgun: {fileID: 0}
   bulletTrailPrefab: {fileID: 4766821845112474, guid: 1896dfac339ffdc4f9e973b644061fda,
     type: 2}

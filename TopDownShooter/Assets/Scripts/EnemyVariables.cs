@@ -78,9 +78,14 @@ public class EnemyVariables : MonoBehaviour {
         {
             Instantiate(powerUps[0], transform.position, Quaternion.identity);
         }
-        else if (i >= 7 && i < 9)
+        else if (i >= 8 && i < 9)
         {
             Instantiate(powerUps[1], transform.position, Quaternion.identity);
+
+        }
+        else if (i >= 7 && i < 8)
+        {
+            Instantiate(powerUps[2], transform.position, Quaternion.identity);
         }
         Debug.Log(transform.position);
         MonsterSpawn.numberOfMonsters--;

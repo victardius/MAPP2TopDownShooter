@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FireRatePU : MonoBehaviour {
 
+    public float fireRateBuff = 1;
+
     private GameObject player;
 
     private void Start()
@@ -14,7 +16,7 @@ public class FireRatePU : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player")) {
-            player.transform.Find("Gun").GetComponent<Weapon>().firePowerUp();
+            player.transform.Find("Gun").GetComponent<Weapon>().firePowerUp(fireRateBuff);
             DestroyObject(this.gameObject);
         }
     }

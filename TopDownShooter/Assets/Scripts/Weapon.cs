@@ -126,15 +126,15 @@ public class Weapon : MonoBehaviour {
 
     }
 
-    public void firePowerUp()
+    public void firePowerUp(float fireRateBuff)
     {
-        StartCoroutine(firePUHelpCode());
+        StartCoroutine(firePUHelpCode(fireRateBuff));
     }
-    public IEnumerator firePUHelpCode() {
-        fireBuff += 1;
+    public IEnumerator firePUHelpCode(float fireRateBuff) {
+        fireBuff += fireRateBuff;
         Debug.Log(fireBuff);
         yield return new WaitForSeconds(6f);
-        fireBuff -= 1;
+        fireBuff -= fireRateBuff;
         Debug.Log(fireBuff);
     }
 

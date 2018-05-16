@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114320862081162820}
   - component: {fileID: 58932746695545690}
   m_Layer: 0
-  m_Name: ObjectPlaceholder
+  m_Name: ClutterPlaceholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,6 +71,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  oildrum: {fileID: 1383841167039812, guid: c5c32c8508b71754299bcc3645820643, type: 2}
-  teslaCoil: {fileID: 1921677522711228, guid: 61791d26ee0f4354f861a5a2fc551b16, type: 2}
-  reactor: {fileID: 1815037704461726, guid: e152131ecdaed8c4e93b0a8bef499d26, type: 2}
+  oildrum: {fileID: 1404868171850766, guid: b19dbfef8301dae41a4c73427cfff313, type: 2}
+  teslaCoil: {fileID: 1876285167919262, guid: a10b65d98f081b3468470ab718ef4e8e, type: 2}
+  reactor: {fileID: 1501695351954742, guid: b9de90bf4e93b2943806affc9676fb6a, type: 2}
