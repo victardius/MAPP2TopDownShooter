@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float moveForce = 20;
     Rigidbody2D rgbd;
     private Animator anim;
-    private float speed = 0;
+    private float speedPU = 0;
 
     public static bool primaryShooting;
     public bool secondaryShooting;
@@ -27,11 +27,11 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator movementPowerUp()
     {
-        speed += 20f;
-        Debug.Log(speed);
+        speedPU += 20f;
+        Debug.Log(speedPU);
         yield return new WaitForSeconds(6f);
-        speed -= 20;
-        Debug.Log(speed);
+        speedPU -= 20;
+        Debug.Log(speedPU);
     }
 
     void FixedUpdate()
@@ -45,14 +45,14 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
-        float h = Input.GetAxisRaw("Horizontal") * (moveForce + speed);
-        float v = Input.GetAxisRaw("Vertical") * (moveForce + speed);
+        float h = Input.GetAxisRaw("Horizontal") * (moveForce + speedPU);
+        float v = Input.GetAxisRaw("Vertical") * (moveForce + speedPU);
         rgbd.AddForce(new Vector2(h, v));
 #endif
 #if UNITY_ANDROID
 
             Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
-                 CrossPlatformInputManager.GetAxis("Vertical")) * moveForce;
+                 CrossPlatformInputManager.GetAxis("Vertical")) * (moveForce + speedPU);
 
              Vector3 primaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_2"),
                  CrossPlatformInputManager.GetAxis("Vertical_2"), 4000);
