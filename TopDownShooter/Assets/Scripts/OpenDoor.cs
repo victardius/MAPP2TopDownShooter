@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour {
 
     private GameObject player;
-    public GameObject door;
+    private GameObject door;
 
     private void Start()
     {
@@ -19,5 +19,10 @@ public class OpenDoor : MonoBehaviour {
            door.GetComponent<LevelDoorScript>().openTheDoor();
             DestroyObject(this.gameObject);
         }
+    }
+
+    public void assignDoor(GameObject door)
+    {
+        this.door = door;
     }
 }
