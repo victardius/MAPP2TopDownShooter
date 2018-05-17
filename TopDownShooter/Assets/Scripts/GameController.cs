@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour {
         if (MonsterSpawn.monstersSpawned && MonsterSpawn.numberOfMonsters == 0)
         {
             levelEnd.gameObject.SetActive(true);
+            Currency.CurrencyValueMultiplier +=1;
             levelEnded();
         }
 
