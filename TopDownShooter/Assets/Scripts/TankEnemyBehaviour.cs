@@ -8,10 +8,11 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class TankEnemyBehaviour : MonoBehaviour {
 
-    public float speed, updateRate = 2.0f, nextWaypointDistance = 0.1f;
+    public float speed, updateRate = 2.0f, nextWaypointDistance = 0.1f, hitCooldownTime = 2.0f;
     //public int health;
     public Path path;
     public ForceMode2D fMode;
+    public int damage;
 
     [HideInInspector]
     public bool pathIsEnded = false;
@@ -23,9 +24,12 @@ public class TankEnemyBehaviour : MonoBehaviour {
     private Transform playerTarget;
     private GameObject player;
     private Animator anim;
+    private float hitCooldown;
 
 
     void Start () {
+
+        hitCooldown = hitCooldownTime;
 
         playerTarget = PlayerVariables.playerTarget;
         startSpeed = speed;
@@ -86,7 +90,10 @@ public class TankEnemyBehaviour : MonoBehaviour {
     }*/
     private void FixedUpdate()
     {
-        
+
+        if (hitCooldown > 0)
+            hitCooldown -= Time.deltaTime;
+
 
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
@@ -128,6 +135,12 @@ public class TankEnemyBehaviour : MonoBehaviour {
                 currentWaypoint++;
                 return;
             }
+        }
+
+        if (distance < 2.5 && hitCooldown <= 0 && !anim.GetBool("death"))
+        {
+            player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
+            hitCooldown = hitCooldownTime;
         }
 
     }
