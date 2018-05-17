@@ -98,8 +98,8 @@ public class MonsterSpawn : MonoBehaviour {
             else
             {
                 Instantiate(boss, spawnGate[0].position, Quaternion.identity);
-                if (numberOfMonsters == 0)
-                    monstersSpawned = true;
+                yield return new WaitUntil(() => numberOfMonsters == 0);
+                monstersSpawned = true;
             }
         }
     }

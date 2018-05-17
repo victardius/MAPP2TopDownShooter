@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
-    public GameObject player;
     public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
     public GameObject spawner, levelEndPanel, pauseScreen;
     public Button play;
@@ -15,9 +14,11 @@ public class GameController : MonoBehaviour {
     public static bool missionFailed = false;
 
     private int wave;
+    private GameObject player;
 
     private void Start()
     {
+        player = player = GameObject.Find("hitman1_gun");
         player.GetComponent<PlayerVariables>().LoadPlayer();
         Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
