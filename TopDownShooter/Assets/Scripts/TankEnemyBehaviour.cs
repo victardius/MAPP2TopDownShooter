@@ -56,7 +56,6 @@ public class TankEnemyBehaviour : MonoBehaviour {
 
     public void OnPathComplete(Path p)
     {
-        //Debug.Log("Got path, error? " + p.error);
         if (!p.error)
         {
             path = p;
@@ -73,21 +72,7 @@ public class TankEnemyBehaviour : MonoBehaviour {
         StartCoroutine(UpdatePath());
     }
 
-    /*public void takeDamage(int amount, Transform source)
-    {
-        health -= amount;
-        Vector3 dir = source.position - transform.position;
-
-        dir = -dir.normalized;
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * pushbackForce);
-
-        if (health <= 0)
-        {
-            MonsterSpawn.numberOfMonsters--;
-            DestroyObject(this.gameObject);
-        }
-
-    }*/
+ 
     private void FixedUpdate()
     {
 

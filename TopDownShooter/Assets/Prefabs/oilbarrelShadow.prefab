@@ -9,75 +9,56 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1383841167039812}
+  m_RootGameObject: {fileID: 1972208946688674}
   m_IsPrefabParent: 1
---- !u!1 &1383841167039812
+--- !u!1 &1972208946688674
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4035514116723512}
-  - component: {fileID: 212293725953179024}
-  - component: {fileID: 58977593851148166}
-  - component: {fileID: 114396272806777216}
-  m_Layer: 9
-  m_Name: oildrum
-  m_TagString: Objects
+  - component: {fileID: 4314446392961148}
+  - component: {fileID: 212709784249427378}
+  - component: {fileID: 114573022093517002}
+  m_Layer: 0
+  m_Name: oilbarrelShadow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4035514116723512
+--- !u!4 &4314446392961148
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383841167039812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_GameObject: {fileID: 1972208946688674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1, y: -0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58977593851148166
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383841167039812}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.01640588, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.018603
---- !u!114 &114396272806777216
+--- !u!114 &114573022093517002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383841167039812}
+  m_GameObject: {fileID: 1972208946688674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ced14ea423ba6647970e568fe775ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  uniqueID: 7068097615512480198
-  updateError: 1
-  checkTime: 0.2
---- !u!212 &212293725953179024
+  shadow: {fileID: 0}
+--- !u!212 &212709784249427378
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383841167039812}
+  m_GameObject: {fileID: 1972208946688674}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -106,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 474b24960d8948e43ae5e9828594df41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64308c7d04c33db46bbe4b35d417696c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

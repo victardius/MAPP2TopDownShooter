@@ -98,7 +98,7 @@ public class MonsterSpawn : MonoBehaviour {
             else
             {
                 Instantiate(boss, spawnGate[0].position, Quaternion.identity);
-                if (monsterCounter == 0)
+                if (numberOfMonsters == 0)
                     monstersSpawned = true;
             }
         }
