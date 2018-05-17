@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReactorExplosion : MonoBehaviour {
 
     public int damage = 20;
-
+    int i;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -16,7 +16,14 @@ public class ReactorExplosion : MonoBehaviour {
         {
             other.gameObject.GetComponent<PlayerVariables>().takeDamage(damage, transform);
         }
+        else if (other.tag == "Reactor")
+        {
+            Debug.Log("boom");
+            other.gameObject.GetComponent<Reactor>().explode();
+        }
     }
+
+    
 
     public void explosionTrigger()
     {
