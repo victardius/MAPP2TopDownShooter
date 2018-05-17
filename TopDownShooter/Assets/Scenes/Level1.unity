@@ -3678,6 +3678,14 @@ Prefab:
       propertyPath: shieldSlider
       value: 
       objectReference: {fileID: 119312572}
+    - target: {fileID: 4030262332254670, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4030262332254670, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.32
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 70914108379675690, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}

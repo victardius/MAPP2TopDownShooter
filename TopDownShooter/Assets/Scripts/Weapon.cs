@@ -41,6 +41,7 @@ public class Weapon : MonoBehaviour {
         {
             Debug.LogError("No firepoint");
         }
+        anim.SetInteger("weaponChoice", weaponChoice);
 		
 	}
 
@@ -66,11 +67,14 @@ public class Weapon : MonoBehaviour {
 #if UNITY_ANDROID
 
         
-            if (PlayerController.primaryShooting && Time.time > timeToFire)
+            if (PlayerController.primaryShooting)
             {
             anim.SetBool("shooting", true);
+            if (Time.time > timeToFire)
+            {
                 timeToFire = Time.time + 1 / (fireRate + fireBuff);
                 Shoot();
+            }
         }
         else
         {
@@ -100,13 +104,16 @@ public class Weapon : MonoBehaviour {
     {
         weaponChoice++;
         if (weaponChoice > 3)
+        {
             weaponChoice = 1;
+        }
 
         if (weaponChoice == 1)
         {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             sprite.sprite = handGun;
             fireRate = 1;
+            anim.SetInteger("weaponChoice", weaponChoice);
         }
             
         else if (weaponChoice == 2)
@@ -114,6 +121,7 @@ public class Weapon : MonoBehaviour {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             sprite.sprite = rifle;
             fireRate = 3;
+            anim.SetInteger("weaponChoice", weaponChoice);
         }
             
         else if (weaponChoice == 3)
@@ -121,6 +129,7 @@ public class Weapon : MonoBehaviour {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
             sprite.sprite = shotgun;
                 fireRate = 0.5f;
+            anim.SetInteger("weaponChoice", weaponChoice);
         }
        
 

@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4579871971751360}
-  - component: {fileID: 114320862081162820}
   - component: {fileID: 58932746695545690}
+  - component: {fileID: 114277367257836578}
   m_Layer: 0
   m_Name: ClutterPlaceholder
   m_TagString: Untagged
@@ -56,7 +56,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.6
---- !u!114 &114320862081162820
+--- !u!114 &114277367257836578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,13 +64,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1434491857853698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9834afd49e7c7ea468b401e15b03ad89, type: 3}
+  m_Script: {fileID: 11500000, guid: a0442ce33e2f31444b87e9606fb1abfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  oildrum: {fileID: 1404868171850766, guid: b19dbfef8301dae41a4c73427cfff313, type: 2}
-  teslaCoil: {fileID: 1876285167919262, guid: a10b65d98f081b3468470ab718ef4e8e, type: 2}
-  reactor: {fileID: 1501695351954742, guid: b9de90bf4e93b2943806affc9676fb6a, type: 2}
+  - {fileID: 1501695351954742, guid: b9de90bf4e93b2943806affc9676fb6a, type: 2}
+  - {fileID: 1876285167919262, guid: a10b65d98f081b3468470ab718ef4e8e, type: 2}
+  - {fileID: 1404868171850766, guid: b19dbfef8301dae41a4c73427cfff313, type: 2}
+  - {fileID: 1661977380906710, guid: d8f9ad8a94a97ca4c953c078686a99a4, type: 2}
