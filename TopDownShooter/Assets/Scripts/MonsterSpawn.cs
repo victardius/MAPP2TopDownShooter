@@ -97,8 +97,10 @@ public class MonsterSpawn : MonoBehaviour {
             }
             else
             {
+                yield return new WaitForSeconds(2.0f);
                 Instantiate(boss, spawnGate[0].position, Quaternion.identity);
                 yield return new WaitUntil(() => numberOfMonsters == 0);
+                yield return new WaitForSeconds(1.0f);
                 monstersSpawned = true;
             }
         }
