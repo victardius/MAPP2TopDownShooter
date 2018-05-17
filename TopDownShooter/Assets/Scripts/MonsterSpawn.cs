@@ -9,6 +9,7 @@ public class MonsterSpawn : MonoBehaviour {
     public int[] waveSize;
     public GameObject[] monsterType;
     public int monsterLimit, nextWaveLimit;
+    public GameObject boss;
 
     [HideInInspector]
     public static int numberOfMonsters;
@@ -96,7 +97,9 @@ public class MonsterSpawn : MonoBehaviour {
             }
             else
             {
-                monstersSpawned = true;
+                Instantiate(boss, spawnGate[0].position, Quaternion.identity);
+                if (monsterCounter == 0)
+                    monstersSpawned = true;
             }
         }
     }

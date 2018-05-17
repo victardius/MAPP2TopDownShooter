@@ -2094,6 +2094,12 @@ Prefab:
       propertyPath: spawnRate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1764495841904254, guid: 07406792dbb41cd438fb1c501e023362,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a3e667cfd397446a401ebe8a202330, type: 2}
   m_IsPrefabParent: 0

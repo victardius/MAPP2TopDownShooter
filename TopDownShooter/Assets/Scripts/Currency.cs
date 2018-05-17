@@ -33,11 +33,11 @@ public class Currency : MonoBehaviour
         PlayerPrefs.SetFloat("Currency", (PlayerPrefs.GetFloat("Currency", 0f) + 2f * CurrencyValueMultiplier));
     }
 
-    public void EndGame()
+    /*public void EndGame()
     {
         if (GameInstance.SaveGame == true)
         {
             PlayerPrefs.SetFloat("CurrencyValueMultiplier", CurrencyValueMultiplier);
         } 
-    }
+    }*/
 }
