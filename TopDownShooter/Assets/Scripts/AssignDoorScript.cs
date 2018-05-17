@@ -13,11 +13,7 @@ public class AssignDoorScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        for(GameObject g in middleTrigger)
-        {
-            middleTrigger.GetComponent<OpenDoor>().assignDoor(mainDoors);
-            mainDoors.
-        }
+
 		
 	}
 	
