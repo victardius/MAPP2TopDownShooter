@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4034612480703574}
   - component: {fileID: 212668025036253348}
-  - component: {fileID: 114360918584887992}
   - component: {fileID: 114278070648276220}
   - component: {fileID: 58930170029218824}
   - component: {fileID: 58619876772142662}
@@ -45,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 1764495841904254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -226,27 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b5c0a7b845532449574b13378ac7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 800
   updateRate: 2
   nextWaypointDistance: 1
+  hitCooldownTime: 2
   fMode: 0
-  pathIsEnded: 0
---- !u!114 &114360918584887992
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1764495841904254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c4bb000a00c45d49a8d767d8145e383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1000
-  chargeSpeed: 1800
-  updateRate: 2
-  nextWaypointDistance: 1
-  fMode: 0
+  damage: 30
   pathIsEnded: 0
 --- !u!114 &114540202130218616
 MonoBehaviour:
@@ -301,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 60
-  pushbackForce: 600
+  pushbackForce: 0
   hitCooldownTime: 2
   damage: 10
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
