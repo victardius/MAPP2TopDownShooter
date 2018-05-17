@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Currency : MonoBehaviour
 {
-
+    public static Currency CurrencyControl;
     bool loadingGame = false;
 
     public static float CurrencyValueMultiplier = 1f;
@@ -12,8 +12,19 @@ public class Currency : MonoBehaviour
     {
         PlayerPrefs.SetFloat("Currency", 0f);
     }
+    public void Awake()
+    {
+        if (CurrencyControl == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            CurrencyControl = this;
+        }
+        else if (CurrencyControl != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
-    // Use this for initialization
     void Start()
     {
         if (loadingGame == true)
@@ -23,7 +34,7 @@ public class Currency : MonoBehaviour
         CurrencyValueMultiplier = 1f;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -33,11 +44,11 @@ public class Currency : MonoBehaviour
         PlayerPrefs.SetFloat("Currency", (PlayerPrefs.GetFloat("Currency", 0f) + 2f * CurrencyValueMultiplier));
     }
 
-    public void EndGame()
+    /*public void EndGame()
     {
         if (GameInstance.SaveGame == true)
         {
             PlayerPrefs.SetFloat("CurrencyValueMultiplier", CurrencyValueMultiplier);
         } 
-    }
+    }*/
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
-
+    public GameObject player;
     public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
     public GameObject spawner, levelEndPanel, pauseScreen;
     public Button play;
@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour {
 
     private void Start()
     {
+        player.GetComponent<PlayerVariables>().LoadPlayer();
         Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
         waveAnnouncement.gameObject.SetActive(false);
@@ -58,6 +59,7 @@ public class GameController : MonoBehaviour {
     {
         levelEndPanel.gameObject.SetActive(true);
         Time.timeScale = 0f;
+        player.GetComponent<PlayerVariables>().SavePlayer();
     }
 
     public void changeLevel(int n)
