@@ -128,7 +128,7 @@ public class Weapon : MonoBehaviour {
         if (weaponChoice == 1)
         {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
-            sprite.sprite = handGun;
+            //sprite.sprite = handGun;
             fireRate = 1.4f;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
@@ -136,7 +136,7 @@ public class Weapon : MonoBehaviour {
         else if (weaponChoice == 2)
         {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
-            sprite.sprite = rifle;
+            //sprite.sprite = rifle;
             fireRate = 3.4f;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
@@ -144,8 +144,8 @@ public class Weapon : MonoBehaviour {
         else if (weaponChoice == 3)
         {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
-            sprite.sprite = shotgun;
-                fireRate = 0.7f;
+            //sprite.sprite = shotgun;
+            fireRate = 0.7f;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
        
