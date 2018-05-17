@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 198446741009214984}
   - component: {fileID: 82975826049562316}
   - component: {fileID: 114952104516030726}
+  - component: {fileID: 50378188705510046}
   m_Layer: 9
   m_Name: Reactor
   m_TagString: Reactor
@@ -108,6 +109,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50378188705510046
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815037704461726}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!58 &58275235226221614
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -331,6 +352,7 @@ MonoBehaviour:
   disabledSprite: {fileID: 21300000, guid: 71acc0384adbbda4b8be8129c22ec08f, type: 3}
   explosionCollider: {fileID: 1801735247381078}
   explosionEffect: {fileID: 1899114343890376}
+  explosionSound: {fileID: 8300000, guid: b6856ce57db219549aafa4c2f5c63730, type: 3}
 --- !u!198 &198274067865208966
 ParticleSystem:
   m_ObjectHideFlags: 1
