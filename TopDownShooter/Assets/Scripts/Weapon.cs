@@ -14,9 +14,14 @@ public class Weapon : MonoBehaviour {
     public static float bulletDamage;
 
     public Transform bulletTrailPrefab;
+    public Transform shotgunBullets;
 
     float timeToFire = 0;
     Transform firePoint;
+    Transform firePointShotgun1;
+    Transform firePointShotgun2;
+    Transform firePointShotgun3;
+    Transform firePointShotgun4;
 
     private float fireBuff = 0;
 
@@ -36,6 +41,10 @@ public class Weapon : MonoBehaviour {
         source = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("FirePoint");
+        firePointShotgun1 = transform.Find("FirePointShotgun1");
+        firePointShotgun2 = transform.Find("FirePointShotgun2");
+        firePointShotgun3 = transform.Find("FirePointShotgun3");
+        firePointShotgun4 = transform.Find("FirePointShotgun4");
         anim = GetComponentInParent<Animator>();
         if (firePoint == null)
         {
@@ -91,8 +100,16 @@ public class Weapon : MonoBehaviour {
         //Vector2 fireTargetPosition = new Vector2(firePointDirection.position.x, firePointDirection.position.y);
         //Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         //RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 100, whatToHit);
-        Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
-        /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
+        if (weaponChoice == 3)
+        {
+            Instantiate(shotgunBullets, firePoint.position, firePoint.rotation);
+            Instantiate(shotgunBullets, firePointShotgun1.position, firePointShotgun1.rotation);
+            Instantiate(shotgunBullets, firePointShotgun2.position, firePointShotgun2.rotation);
+            Instantiate(shotgunBullets, firePointShotgun3.position, firePointShotgun3.rotation);
+            Instantiate(shotgunBullets, firePointShotgun4.position, firePointShotgun4.rotation);
+        }
+        else
+            Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);        /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
         if (hit.collider != null)
         {
             Debug.DrawLine(firePointPosition, hit.point, Color.red);
@@ -111,24 +128,24 @@ public class Weapon : MonoBehaviour {
         if (weaponChoice == 1)
         {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
-            sprite.sprite = handGun;
-            fireRate = 1;
+            //sprite.sprite = handGun;
+            fireRate = 1.4f;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
             
         else if (weaponChoice == 2)
         {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
-            sprite.sprite = rifle;
-            fireRate = 3;
+            //sprite.sprite = rifle;
+            fireRate = 3.4f;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
             
         else if (weaponChoice == 3)
         {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
-            sprite.sprite = shotgun;
-                fireRate = 0.5f;
+            //sprite.sprite = shotgun;
+            fireRate = 0.7f;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
        
