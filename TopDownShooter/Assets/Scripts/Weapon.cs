@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour {
     Transform firePointShotgun2;
     Transform firePointShotgun3;
     Transform firePointShotgun4;
+    Transform firePointPistol;
 
     private float fireBuff = 0;
 
@@ -43,6 +44,7 @@ public class Weapon : MonoBehaviour {
         source = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("FirePoint");
+        firePointPistol = transform.Find("FirePointPistol");
         firePointShotgun1 = transform.Find("FirePointShotgun1");
         firePointShotgun2 = transform.Find("FirePointShotgun2");
         firePointShotgun3 = transform.Find("FirePointShotgun3");
@@ -113,7 +115,7 @@ public class Weapon : MonoBehaviour {
         else if (weaponChoice == 1)
         {
             source.PlayOneShot(pistol, vol);
-            Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
+            Instantiate(bulletTrailPrefab, firePointPistol.position, firePointPistol.rotation);
         }
         else
         {
