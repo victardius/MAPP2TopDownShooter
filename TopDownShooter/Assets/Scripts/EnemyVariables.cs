@@ -52,7 +52,7 @@ public class EnemyVariables : MonoBehaviour {
         {
             vol = Random.Range(volLowRange, volHighRange);
 
-            aSource.PlayOneShot(damageSound, 1);
+            aSource.PlayOneShot(damageSound, 0.5f);
 
             health -= amount;
             Vector3 dir = source.position - transform.position;

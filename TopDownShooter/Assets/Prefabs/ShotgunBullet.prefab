@@ -152,7 +152,7 @@ MonoBehaviour:
     m_Bits: 9728
   moveSpeed: 30
   target: {fileID: 4703654031384726}
-  timeToLive: 0.5
+  timeToLive: 0.2
 --- !u!212 &212304544965702794
 SpriteRenderer:
   m_ObjectHideFlags: 1

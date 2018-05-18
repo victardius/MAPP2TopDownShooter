@@ -156,7 +156,7 @@ public class Weapon : MonoBehaviour {
             
         else if (weaponChoice == 3)
         {
-            bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 15f);
+            bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 12f);
             //sprite.sprite = shotgun;
             fireRate = 0.7f;
             anim.SetInteger("weaponChoice", weaponChoice);

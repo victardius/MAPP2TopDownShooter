@@ -147,13 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb9e9e7e5bd17c49b22e83210417bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
   whatToHit:
     serializedVersion: 2
     m_Bits: 9728
   moveSpeed: 30
   target: {fileID: 4703654031384726}
-  timeToLive: 3
+  timeToLive: 1
 --- !u!212 &212304544965702794
 SpriteRenderer:
   m_ObjectHideFlags: 1
