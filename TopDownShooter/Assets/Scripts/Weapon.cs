@@ -102,6 +102,7 @@ public class Weapon : MonoBehaviour {
         //RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 100, whatToHit);
         if (weaponChoice == 3)
         {
+            Debug.Log(weaponChoice);
             Instantiate(shotgunBullets, firePoint.position, firePoint.rotation);
             Instantiate(shotgunBullets, firePointShotgun1.position, firePointShotgun1.rotation);
             Instantiate(shotgunBullets, firePointShotgun2.position, firePointShotgun2.rotation);
@@ -109,6 +110,7 @@ public class Weapon : MonoBehaviour {
             Instantiate(shotgunBullets, firePointShotgun4.position, firePointShotgun4.rotation);
         }
         else
+            Debug.Log(weaponChoice);
             Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);        /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
         if (hit.collider != null)
         {
@@ -117,7 +119,7 @@ public class Weapon : MonoBehaviour {
         }*/
     }
 
-    void selectWeapon()
+    public void selectWeapon()
     {
         weaponChoice++;
         if (weaponChoice > 3)
