@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MMButton : MonoBehaviour {
 
-    public GameObject htpPanel;
-    public GameObject htpButton;
+    public GameObject windowFrame;
+    public UnityEngine.UI.Text htpText;
+    public GameObject optionGrp;
+    public GameObject htpGrp;
+    public GameObject nextButton;
+    int next = 0;
+
+
 
     public void playGame()
     {
@@ -17,6 +23,8 @@ public class MMButton : MonoBehaviour {
 
     public void optionPanel()
     {
+        windowFrame.SetActive(true);
+        optionGrp.SetActive(true);
         //Visa vad för optuions som spelaren kan ändra
     }
 
@@ -29,14 +37,34 @@ public class MMButton : MonoBehaviour {
     public void howToPlay()
     {
         //Visar upp ett fönster som säger hur man spelare spelet
-        htpPanel.SetActive(true);
+        windowFrame.SetActive(true);
+        htpGrp.SetActive(true);
+        htpText.text = "Controll your characters movement by using the joystick to the left. Aim your gun with the joystick to the left and your gun will fire as long its held down.";
+    }
+    
+    public void nextSlide()
+    {
+        if (next == 0)
+        {
+            htpText.text = "Kill enemies with the help of your gun. Killing an enemy gives you currency that can be used to buy uppgrades and new weapons for your character.";
+            next++;
+        }else if(next == 1)
+        {
+            htpText.text = "When you have fully uppgraded your character you can prestige to reset all stats to recive an upgrade in your rank. You will however keep the weapons.";
+            next++;
+            nextButton.gameObject.SetActive(false);
+        }
+
     }
 
-    public void closeHowToPlay()
+    public void closeFrame()
     {
         //Stänger fönstret som visar hhur man spelar
-        htpPanel.SetActive(false);
-        htpButton.SetActive(false);
+        windowFrame.SetActive(false);
+        optionGrp.SetActive(false);
+        nextButton.SetActive(true);
+        next = 0;
+        htpGrp.SetActive(false);
     }
 
 
