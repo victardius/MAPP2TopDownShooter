@@ -38,7 +38,7 @@ public class EnemyVariables : MonoBehaviour {
 
         distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if  (distance < 1.7 && hitCooldown <= 0 && !anim.GetBool("death"))
+        if  (distance < 2.3 && hitCooldown <= 0 && !anim.GetBool("death"))
         {
             player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
             hitCooldown = hitCooldownTime;

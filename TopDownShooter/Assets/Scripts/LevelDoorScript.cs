@@ -10,18 +10,13 @@ public class LevelDoorScript : MonoBehaviour {
     private BoxCollider2D collider;
 
 
-
-	// Use this for initialization
+    
 	void Start () {
-        collider = lockedDoor.GetComponent<BoxCollider2D>();
+        collider = GetComponentInChildren<BoxCollider2D>();
         openDoor.SetActive(false);
         open = false;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void openTheDoor()
     {
@@ -29,8 +24,13 @@ public class LevelDoorScript : MonoBehaviour {
         {
             lockedDoor.SetActive(false);
             openDoor.SetActive(true);
-            collider.enabled = !collider.enabled;
+            //collider.enabled = !collider.enabled;
             open = true;
         }
+    }
+
+    public bool getOpen()
+    {
+        return open;
     }
 }

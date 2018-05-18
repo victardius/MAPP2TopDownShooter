@@ -10678,7 +10678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &895550698
 Transform:
   m_ObjectHideFlags: 0
@@ -13679,6 +13679,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1129564162}
+  - component: {fileID: 1129564163}
   m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
@@ -13720,6 +13721,38 @@ Transform:
   m_Father: {fileID: 455270691}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129564163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129564161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ec896a054d9af4ab6e003772719ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doors:
+  - {fileID: 1749398989}
+  - {fileID: 1450192732}
+  - {fileID: 1563438323}
+  - {fileID: 511355682}
+  - {fileID: 1347705186}
+  - {fileID: 620264244}
+  - {fileID: 2123844169}
+  - {fileID: 468378667}
+  - {fileID: 698804522}
+  - {fileID: 561047333}
+  - {fileID: 554702775}
+  - {fileID: 1867318523}
+  - {fileID: 691041672}
+  - {fileID: 1132183137}
+  - {fileID: 2027301078}
+  - {fileID: 261659501}
+  - {fileID: 26925502}
+  - {fileID: 757567380}
+  - {fileID: 851287257}
+  - {fileID: 1540957970}
 --- !u!1 &1130193553
 GameObject:
   m_ObjectHideFlags: 0
