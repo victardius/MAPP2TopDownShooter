@@ -20,12 +20,10 @@ public class LeadDoorOpener : MonoBehaviour {
             while (!helpIter)
             {
                 rand = Random.Range(0, doors.Length - 1);
-                Debug.Log(rand);
                 if (!doors[rand].GetComponent<LevelDoorScript>().getOpen())
                 {
                     doors[rand].GetComponent<LevelDoorScript>().openTheDoor();
-
-                    Debug.Log(rand);
+                    
                     helpIter = true;
                 }
             }
