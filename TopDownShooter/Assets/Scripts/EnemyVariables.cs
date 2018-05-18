@@ -8,6 +8,7 @@ public class EnemyVariables : MonoBehaviour {
     public float pushbackForce, hitCooldownTime = 1.0f;
     public int damage;
     public AudioClip damageSound;
+    public AudioClip deathSound;
     public GameObject player;
     public GameObject[] powerUps;
     
@@ -73,6 +74,7 @@ public class EnemyVariables : MonoBehaviour {
 
     IEnumerator death()
     {
+        aSource.PlayOneShot(deathSound, 1);
         int i = (int)(Random.Range(0.0f, 1.0f) * 10);
         if (i >= 9)
         {
@@ -87,6 +89,7 @@ public class EnemyVariables : MonoBehaviour {
         {
             Instantiate(powerUps[2], transform.position, Quaternion.identity);
         }
+        
         Debug.Log(transform.position);
         MonsterSpawn.numberOfMonsters--;
         GetComponent<CircleCollider2D>().enabled = false;

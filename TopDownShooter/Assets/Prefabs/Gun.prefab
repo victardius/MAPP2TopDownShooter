@@ -109,7 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45ff5b1feb25604bb48d164cf78a9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistol: {fileID: 0}
+  pistol: {fileID: 8300000, guid: 14a51a52d95d44449a47d5dfbcbb3c5c, type: 3}
+  rifleBlast: {fileID: 8300000, guid: 0f4db8127f73baf44a18fef4f1a4099e, type: 3}
+  shotgunBlast: {fileID: 8300000, guid: 57a70672beb5356429442ff45b1db090, type: 3}
   handGun: {fileID: 0}
   rifle: {fileID: 0}
   shotgun: {fileID: 0}

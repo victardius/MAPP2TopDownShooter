@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556998051169266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.91, y: 3.91, z: 0}
+  m_LocalPosition: {x: -4.06, y: 1.13, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children:
   - {fileID: 4795617976145652}
@@ -502,6 +502,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pistol: {fileID: 8300000, guid: 14a51a52d95d44449a47d5dfbcbb3c5c, type: 3}
+  rifleBlast: {fileID: 8300000, guid: 0f4db8127f73baf44a18fef4f1a4099e, type: 3}
+  shotgunBlast: {fileID: 8300000, guid: 57a70672beb5356429442ff45b1db090, type: 3}
   handGun: {fileID: 0}
   rifle: {fileID: 0}
   shotgun: {fileID: 0}
