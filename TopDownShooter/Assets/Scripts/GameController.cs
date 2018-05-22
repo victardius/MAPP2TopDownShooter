@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
-    public GameObject spawner, levelEndPanel, pauseScreen;
+    public GameObject spawner, levelEndPanel, completedLevelPanel, pauseScreen;
     public Button play;
     public Sprite pausedImage, unpausedImage;
     public GameObject spawn;
@@ -47,6 +47,7 @@ public class GameController : MonoBehaviour {
         gameOver.gameObject.SetActive(false);
         levelEndPanel.gameObject.SetActive(false);
         pauseScreen.gameObject.SetActive(false);
+        completedLevelPanel.gameObject.SetActive(false);
         wave = 0;
         StartCoroutine(waveControl());
         missionFailed = false;
@@ -57,6 +58,7 @@ public class GameController : MonoBehaviour {
         
         if (MonsterSpawn.monstersSpawned && MonsterSpawn.numberOfMonsters == 0)
         {
+            completedLevelPanel.gameObject.SetActive(true);
             levelEnd.gameObject.SetActive(true);
             Currency.currencyValueMultiplier +=1;
             levelEnded();
@@ -73,6 +75,7 @@ public class GameController : MonoBehaviour {
         if (missionFailed)
         {
             gameOver.gameObject.SetActive(true);
+            levelEndPanel.gameObject.SetActive(true);
             levelEnded();
         }
 
@@ -80,7 +83,7 @@ public class GameController : MonoBehaviour {
 
     public void levelEnded()
     {
-        levelEndPanel.gameObject.SetActive(true);
+        
         Time.timeScale = 0f;
        
     }

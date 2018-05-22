@@ -9,7 +9,6 @@ public class EnemyVariables : MonoBehaviour {
     public int damage;
     public AudioClip damageSound;
     public AudioClip deathSound;
-    public GameObject player;
     public GameObject[] powerUps;
     
     private float volLowRange = 0.5f;
@@ -19,6 +18,7 @@ public class EnemyVariables : MonoBehaviour {
     private float distance;
     private AudioSource aSource;
     private Animator anim;
+    private GameObject player;
 
     void Start ()
     {
@@ -37,8 +37,8 @@ public class EnemyVariables : MonoBehaviour {
             hitCooldown -= Time.deltaTime;
 
         distance = Vector3.Distance(transform.position, player.transform.position);
-
-        if  (distance < 2.3 && hitCooldown <= 0 && !anim.GetBool("death"))
+        
+        if  (distance < 3 && hitCooldown <= 0 && !anim.GetBool("death"))
         {
             player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
             hitCooldown = hitCooldownTime;

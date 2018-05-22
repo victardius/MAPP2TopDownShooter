@@ -794,10 +794,12 @@ MonoBehaviour:
   gameOver: {fileID: 1512754446}
   spawner: {fileID: 1512278541}
   levelEndPanel: {fileID: 465895825}
+  completedLevelPanel: {fileID: 465895825}
   pauseScreen: {fileID: 1028508108}
   play: {fileID: 1047163916}
   pausedImage: {fileID: 21300000, guid: 70155928b5103ec4c832d4825fdea345, type: 3}
   unpausedImage: {fileID: 21300000, guid: ba67c9bf4fe0f4946b785814dbcea29a, type: 3}
+  spawn: {fileID: 0}
 --- !u!4 &62308044
 Transform:
   m_ObjectHideFlags: 0
@@ -9577,6 +9579,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114108156376169244, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 62308043}
+    - target: {fileID: 114108156376169244, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: changeLevel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
   m_IsPrefabParent: 0
@@ -13063,11 +13075,21 @@ Prefab:
         type: 2}
       propertyPath: healthSlider
       value: 
-      objectReference: {fileID: 1831185212}
+      objectReference: {fileID: 0}
     - target: {fileID: 114319515705708604, guid: c1ed3078a0dd8014081c51c82855849d,
         type: 2}
       propertyPath: shieldSlider
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 224936019070076900, guid: c1ed3078a0dd8014081c51c82855849d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224896852701090240, guid: c1ed3078a0dd8014081c51c82855849d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
@@ -20287,12 +20309,6 @@ Transform:
   m_Father: {fileID: 1869680419}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1831185212 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114869226964908164, guid: 1afc255753b588641b5e0b2882882117,
-    type: 2}
-  m_PrefabInternal: {fileID: 808725767}
-  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1840940807
 Prefab:
   m_ObjectHideFlags: 0

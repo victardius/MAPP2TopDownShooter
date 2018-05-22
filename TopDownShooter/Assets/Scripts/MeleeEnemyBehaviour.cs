@@ -63,7 +63,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     IEnumerator UpdatePath()
     {
 
-        seeker.StartPath(transform.position, playerTarget.position, OnPathComplete);
+        seeker.StartPath(transform.position, player.transform.position, OnPathComplete);
 
         yield return new WaitForSeconds(1.0f / updateRate);
         StartCoroutine(UpdatePath());
@@ -88,7 +88,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
     {
         
 
-        distance = Vector3.Distance(transform.position, playerTarget.position);
+        distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (distance < 5)
         {
@@ -101,7 +101,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
             updateRate = updateRateStart;
         }
 
-        var lookDir = playerTarget.position - transform.position;
+        var lookDir = player.transform.position - transform.position;
         var angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         if (!anim.GetBool("death"))
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -123,8 +123,8 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
-
-            if (distance > 2 && !anim.GetBool("death"))
+            Debug.Log(distance);
+            if (distance > 3 && !anim.GetBool("death"))
                 rb.AddForce(dir, fMode);
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
