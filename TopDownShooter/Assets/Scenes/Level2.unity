@@ -6417,6 +6417,11 @@ Prefab:
       propertyPath: spawnGate.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4700334638187786, guid: 35a3e667cfd397446a401ebe8a202330, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6518,7 +6523,187 @@ Prefab:
         type: 2}
       propertyPath: boss
       value: 
+      objectReference: {fileID: 1764495841904254, guid: 6c678af0bc88b034b92cb122652024ac,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[2]
+      value: 
       objectReference: {fileID: 1764495841904254, guid: 07406792dbb41cd438fb1c501e023362,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[3]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[4]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[5]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[6]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[7]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[8]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[9]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[10]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[11]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[12]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[13]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[14]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[15]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[16]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[17]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[18]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[19]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[20]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[21]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[22]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[23]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[24]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[25]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[26]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[27]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[28]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[29]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[30]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
+        type: 2}
+    - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
+        type: 2}
+      propertyPath: monsterType.Array.data[31]
+      value: 
+      objectReference: {fileID: 1253514339957420, guid: fce3f64d82e82844690c7987c5cb0835,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35a3e667cfd397446a401ebe8a202330, type: 2}
@@ -9365,7 +9550,7 @@ Prefab:
     - target: {fileID: 224060346805905138, guid: 1afc255753b588641b5e0b2882882117,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.8999634
+      value: -0.89990234
       objectReference: {fileID: 0}
     - target: {fileID: 224060346805905138, guid: 1afc255753b588641b5e0b2882882117,
         type: 2}
@@ -9390,7 +9575,7 @@ Prefab:
     - target: {fileID: 114369257687358604, guid: 1afc255753b588641b5e0b2882882117,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
