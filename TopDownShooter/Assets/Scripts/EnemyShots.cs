@@ -19,7 +19,7 @@ public class EnemyShots : MonoBehaviour {
 
     private void Start()
     {
-        target = PlayerVariables.playerTarget;
+        target = GameObject.Find("hitman1_gun").transform;
         rgbd = this.gameObject.GetComponent<Rigidbody2D>();
         firePoint = transform.Find("FirePoint");
         firePointDirection = transform.Find("FirePointDirection");

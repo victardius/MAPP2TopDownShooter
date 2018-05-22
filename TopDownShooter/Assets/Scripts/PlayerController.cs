@@ -2,21 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class PlayerController : MonoBehaviour
 {
-
+    private static PlayerController control;
     public float moveForce = 20;
     Rigidbody2D rgbd;
     private Animator anim;
     private float speedPU = 0;
-
+    private int health;
+    private int shield;
     public static bool primaryShooting;
     public bool secondaryShooting;
+    public GameObject player;
 
-    void Start()
+    private void Awake()
     {
-
+        if (control == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            control = this;
+        }
+        else if(control != null)
+        {
+            Destroy(gameObject);
+        }
+        player = GameObject.Find("hitman1_gun");
+    }
+void Start()
+    {
+       
         rgbd = this.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -83,4 +101,51 @@ public class PlayerController : MonoBehaviour
 #endif
 
     }
+    public void SavePlayer()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/Stats.dat");
+        Stats stats = new Stats(health, shield);
+        stats.health = player.GetComponent<PlayerVariables>().health;
+        stats.shield = player.GetComponent<PlayerVariables>().shield;
+        bf.Serialize(file, stats);
+        file.Close();
+        Debug.Log("Saving");
+    }
+    public void LoadPlayer()
+    {
+        if (File.Exists(Application.persistentDataPath + "/Stats.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/Stats.dat", FileMode.Open);
+            Stats stats = (Stats)bf.Deserialize(file);
+            file.Close();
+            player.GetComponent<PlayerVariables>().health = stats.health;
+            player.GetComponent<PlayerVariables>().shield = stats.shield;
+            
+            Debug.Log("Loading");
+        }
+    }
+}
+
+[Serializable]
+class Stats
+{
+    public int health;
+    public int shield;
+
+    public Stats(int health, int shield)
+    {
+        this.health = health;
+        this.shield = shield;
+    }
+    public int getHealth()
+    {
+        return health;
+    }
+    public int getShield()
+    {
+        return shield;
+    }
+
 }

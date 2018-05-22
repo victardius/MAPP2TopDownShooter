@@ -27,7 +27,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
 
     void Start () {
 
-        playerTarget = PlayerVariables.playerTarget;
+        playerTarget = GameObject.Find("hitman1_gun").transform;
         startSpeed = speed;
         MonsterSpawn.numberOfMonsters++;
         updateRateStart = updateRate;

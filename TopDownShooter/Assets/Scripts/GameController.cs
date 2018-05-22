@@ -4,22 +4,40 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class GameController : MonoBehaviour {
     public Text amountOfEnemies, levelEnd, waveAnnouncement, gameOver;
     public GameObject spawner, levelEndPanel, pauseScreen;
     public Button play;
     public Sprite pausedImage, unpausedImage;
-
+    private static GameController control;
     [HideInInspector]
     public static bool missionFailed = false;
 
     private int wave;
-    private GameObject player;
+    public GameObject player;
+    
+
+    /*private void Awake()
+    {
+        
+        if (control == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            control = this;
+        }
+        else if (control != null)
+        {
+            Destroy(gameObject);
+        }
+        
+    }*/
 
     private void Start()
     {
-        player = player = GameObject.Find("hitman1_gun");
-        player.GetComponent<PlayerVariables>().LoadPlayer();
+        
+        player = GameObject.Find("hitman1_gun");
+        
         Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
         waveAnnouncement.gameObject.SetActive(false);
@@ -33,6 +51,7 @@ public class GameController : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        
         if (MonsterSpawn.monstersSpawned && MonsterSpawn.numberOfMonsters == 0)
         {
             levelEnd.gameObject.SetActive(true);
@@ -59,8 +78,9 @@ public class GameController : MonoBehaviour {
     public void levelEnded()
     {
         levelEndPanel.gameObject.SetActive(true);
+        player.GetComponent<PlayerController>().SavePlayer();
         Time.timeScale = 0f;
-        player.GetComponent<PlayerVariables>().SavePlayer();
+       
     }
 
     public void changeLevel(int n)
@@ -107,5 +127,5 @@ public class GameController : MonoBehaviour {
             pauseContinueGame();
         }
     }
-
+   
 }

@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour {
         
 	// Use this for initialization
 	void Start () {
-        target = player.transform; //GameObject.Find ("").transform;
+        target =GameObject.Find ("hitman1_gun").transform;
 		
 	}
 	

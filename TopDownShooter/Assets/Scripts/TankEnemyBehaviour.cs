@@ -31,7 +31,7 @@ public class TankEnemyBehaviour : MonoBehaviour {
 
         hitCooldown = hitCooldownTime;
 
-        playerTarget = PlayerVariables.playerTarget;
+        playerTarget = GameObject.Find("hitman1_gun").transform;
         startSpeed = speed;
         MonsterSpawn.numberOfMonsters++;
         updateRateStart = updateRate;
