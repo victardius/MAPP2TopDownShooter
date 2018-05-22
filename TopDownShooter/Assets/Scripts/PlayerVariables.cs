@@ -62,8 +62,10 @@ public class PlayerVariables : MonoBehaviour
 
     void Update()
     {
-        
+        if(healthSlider != null)
         healthSlider.value = health;
+
+        if(shieldSlider != null)
         shieldSlider.value = shield;
 
         if (health <= 0)
