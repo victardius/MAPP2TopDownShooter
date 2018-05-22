@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour {
     public static bool missionFailed = false;
 
     private int wave;
-    public GameObject player;
+    private GameObject player;
     
 
     /*private void Awake()
