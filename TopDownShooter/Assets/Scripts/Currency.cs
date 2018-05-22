@@ -6,10 +6,12 @@ public class Currency : MonoBehaviour
 {
     public static Currency CurrencyControl;
     bool loadingGame = false;
+    public static int credits;
 
-    public static float CurrencyValueMultiplier = 1f;
+    public static float currencyValueMultiplier = 1f;
     public void StartCurrency()
     {
+        credits = 0;
         PlayerPrefs.SetFloat("Currency", 0f);
     }
     public void Awake()
@@ -29,9 +31,10 @@ public class Currency : MonoBehaviour
     {
         if (loadingGame == true)
         {
-            CurrencyValueMultiplier = PlayerPrefs.GetFloat("CurrencyValue");
+           
+            currencyValueMultiplier = PlayerPrefs.GetFloat("CurrencyValue");
         }
-        CurrencyValueMultiplier = 1f;
+        currencyValueMultiplier = 1f;
     }
 
     
@@ -41,7 +44,7 @@ public class Currency : MonoBehaviour
     }
     public void GainCurrency()
     {
-        PlayerPrefs.SetFloat("Currency", (PlayerPrefs.GetFloat("Currency", 0f) + 2f * CurrencyValueMultiplier));
+        PlayerPrefs.SetFloat("Currency", (PlayerPrefs.GetFloat("Currency", 0f) + 2f * currencyValueMultiplier));
     }
 
     /*public void EndGame()

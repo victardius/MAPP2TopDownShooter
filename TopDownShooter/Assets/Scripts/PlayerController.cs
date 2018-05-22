@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float speedPU = 0;
     private int health;
     private int shield;
+    private int credits;
+    private float currencyValueMultiplier;
     public static bool primaryShooting;
     public bool secondaryShooting;
     public GameObject player;
@@ -105,11 +107,10 @@ void Start()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/Stats.dat");
-        Stats stats = new Stats(health, shield);
-        if (player.GetComponent<PlayerVariables>().health < 20)
-        {
-            player.GetComponent<PlayerVariables>().health = 50;
-        }
+        Stats stats = new Stats(health, shield, credits, currencyValueMultiplier);
+       
+        stats.credits = Currency.credits;
+        stats.currencyValueMultiplier = Currency.currencyValueMultiplier;
         stats.health = player.GetComponent<PlayerVariables>().health;
         stats.shield = player.GetComponent<PlayerVariables>().shield;
         bf.Serialize(file, stats);
@@ -120,10 +121,13 @@ void Start()
     {
         if (File.Exists(Application.persistentDataPath + "/Stats.dat"))
         {
+            
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/Stats.dat", FileMode.Open);
             Stats stats = (Stats)bf.Deserialize(file);
             file.Close();
+            Currency.credits = stats.credits;
+            Currency.currencyValueMultiplier = stats.currencyValueMultiplier;
             player.GetComponent<PlayerVariables>().health = stats.health;
             player.GetComponent<PlayerVariables>().shield = stats.shield;
             
@@ -137,11 +141,16 @@ class Stats
 {
     public int health;
     public int shield;
+    public int credits;
+    public float currencyValueMultiplier;
 
-    public Stats(int health, int shield)
+
+    public Stats(int health, int shield ,int credits, float currencyValueMultiplier)
     {
         this.health = health;
         this.shield = shield;
+        this.credits = credits;
+        this.currencyValueMultiplier = currencyValueMultiplier;
     }
     public int getHealth()
     {

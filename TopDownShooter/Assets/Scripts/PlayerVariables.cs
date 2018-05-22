@@ -24,7 +24,7 @@ public class PlayerVariables : MonoBehaviour
 
     private void Awake()
     {
-         if (control == null)
+        /* if (control == null)
          {
              DontDestroyOnLoad(gameObject);
              control = this;
@@ -34,8 +34,7 @@ public class PlayerVariables : MonoBehaviour
          {
              Destroy(gameObject);
             
-         }
-        Debug.Log("Awake");
+         }*/
         
         player = GameObject.Find("hitman1_gun");
         
@@ -54,7 +53,6 @@ public class PlayerVariables : MonoBehaviour
         source = GetComponent<AudioSource>();
         //playerTarget = transform;
         shieldSprite.SetActive(true);
-        Debug.Log("Start");
 
 
     }
@@ -62,11 +60,10 @@ public class PlayerVariables : MonoBehaviour
 
     void Update()
     {
-        if(healthSlider != null)
-        healthSlider.value = health;
-
+        if (healthSlider != null)
+            healthSlider.value = health;
         if(shieldSlider != null)
-        shieldSlider.value = shield;
+            shieldSlider.value = shield;
 
         if (health <= 0)
             GameController.missionFailed = true;

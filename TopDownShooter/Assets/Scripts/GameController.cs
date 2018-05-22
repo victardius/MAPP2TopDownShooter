@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject spawner, levelEndPanel, pauseScreen;
     public Button play;
     public Sprite pausedImage, unpausedImage;
+    public GameObject spawn;
     private static GameController control;
     [HideInInspector]
     public static bool missionFailed = false;
@@ -37,6 +38,8 @@ public class GameController : MonoBehaviour {
     {
         
         player = GameObject.Find("hitman1_gun");
+
+        player.transform.position = spawn.transform.position;
         
         Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
@@ -55,7 +58,7 @@ public class GameController : MonoBehaviour {
         if (MonsterSpawn.monstersSpawned && MonsterSpawn.numberOfMonsters == 0)
         {
             levelEnd.gameObject.SetActive(true);
-            Currency.CurrencyValueMultiplier +=1;
+            Currency.currencyValueMultiplier +=1;
             levelEnded();
         }
 
@@ -78,13 +81,18 @@ public class GameController : MonoBehaviour {
     public void levelEnded()
     {
         levelEndPanel.gameObject.SetActive(true);
-        player.GetComponent<PlayerController>().SavePlayer();
         Time.timeScale = 0f;
        
     }
 
     public void changeLevel(int n)
     {
+        if (player.GetComponent<PlayerVariables>().health < 20)
+        {
+            player.GetComponent<PlayerVariables>().health = 50;
+        }
+        player.GetComponent<PlayerController>().SavePlayer();
+
 
         SceneManager.LoadScene(n);
     }
