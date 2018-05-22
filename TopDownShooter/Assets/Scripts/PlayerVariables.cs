@@ -28,37 +28,41 @@ public class PlayerVariables : MonoBehaviour
          {
              DontDestroyOnLoad(gameObject);
              control = this;
-             Debug.Log("control was null");
+             
         }
         else if (control != this)
          {
              Destroy(gameObject);
-            Debug.Log("destroyed");
+            
          }
-        if (health < 20)
-        {
-            health = 100;
-        }
+        Debug.Log("Awake");
+        
+        player = GameObject.Find("hitman1_gun");
+        
+        player.GetComponent<PlayerController>().LoadPlayer();
+    }
+
+    void OnGUI()
+    {
         healthSlider = GameObject.Find("Slider").GetComponent<Slider>();
         shieldSlider = GameObject.Find("ShieldSlider").GetComponent<Slider>();
-        player = GameObject.Find("hitman1_gun");
-        player.GetComponent<PlayerController>().LoadPlayer();
+
     }
     void Start()
     {
-
+        
         source = GetComponent<AudioSource>();
         //playerTarget = transform;
         shieldSprite.SetActive(true);
-      
-        
+        Debug.Log("Start");
+
 
     }
 
 
     void Update()
     {
-
+        
         healthSlider.value = health;
         shieldSlider.value = shield;
 

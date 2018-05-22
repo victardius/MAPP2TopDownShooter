@@ -106,6 +106,10 @@ void Start()
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/Stats.dat");
         Stats stats = new Stats(health, shield);
+        if (player.GetComponent<PlayerVariables>().health < 20)
+        {
+            player.GetComponent<PlayerVariables>().health = 50;
+        }
         stats.health = player.GetComponent<PlayerVariables>().health;
         stats.shield = player.GetComponent<PlayerVariables>().shield;
         bf.Serialize(file, stats);
