@@ -26,7 +26,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     private GameObject player;
     private Animator anim;
     private bool charging = false;
-    private Vector3 dir;
+    private Vector3 dir, chargeDir;
 
 
     void Start () {
@@ -108,8 +108,12 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
 
-            if (distance > chargeDistance && !anim.GetBool("death"))
+            if (distance > chargeDistance && !anim.GetBool("death") && !charging)
                 rb.AddForce(dir, fMode);
+            else if (charging)
+            {
+                rb.AddForce(chargeDir, fMode);
+            }
 
             if (distance <= chargeDistance && !charging)
             {
@@ -128,10 +132,12 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
 
     IEnumerator charge()
     {
+        
+        yield return new WaitForSeconds(2.0f);
+        //rb.AddForce(dir*3f, ForceMode2D.Impulse);
+        chargeDir = new Vector2(playerTarget.position.x, playerTarget.position.y) * 50;
         charging = true;
-        yield return new WaitForSeconds(4.0f);
-        rb.AddForce(dir*3f, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(2.0f);
         charging = false;
     }
 
