@@ -11,14 +11,27 @@ public class MMButton : MonoBehaviour {
     public GameObject htpGrp;
     public GameObject nextButton;
     int next = 0;
+    int sceneToLoad;
 
+    public void Awake()
+    {
+        sceneToLoad = PlayerPrefs.GetInt("sceneToLoad", 1);
+        if (sceneToLoad > 3)
+        {
+            sceneToLoad = 1;
+            PlayerPrefs.SetInt("sceneToLoad", 1);
+            if (PlayerPrefs.GetInt("Rank", 1) > 6)
+                PlayerPrefs.SetInt("Rank", PlayerPrefs.GetInt("Rank", 1) + 1);
 
+        }
+    }
+   
 
     public void playGame()
     {
         //gör en animation som ska spelas innan spelaren kommer till nästa scene
         //Ladda in scenen som tar spelaren till spel scenen
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void optionPanel()

@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour {
         {
             completedLevelPanel.gameObject.SetActive(true);
             levelEnd.gameObject.SetActive(true);
+            PlayerPrefs.SetInt("sceneToLoad", PlayerPrefs.GetInt("sceneToLoad", 1) + 1);
             levelEnded();
         }
 
