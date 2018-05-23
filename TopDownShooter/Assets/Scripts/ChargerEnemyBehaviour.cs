@@ -27,6 +27,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     private Animator anim;
     private bool charging = false;
     private Vector3 dir, chargeDir;
+    private bool poop = false;
 
 
     void Start () {
@@ -35,7 +36,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
         startSpeed = speed;
         MonsterSpawn.numberOfMonsters++;
         updateRateStart = updateRate;
-
+        
         player = GameObject.Find("hitman1_gun");
 
         seeker = GetComponent<Seeker>();
@@ -77,7 +78,6 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     {
         
 
-
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
         
@@ -92,8 +92,6 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
 
         if (path != null)
         {
-
-
             if (currentWaypoint >= path.vectorPath.Count)
             {
                 if (pathIsEnded)
@@ -106,16 +104,19 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
             pathIsEnded = false;
 
             dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-            dir *= speed * Time.fixedDeltaTime;
+            dir *= (speed * Time.fixedDeltaTime);
 
             if (distance > chargeDistance && !anim.GetBool("death") && !charging)
+            {
                 rb.AddForce(dir, fMode);
+            }
             else if (charging)
             {
                 rb.AddForce(chargeDir, fMode);
+                //rb.AddForce(chargeDir, ForceMode2D.Impulse);
             }
 
-            if (distance <= chargeDistance && !charging)
+            if (distance <= chargeDistance && !charging && !poop)
             {
                 StartCoroutine(charge());
             }
@@ -132,13 +133,18 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
 
     IEnumerator charge()
     {
-        
+        poop = true;
+        chargeDistance = 18;
+
         yield return new WaitForSeconds(2.0f);
         //rb.AddForce(dir*3f, ForceMode2D.Impulse);
-        chargeDir = new Vector2(playerTarget.position.x, playerTarget.position.y) * 50;
         charging = true;
+        chargeDir = new Vector2(playerTarget.position.x, playerTarget.position.y);
+        chargeDir = (chargeDir - transform.position).normalized * 50;
         yield return new WaitForSeconds(2.0f);
         charging = false;
+        chargeDistance = 6;
+        poop = false;
     }
 
     
