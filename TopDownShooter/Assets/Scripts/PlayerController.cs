@@ -71,36 +71,39 @@ public class PlayerController : MonoBehaviour
 #endif
 #if UNITY_ANDROID
 
-            Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
-                 CrossPlatformInputManager.GetAxis("Vertical")) * (moveForce + speedPU);
+        Vector2 moveVec = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal"),
+             CrossPlatformInputManager.GetAxis("Vertical")) * (moveForce + speedPU);
 
-             Vector3 primaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_2"),
-                 CrossPlatformInputManager.GetAxis("Vertical_2"), 4000);
+        Vector3 primaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_2"),
+            CrossPlatformInputManager.GetAxis("Vertical_2"), 4000);
 
-            Vector3 secondaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"),
-                 CrossPlatformInputManager.GetAxis("Vertical"), 4000);
+        Vector3 secondaryLookVec = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"),
+             CrossPlatformInputManager.GetAxis("Vertical"), 4000);
 
-       
+
         primaryShooting = primaryLookVec.x != 0 && primaryLookVec.y != 0;
         secondaryShooting = secondaryLookVec.x != 0 && secondaryLookVec.y != 0;
 
-             if(primaryShooting){
-                 transform.rotation = Quaternion.LookRotation(primaryLookVec, Vector3.back);
-                 moveForce = 25;
+        if (primaryShooting)
+        {
+            transform.rotation = Quaternion.LookRotation(primaryLookVec, Vector3.back);
+            moveForce = 25;
         }
-             else if(secondaryShooting){
-                 transform.rotation = Quaternion.LookRotation(secondaryLookVec, Vector3.back);
-                 moveForce = 45;
+        else if (secondaryShooting)
+        {
+            transform.rotation = Quaternion.LookRotation(secondaryLookVec, Vector3.back);
+            moveForce = 45;
         }
 
         float speed = CrossPlatformInputManager.GetAxis("Horizontal") + CrossPlatformInputManager.GetAxis("Vertical");
         if (speed < 0)
             speed *= -1;
         anim.SetFloat("speed", speed);
-        
 
-             rgbd.AddForce(moveVec);
+
+        rgbd.AddForce(moveVec);
 #endif
 
-    
-    
+
+    }
+}
