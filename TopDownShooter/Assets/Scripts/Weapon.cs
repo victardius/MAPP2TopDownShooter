@@ -8,12 +8,15 @@ public class Weapon : MonoBehaviour {
     public AudioClip pistol;
     public AudioClip rifleBlast;
     public AudioClip shotgunBlast;
-    public Sprite handGun;
-    public Sprite rifle;
-    public Sprite shotgun;
+   // public Sprite handGun;
+   // public Sprite rifle;
+   // public Sprite shotgun;
     
 
     public static float bulletDamage;
+    public static int shotgunAmmo = 10;
+    public static int rifleAmmo = 50;
+    public static int currentAmmo = 1337;
 
     public Transform bulletTrailPrefab;
     public Transform shotgunBullets;
@@ -35,8 +38,7 @@ public class Weapon : MonoBehaviour {
     private SpriteRenderer sprite;
     private float fireRate = 1.4f;
     private Animator anim;
-    private int shotgunAmmo = 10;
-    private int rifleAmmo = 50;
+    
 
 
 
@@ -116,6 +118,7 @@ public class Weapon : MonoBehaviour {
                 Instantiate(shotgunBullets, firePointShotgun3.position, firePointShotgun3.rotation);
                 Instantiate(shotgunBullets, firePointShotgun4.position, firePointShotgun4.rotation);
                 shotgunAmmo--;
+                currentAmmo = shotgunAmmo;
             }
         }
         
@@ -126,12 +129,14 @@ public class Weapon : MonoBehaviour {
                 source.PlayOneShot(rifleBlast, vol);
                 Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
                 rifleAmmo--;
+                currentAmmo = rifleAmmo;
             }
         }
         else if (weaponChoice == 1)
         {
             source.PlayOneShot(pistol, vol);
             Instantiate(bulletTrailPrefab, firePointPistol.position, firePointPistol.rotation);
+            currentAmmo = 1337;
         }
         /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
         if (hit.collider != null)
@@ -154,6 +159,7 @@ public class Weapon : MonoBehaviour {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             //sprite.sprite = handGun;
             fireRate = 1.4f;
+            currentAmmo = 1337;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
             
@@ -162,6 +168,7 @@ public class Weapon : MonoBehaviour {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             //sprite.sprite = rifle;
             fireRate = 3.4f;
+            currentAmmo = rifleAmmo;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
             
@@ -170,6 +177,7 @@ public class Weapon : MonoBehaviour {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 12f);
             //sprite.sprite = shotgun;
             fireRate = 0.7f;
+            currentAmmo = shotgunAmmo;
             anim.SetInteger("weaponChoice", weaponChoice);
         }
        
