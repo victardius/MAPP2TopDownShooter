@@ -35,6 +35,8 @@ public class Weapon : MonoBehaviour {
     private SpriteRenderer sprite;
     private float fireRate = 1.4f;
     private Animator anim;
+    private int shotgunAmmo = 10;
+    private int rifleAmmo = 50;
 
 
 
@@ -105,22 +107,31 @@ public class Weapon : MonoBehaviour {
         //RaycastHit2D hit = Physics2D.Raycast(firePointPosition, fireTargetPosition, 100, whatToHit);
         if (weaponChoice == 3)
         {
-            source.PlayOneShot(shotgunBlast, vol);
-            Instantiate(shotgunBullets, firePoint.position, firePoint.rotation);
-            Instantiate(shotgunBullets, firePointShotgun1.position, firePointShotgun1.rotation);
-            Instantiate(shotgunBullets, firePointShotgun2.position, firePointShotgun2.rotation);
-            Instantiate(shotgunBullets, firePointShotgun3.position, firePointShotgun3.rotation);
-            Instantiate(shotgunBullets, firePointShotgun4.position, firePointShotgun4.rotation);
+            if (shotgunAmmo != 0)
+            {
+                source.PlayOneShot(shotgunBlast, vol);
+                Instantiate(shotgunBullets, firePoint.position, firePoint.rotation);
+                Instantiate(shotgunBullets, firePointShotgun1.position, firePointShotgun1.rotation);
+                Instantiate(shotgunBullets, firePointShotgun2.position, firePointShotgun2.rotation);
+                Instantiate(shotgunBullets, firePointShotgun3.position, firePointShotgun3.rotation);
+                Instantiate(shotgunBullets, firePointShotgun4.position, firePointShotgun4.rotation);
+                shotgunAmmo--;
+            }
+        }
+        
+        else if (weaponChoice == 2)
+        {
+            if (rifleAmmo != 0)
+            {
+                source.PlayOneShot(rifleBlast, vol);
+                Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
+                rifleAmmo--;
+            }
         }
         else if (weaponChoice == 1)
         {
             source.PlayOneShot(pistol, vol);
             Instantiate(bulletTrailPrefab, firePointPistol.position, firePointPistol.rotation);
-        }
-        else
-        {
-            source.PlayOneShot(rifleBlast, vol);
-            Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
         }
         /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
         if (hit.collider != null)

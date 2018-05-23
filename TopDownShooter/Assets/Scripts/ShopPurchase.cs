@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class ShopPurchase : MonoBehaviour {
 
-    public static float shopPriceMultiplier = 1;
+    public static float shopPriceMultiplier;
+    public int cost = 10;
+
+    public void Start()
+    {
+        PlayerPrefs.SetFloat("priceMultiplier", (PlayerPrefs.GetFloat("priceMultiplier", 1)));
+        shopPriceMultiplier = PlayerPrefs.GetFloat("priceMultiplier");
+        PlayerPrefs.SetFloat("pistolDamage", 10);
+    }
+
 
     public void increaseDamage()
     {
@@ -12,25 +21,33 @@ public class ShopPurchase : MonoBehaviour {
         PlayerPrefs.SetFloat("pistolDamage", (PlayerPrefs.GetFloat("pistolDamage", 10f) * 1.1f));
         PlayerPrefs.SetFloat("rifleDamage", (PlayerPrefs.GetFloat("rifleDamage", 6f) * 1.1f));
         PlayerPrefs.SetFloat("shotgunDamage", (PlayerPrefs.GetFloat("shotgunDamage", 15f) * 1.1f));
-        shopPriceMultiplier += 0.1f;
+        PlayerPrefs.SetFloat("priceMultiplier", (PlayerPrefs.GetFloat("priceMultiplier", 1) * 1.1f));
+        Debug.Log(PlayerPrefs.GetFloat("priceMultiplier"));
+
+
     }
 
     public void increaseHealth()
     {
         PlayerPrefs.SetFloat("playerHealth", (PlayerPrefs.GetFloat("playerHealth", 100) * 1.1f));
-        shopPriceMultiplier += 0.1f;
+        PlayerPrefs.SetFloat("priceMultiplier", (PlayerPrefs.GetFloat("priceMultiplier", 1) * 1.1f));
 
     }
 
     public void increaseShield()
     {
         PlayerPrefs.SetInt("playerShield", (PlayerPrefs.GetInt("playerShield", 3) + 1));
-        shopPriceMultiplier += 0.1f;
+        PlayerPrefs.SetFloat("priceMultiplier", (PlayerPrefs.GetFloat("priceMultiplier", 1) * 1.1f));
 
     }
 
     public void buyEnergyCells()
     {
         
+    }
+
+    public void buyHealth()
+    {
+
     }
 }
