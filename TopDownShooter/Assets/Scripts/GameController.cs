@@ -14,25 +14,8 @@ public class GameController : MonoBehaviour {
     private static GameController control;
     [HideInInspector]
     public static bool missionFailed = false;
-
     private int wave;
     private GameObject player;
-    
-
-    /*private void Awake()
-    {
-        
-        if (control == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            control = this;
-        }
-        else if (control != null)
-        {
-            Destroy(gameObject);
-        }
-        
-    }*/
 
     private void Start()
     {
@@ -60,7 +43,6 @@ public class GameController : MonoBehaviour {
         {
             completedLevelPanel.gameObject.SetActive(true);
             levelEnd.gameObject.SetActive(true);
-            Currency.currencyValueMultiplier +=1;
             levelEnded();
         }
 
@@ -92,9 +74,9 @@ public class GameController : MonoBehaviour {
     {
         if (player.GetComponent<PlayerVariables>().health < 20)
         {
-            player.GetComponent<PlayerVariables>().health = 50;
+            player.GetComponent<PlayerVariables>().health = 100;
         }
-        player.GetComponent<PlayerController>().SavePlayer();
+        
 
 
         SceneManager.LoadScene(n);

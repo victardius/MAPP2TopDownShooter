@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using System;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,9 +11,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rgbd;
     private Animator anim;
     private float speedPU = 0;
-    private int health;
-    private int shield;
-    private int credits;
+
     private float currencyValueMultiplier;
     public static bool primaryShooting;
     public bool secondaryShooting;
@@ -23,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (control == null)
+        /*if (control == null)
         {
             DontDestroyOnLoad(gameObject);
             control = this;
@@ -31,18 +27,20 @@ public class PlayerController : MonoBehaviour
         else if(control != null)
         {
             Destroy(gameObject);
-        }
+        }*/
         player = GameObject.Find("hitman1_gun");
     }
-void Start()
+
+    void Start()
     {
-       
+
         rgbd = this.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
     }
 
-    public void increaseMovement(){
+    public void increaseMovement()
+    {
         StartCoroutine(movementPowerUp());
     }
     public IEnumerator movementPowerUp()
@@ -68,6 +66,8 @@ void Start()
         float h = Input.GetAxisRaw("Horizontal") * (moveForce + speedPU);
         float v = Input.GetAxisRaw("Vertical") * (moveForce + speedPU);
         rgbd.AddForce(new Vector2(h, v));
+    }
+}
 #endif
 #if UNITY_ANDROID
 
@@ -102,63 +102,5 @@ void Start()
              rgbd.AddForce(moveVec);
 #endif
 
-    }
-    public void SavePlayer()
-    {
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/Stats.dat");
-        Stats stats = new Stats(health, shield, credits, currencyValueMultiplier);
-       
-        stats.credits = Currency.credits;
-        stats.currencyValueMultiplier = Currency.currencyValueMultiplier;
-        stats.health = player.GetComponent<PlayerVariables>().health;
-        stats.shield = player.GetComponent<PlayerVariables>().shield;
-        bf.Serialize(file, stats);
-        file.Close();
-        Debug.Log("Saving");
-    }
-    public void LoadPlayer()
-    {
-        if (File.Exists(Application.persistentDataPath + "/Stats.dat"))
-        {
-            
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/Stats.dat", FileMode.Open);
-            Stats stats = (Stats)bf.Deserialize(file);
-            file.Close();
-            Currency.credits = stats.credits;
-            Currency.currencyValueMultiplier = stats.currencyValueMultiplier;
-            player.GetComponent<PlayerVariables>().health = stats.health;
-            player.GetComponent<PlayerVariables>().shield = stats.shield;
-            
-            Debug.Log("Loading");
-        }
-    }
-}
-
-[Serializable]
-class Stats
-{
-    public int health;
-    public int shield;
-    public int credits;
-    public float currencyValueMultiplier;
-
-
-    public Stats(int health, int shield ,int credits, float currencyValueMultiplier)
-    {
-        this.health = health;
-        this.shield = shield;
-        this.credits = credits;
-        this.currencyValueMultiplier = currencyValueMultiplier;
-    }
-    public int getHealth()
-    {
-        return health;
-    }
-    public int getShield()
-    {
-        return shield;
-    }
-
-}
+    
+    

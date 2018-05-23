@@ -24,21 +24,9 @@ public class PlayerVariables : MonoBehaviour
 
     private void Awake()
     {
-        /* if (control == null)
-         {
-             DontDestroyOnLoad(gameObject);
-             control = this;
-             
-        }
-        else if (control != this)
-         {
-             Destroy(gameObject);
-            
-         }*/
-        
+
         player = GameObject.Find("hitman1_gun");
         
-        player.GetComponent<PlayerController>().LoadPlayer();
     }
 
     void OnGUI()
