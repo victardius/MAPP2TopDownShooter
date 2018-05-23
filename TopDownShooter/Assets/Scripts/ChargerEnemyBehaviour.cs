@@ -8,11 +8,12 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class ChargerEnemyBehaviour : MonoBehaviour {
 
-    public float speed, updateRate = 2.0f, nextWaypointDistance = 0.1f, hitCooldownTime = 2.0f;
+    public float speed, updateRate = 2.0f, nextWaypointDistance = 0.1f;
     //public int health;
     public Path path;
     public ForceMode2D fMode;
     public int damage;
+    public float chargeDistance = 6;
 
     [HideInInspector]
     public bool pathIsEnded = false;
@@ -24,12 +25,11 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     private Transform playerTarget;
     private GameObject player;
     private Animator anim;
-    private float hitCooldown;
+    private bool charging = false;
+    private Vector3 dir;
 
 
     void Start () {
-
-        hitCooldown = hitCooldownTime;
 
         playerTarget = GameObject.Find("hitman1_gun").transform;
         startSpeed = speed;
@@ -75,9 +75,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
  
     private void FixedUpdate()
     {
-
-        if (hitCooldown > 0)
-            hitCooldown -= Time.deltaTime;
+        
 
 
         distance = Vector3.Distance(transform.position, playerTarget.position);
@@ -107,11 +105,16 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
 
             pathIsEnded = false;
 
-            Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+            dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
 
-            if (distance > 5 && !anim.GetBool("death"))
+            if (distance > chargeDistance && !anim.GetBool("death"))
                 rb.AddForce(dir, fMode);
+
+            if (distance <= chargeDistance && !charging)
+            {
+                StartCoroutine(charge());
+            }
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
 
@@ -121,13 +124,15 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
                 return;
             }
         }
+    }
 
-        if (distance < 2.5 && hitCooldown <= 0 && !anim.GetBool("death"))
-        {
-            player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
-            hitCooldown = hitCooldownTime;
-        }
-
+    IEnumerator charge()
+    {
+        charging = true;
+        yield return new WaitForSeconds(4.0f);
+        rb.AddForce(dir*3f, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(4.0f);
+        charging = false;
     }
 
     

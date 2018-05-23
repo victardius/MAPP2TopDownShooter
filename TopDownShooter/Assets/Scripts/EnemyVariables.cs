@@ -47,6 +47,11 @@ public class EnemyVariables : MonoBehaviour {
 
     }
 
+    public float getRange()
+    {
+        return range;
+    }
+
     public void takeDamage(float amount, Transform source)
     {
         if (!anim.GetBool("death"))

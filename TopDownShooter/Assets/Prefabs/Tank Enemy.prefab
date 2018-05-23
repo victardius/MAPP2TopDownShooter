@@ -21,14 +21,14 @@ GameObject:
   - component: {fileID: 4034612480703574}
   - component: {fileID: 212668025036253348}
   - component: {fileID: 114278070648276220}
-  - component: {fileID: 58930170029218824}
-  - component: {fileID: 58619876772142662}
   - component: {fileID: 50345655742878174}
   - component: {fileID: 114540202130218616}
   - component: {fileID: 114805431838550956}
   - component: {fileID: 82082032559034234}
   - component: {fileID: 95968806326678144}
   - component: {fileID: 114577395982134462}
+  - component: {fileID: 70885047105543476}
+  - component: {fileID: 70828561969349532}
   m_Layer: 10
   m_Name: Tank Enemy
   m_TagString: Enemy
@@ -69,8 +69,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58619876772142662
-CircleCollider2D:
+--- !u!70 &70828561969349532
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -81,11 +81,11 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0054712296, y: -0.0151023865}
-  serializedVersion: 2
-  m_Radius: 4.585513
---- !u!58 &58930170029218824
-CircleCollider2D:
+  m_Offset: {x: 0.031116486, y: -0.21781349}
+  m_Size: {x: 7.9463434, y: 10.062233}
+  m_Direction: 0
+--- !u!70 &70885047105543476
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -96,9 +96,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024971962, y: -0.049380302}
-  serializedVersion: 2
-  m_Radius: 4.186043
+  m_Offset: {x: 0.031116486, y: -0.15558147}
+  m_Size: {x: 7.075095, y: 9.190985}
+  m_Direction: 0
 --- !u!82 &82082032559034234
 AudioSource:
   m_ObjectHideFlags: 1
@@ -253,7 +253,6 @@ MonoBehaviour:
   speed: 800
   updateRate: 2
   nextWaypointDistance: 1
-  hitCooldownTime: 2
   fMode: 0
   damage: 30
   pathIsEnded: 0
@@ -275,21 +274,21 @@ MonoBehaviour:
     addPoints: 0
     exactStartPoint: 3
     exactEndPoint: 3
-    useRaycasting: 0
+    useRaycasting: 1
     mask:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 1536
     useGraphRaycasting: 0
   traversableTags: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask: -1
+  graphMask: 2
 --- !u!114 &114577395982134462
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764495841904254}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
   m_Name: 
@@ -309,17 +308,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790bd7e2199f9df4ab6a7316ae2f7d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 140
   pushbackForce: 0
   hitCooldownTime: 2
   damage: 10
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   deathSound: {fileID: 0}
-  player: {fileID: 1556998051169266, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
   powerUps:
   - {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
   - {fileID: 1330072866091208, guid: 65add6032bc31f345a1fa4b7a35cab0d, type: 2}
   - {fileID: 1633916432899498, guid: adddbb5740c20e94882f2309136de4ae, type: 2}
+  range: 1.8
 --- !u!212 &212668025036253348
 SpriteRenderer:
   m_ObjectHideFlags: 1

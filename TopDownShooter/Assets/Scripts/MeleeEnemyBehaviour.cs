@@ -124,7 +124,7 @@ public class MeleeEnemyBehaviour : MonoBehaviour {
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
             
-            if (distance > 1.5 && !anim.GetBool("death"))
+            if (distance > GetComponent<EnemyVariables>().getRange() && !anim.GetBool("death"))
                 rb.AddForce(dir, fMode);
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
