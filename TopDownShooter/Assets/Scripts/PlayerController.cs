@@ -9,7 +9,7 @@ using System.IO;
 public class PlayerController : MonoBehaviour
 {
     private static PlayerController control;
-    public float moveForce = 20;
+    private float moveForce = 45;
     Rigidbody2D rgbd;
     private Animator anim;
     private float speedPU = 0;
@@ -90,7 +90,7 @@ void Start()
         }
              else if(secondaryShooting){
                  transform.rotation = Quaternion.LookRotation(secondaryLookVec, Vector3.back);
-                 moveForce = 40;
+                 moveForce = 45;
         }
 
         float speed = CrossPlatformInputManager.GetAxis("Horizontal") + CrossPlatformInputManager.GetAxis("Vertical");

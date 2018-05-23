@@ -64,7 +64,7 @@ public class RangedEnemyBehaviour : MonoBehaviour
 
         distance = Vector3.Distance(transform.position, playerTarget.position);
 
-        if (distance < 3)
+        if (distance < 6)
         {
             speed = 0f;
             fire = true;

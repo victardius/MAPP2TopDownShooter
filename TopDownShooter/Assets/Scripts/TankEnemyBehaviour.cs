@@ -110,7 +110,7 @@ public class TankEnemyBehaviour : MonoBehaviour {
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             dir *= speed * Time.fixedDeltaTime;
 
-            if (distance > 1.5 && !anim.GetBool("death"))
+            if (distance > 1.8 && !anim.GetBool("death"))
                 rb.AddForce(dir, fMode);
 
             float dist = Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]);
@@ -120,12 +120,6 @@ public class TankEnemyBehaviour : MonoBehaviour {
                 currentWaypoint++;
                 return;
             }
-        }
-
-        if (distance < 2.5 && hitCooldown <= 0 && !anim.GetBool("death"))
-        {
-            player.GetComponent<PlayerVariables>().takeDamage(damage, transform);
-            hitCooldown = hitCooldownTime;
         }
 
     }

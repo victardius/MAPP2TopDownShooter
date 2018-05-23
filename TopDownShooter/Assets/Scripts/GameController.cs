@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject spawner, levelEndPanel, completedLevelPanel, pauseScreen;
     public Button play;
     public Sprite pausedImage, unpausedImage;
-    public GameObject spawn;
+    //public GameObject spawn;
     private static GameController control;
     [HideInInspector]
     public static bool missionFailed = false;
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour {
         
         player = GameObject.Find("hitman1_gun");
 
-        player.transform.position = spawn.transform.position;
+        //player.transform.position = spawn.transform.position;
         
         Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
