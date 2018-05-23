@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private float currencyValueMultiplier;
     public static bool primaryShooting;
     public bool secondaryShooting;
-    public GameObject player;
+
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }*/
-        player = GameObject.Find("hitman1_gun");
+
     }
 
     void Start()

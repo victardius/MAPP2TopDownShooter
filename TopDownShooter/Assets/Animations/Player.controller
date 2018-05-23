@@ -13,19 +13,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: shooting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: weaponChoice
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -49,8 +49,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: weaponChoice
     m_EventTreshold: 2
-  - m_ConditionMode: 1
-    m_ConditionEvent: shooting
+  - m_ConditionMode: 3
+    m_ConditionEvent: speed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102973143589868512}
@@ -100,9 +100,6 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: shooting
-    m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: speed
     m_EventTreshold: 0.1
@@ -133,9 +130,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: shooting
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: weaponChoice
-    m_EventTreshold: 1
+  - m_ConditionMode: 3
+    m_ConditionEvent: speed
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102634834958086736}
   m_Solo: 0
@@ -253,9 +250,6 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: shooting
-    m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: speed
     m_EventTreshold: 0.1
@@ -283,9 +277,6 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: shooting
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: weaponChoice
     m_EventTreshold: 1
@@ -367,9 +358,6 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: shooting
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: weaponChoice
     m_EventTreshold: 1
@@ -590,13 +578,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102973143589868512}
-    m_Position: {x: 672, y: 96, z: 0}
+    m_Position: {x: 528, y: 108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102583696821873860}
-    m_Position: {x: 372, y: 108, z: 0}
+    m_Position: {x: 276, y: 108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102989911993954034}
-    m_Position: {x: 528, y: 216, z: 0}
+    m_Position: {x: 408, y: 204, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102634834958086736}
     m_Position: {x: 528, y: 0, z: 0}
@@ -610,6 +598,6 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 888, y: 216, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102490406025995916}
