@@ -100,14 +100,14 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.5
-        threshold: 1.1
-        softKnee: 0.5
-        radius: 4
+        intensity: 4.95
+        threshold: 1.4
+        softKnee: 0.264
+        radius: 1.9
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
-        intensity: 3
+        intensity: 3.57
   colorGrading:
     m_Enabled: 1
     m_Settings:
@@ -134,8 +134,8 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 1, g: 0, b: 0.6203933, a: 0.050632905}
-          power: {r: 0.8178764, g: 0.8170988, b: 1, a: 0.02531645}
+          slope: {r: 1, g: 0, b: 0.46325254, a: -0.12658228}
+          power: {r: 0.51875615, g: 0.6390671, b: 1, a: 0.07594936}
           offset: {r: 0.51197183, g: 0.59820086, b: 1, a: 0.050632913}
         linear:
           lift: {r: 1, g: 1, b: 1, a: 0}
