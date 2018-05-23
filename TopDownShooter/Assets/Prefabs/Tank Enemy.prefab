@@ -27,8 +27,8 @@ GameObject:
   - component: {fileID: 82082032559034234}
   - component: {fileID: 95968806326678144}
   - component: {fileID: 114577395982134462}
-  - component: {fileID: 70885047105543476}
-  - component: {fileID: 70828561969349532}
+  - component: {fileID: 58878050355920132}
+  - component: {fileID: 58076713922800220}
   m_Layer: 10
   m_Name: Tank Enemy
   m_TagString: Enemy
@@ -69,8 +69,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &70828561969349532
-CapsuleCollider2D:
+--- !u!58 &58076713922800220
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -81,11 +81,11 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.031116486, y: -0.21781349}
-  m_Size: {x: 7.9463434, y: 10.062233}
-  m_Direction: 0
---- !u!70 &70885047105543476
-CapsuleCollider2D:
+  m_Offset: {x: 0.01831007, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.8718305
+--- !u!58 &58878050355920132
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -96,9 +96,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.031116486, y: -0.15558147}
-  m_Size: {x: 7.075095, y: 9.190985}
-  m_Direction: 0
+  m_Offset: {x: 0.18309927, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.5718246
 --- !u!82 &82082032559034234
 AudioSource:
   m_ObjectHideFlags: 1
@@ -228,9 +228,9 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764495841904254}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f274649afdbdaa14f9e91de15849a723, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34ea677c153d7f940bd38b5c85d3083f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 73a037bd7633eef46bd18f8072bd160c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2df2e62ad8b476c498dad20a0ba45eaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

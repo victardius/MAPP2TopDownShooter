@@ -102,8 +102,9 @@ public class PlayerController : MonoBehaviour
 
 
         rgbd.AddForce(moveVec);
-#endif
-
 
     }
 }
+#endif
+
+

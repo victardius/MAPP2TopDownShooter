@@ -20,14 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4034612480703574}
   - component: {fileID: 212668025036253348}
-  - component: {fileID: 58930170029218824}
-  - component: {fileID: 58619876772142662}
   - component: {fileID: 50345655742878174}
   - component: {fileID: 114540202130218616}
   - component: {fileID: 114805431838550956}
   - component: {fileID: 82082032559034234}
   - component: {fileID: 95968806326678144}
   - component: {fileID: 114955493848110368}
+  - component: {fileID: 58326595515157124}
+  - component: {fileID: 58235428804463764}
   m_Layer: 10
   m_Name: Charger Enemy
   m_TagString: Enemy
@@ -68,7 +68,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58619876772142662
+--- !u!58 &58235428804463764
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,10 +80,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0054714084, y: -0.039761662}
+  m_Offset: {x: -0.31878352, y: 0}
   serializedVersion: 2
-  m_Radius: 4.560853
---- !u!58 &58930170029218824
+  m_Radius: 4.6812162
+--- !u!58 &58326595515157124
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -95,9 +95,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024971962, y: -0.12519687}
+  m_Offset: {x: -0.31878352, y: 0}
   serializedVersion: 2
-  m_Radius: 4.110226
+  m_Radius: 3.8311255
 --- !u!82 &82082032559034234
 AudioSource:
   m_ObjectHideFlags: 1
@@ -227,9 +227,9 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1764495841904254}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f274649afdbdaa14f9e91de15849a723, type: 2}
+  m_Controller: {fileID: 9100000, guid: b8bcc233172b165468092e8681719b00, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
