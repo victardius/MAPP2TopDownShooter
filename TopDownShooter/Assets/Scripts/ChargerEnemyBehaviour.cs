@@ -134,7 +134,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     IEnumerator charge()
     {
         poop = true;
-        chargeDistance = 18;
+        chargeDistance = 10;
 
         yield return new WaitForSeconds(2.0f);
         //rb.AddForce(dir*3f, ForceMode2D.Impulse);
