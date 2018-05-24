@@ -275,10 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790bd7e2199f9df4ab6a7316ae2f7d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 80
   pushbackForce: 600
   hitCooldownTime: 1
-  damage: 10
+  damage: 40
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   deathSound: {fileID: 8300000, guid: 00046cb18d6d1f543b8ab54bcf9b27e5, type: 3}
   powerUps:
@@ -301,8 +301,8 @@ MonoBehaviour:
   updateRate: 2
   nextWaypointDistance: 1
   fMode: 0
-  damage: 40
   chargeDistance: 6
+  chargeRate: 2
   pathIsEnded: 0
 --- !u!212 &212668025036253348
 SpriteRenderer:

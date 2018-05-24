@@ -229,7 +229,7 @@ Animator:
   m_GameObject: {fileID: 1764495841904254}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: de9918c4126469840a9c3f5ee517a08b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -275,10 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790bd7e2199f9df4ab6a7316ae2f7d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 200
   pushbackForce: 600
   hitCooldownTime: 1
-  damage: 10
+  damage: 40
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   deathSound: {fileID: 8300000, guid: 00046cb18d6d1f543b8ab54bcf9b27e5, type: 3}
   powerUps:
@@ -301,7 +301,6 @@ MonoBehaviour:
   updateRate: 2
   nextWaypointDistance: 1
   fMode: 0
-  damage: 40
   chargeDistance: 4
   chargeRate: 1
   pathIsEnded: 0

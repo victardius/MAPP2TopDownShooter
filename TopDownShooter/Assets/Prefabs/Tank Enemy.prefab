@@ -311,7 +311,7 @@ MonoBehaviour:
   health: 140
   pushbackForce: 0
   hitCooldownTime: 2
-  damage: 10
+  damage: 30
   damageSound: {fileID: 8300000, guid: d2a9b21e76c3af74e933c01bf79ba7eb, type: 3}
   deathSound: {fileID: 0}
   powerUps:
