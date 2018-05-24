@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
 
@@ -8,15 +9,17 @@ public class Weapon : MonoBehaviour {
     public AudioClip pistol;
     public AudioClip rifleBlast;
     public AudioClip shotgunBlast;
-   // public Sprite handGun;
-   // public Sprite rifle;
-   // public Sprite shotgun;
-    
+    // public Sprite handGun;
+    // public Sprite rifle;
+    // public Sprite shotgun;
+    public Sprite[] selectedGun;
 
     public static float bulletDamage;
     public static int shotgunAmmo = 10;
     public static int rifleAmmo = 50;
     public static int currentAmmo = 1337;
+
+    public UnityEngine.UI.Button weaponBtn;
 
     public Transform bulletTrailPrefab;
     public Transform shotgunBullets;
@@ -38,7 +41,6 @@ public class Weapon : MonoBehaviour {
     private SpriteRenderer sprite;
     private float fireRate = 1.4f;
     private Animator anim;
-    
 
 
 
@@ -59,8 +61,9 @@ public class Weapon : MonoBehaviour {
             Debug.LogError("No firepoint");
         }
         anim.SetInteger("weaponChoice", weaponChoice);
-		
-	}
+        weaponBtn.image.sprite = selectedGun[0];
+
+    }
 
 	
 	void Update () {
@@ -120,6 +123,16 @@ public class Weapon : MonoBehaviour {
                 shotgunAmmo--;
                 currentAmmo = shotgunAmmo;
             }
+            if(shotgunAmmo <= 0)
+            {
+                weaponChoice = 1;
+                bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
+                //sprite.sprite = handGun;
+                weaponBtn.image.sprite = selectedGun[0];
+                fireRate = 1.4f;
+                currentAmmo = 1337;
+                anim.SetInteger("weaponChoice", weaponChoice);
+            }
         }
         
         else if (weaponChoice == 2)
@@ -130,6 +143,16 @@ public class Weapon : MonoBehaviour {
                 Instantiate(bulletTrailPrefab, firePoint.position, firePoint.rotation);
                 rifleAmmo--;
                 currentAmmo = rifleAmmo;
+            }
+            if (rifleAmmo <= 0)
+            {
+                weaponChoice = 1;
+                bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
+                //sprite.sprite = handGun;
+                weaponBtn.image.sprite = selectedGun[0];
+                fireRate = 1.4f;
+                currentAmmo = 1337;
+                anim.SetInteger("weaponChoice", weaponChoice);
             }
         }
         else if (weaponChoice == 1)
@@ -158,6 +181,7 @@ public class Weapon : MonoBehaviour {
         {
             bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
             //sprite.sprite = handGun;
+            weaponBtn.image.sprite = selectedGun[0];
             fireRate = 1.4f;
             currentAmmo = 1337;
             anim.SetInteger("weaponChoice", weaponChoice);
@@ -167,6 +191,7 @@ public class Weapon : MonoBehaviour {
         {
             bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
             //sprite.sprite = rifle;
+            weaponBtn.image.sprite = selectedGun[1];
             fireRate = 3.4f;
             currentAmmo = rifleAmmo;
             anim.SetInteger("weaponChoice", weaponChoice);
@@ -176,6 +201,7 @@ public class Weapon : MonoBehaviour {
         {
             bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 12f);
             //sprite.sprite = shotgun;
+            weaponBtn.image.sprite = selectedGun[2];
             fireRate = 0.7f;
             currentAmmo = shotgunAmmo;
             anim.SetInteger("weaponChoice", weaponChoice);
