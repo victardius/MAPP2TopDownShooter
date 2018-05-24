@@ -14,7 +14,6 @@ public class PlayerPrestige : MonoBehaviour {
     public Sprite rank5;
     public Sprite rank6;
 
-    // Use this for initialization
     void Start () {
         int i = PlayerPrefs.GetInt("Rank", 1);
         switch (i)
