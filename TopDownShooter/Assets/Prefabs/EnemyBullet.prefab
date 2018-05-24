@@ -151,8 +151,8 @@ MonoBehaviour:
   whatToHit:
     serializedVersion: 2
     m_Bits: 8960
-  moveSpeed: 6
-  timeToLive: 2
+  moveSpeed: 15
+  timeToLive: 1
 --- !u!212 &212169857962274136
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -166,8 +166,9 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c43c0d0ceb9e5334caffd7c06db3796f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

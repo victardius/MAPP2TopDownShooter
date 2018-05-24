@@ -1964,19 +1964,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1588544279382648, guid: 1afc255753b588641b5e0b2882882117, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679493428359556, guid: 1afc255753b588641b5e0b2882882117, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1933559705941332, guid: 1afc255753b588641b5e0b2882882117, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1616373765041318, guid: 1afc255753b588641b5e0b2882882117, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224195550362231394, guid: 1afc255753b588641b5e0b2882882117,
         type: 2}
@@ -4629,6 +4629,10 @@ Prefab:
     - target: {fileID: 4955174143344378, guid: 51ecd13dae9039d48b789878e491e866, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939025092695006, guid: 51ecd13dae9039d48b789878e491e866, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51ecd13dae9039d48b789878e491e866, type: 2}
@@ -18654,41 +18658,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 224936019070076900, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224896852701090240, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224452830510152834, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224713668995159202, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224787343021539280, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.4008789
-      objectReference: {fileID: 0}
     - target: {fileID: 114376926453289254, guid: c1ed3078a0dd8014081c51c82855849d,
         type: 2}
       propertyPath: weaponBtn
       value: 
       objectReference: {fileID: 103806789}
-    - target: {fileID: 114319515705708604, guid: c1ed3078a0dd8014081c51c82855849d,
-        type: 2}
-      propertyPath: shield
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}
   m_IsPrefabParent: 0
@@ -19320,7 +19294,6 @@ GameObject:
   - component: {fileID: 1658548462}
   - component: {fileID: 1658548461}
   - component: {fileID: 1658548464}
-  - component: {fileID: 1658548460}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19328,18 +19301,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1658548460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1658548459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 8c7f2b7a5767325488054c86c801ef15, type: 2}
 --- !u!124 &1658548461
 Behaviour:
   m_ObjectHideFlags: 0
