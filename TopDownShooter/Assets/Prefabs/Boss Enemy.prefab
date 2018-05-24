@@ -285,6 +285,7 @@ MonoBehaviour:
   - {fileID: 1874278282608592, guid: ef1fdfc20da0916419fe2f2daa62800f, type: 2}
   - {fileID: 1330072866091208, guid: 65add6032bc31f345a1fa4b7a35cab0d, type: 2}
   - {fileID: 1633916432899498, guid: adddbb5740c20e94882f2309136de4ae, type: 2}
+  - {fileID: 1633916432899498, guid: c73368663ceb2fc428d4aec84435bad1, type: 2}
   range: 1.8
 --- !u!114 &114955493848110368
 MonoBehaviour:
