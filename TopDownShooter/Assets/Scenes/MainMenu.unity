@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -253,6 +253,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &56743093
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.2999716, y: -303.22647}
+  m_AnchoredPosition: {x: 5.2999573, y: -303.22656}
   m_SizeDelta: {x: 54.48, y: -835.8553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217327009
@@ -1034,6 +1035,7 @@ GameObject:
   - component: {fileID: 270832327}
   - component: {fileID: 270832329}
   - component: {fileID: 270832328}
+  - component: {fileID: 270832330}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1056,7 +1058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77675015, y: 0}
   m_AnchorMax: {x: 1, y: 0.06377725}
-  m_AnchoredPosition: {x: -5.5999756, y: -0.049987793}
+  m_AnchoredPosition: {x: -5.5999756, y: -0.05029297}
   m_SizeDelta: {x: -21.5, y: 0.10001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &270832328
@@ -1098,6 +1100,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 270832326}
+--- !u!95 &270832330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270832326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 904567a0de69b4e469bea605c0bed7b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &339542976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1476,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &403587335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1780,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &552239021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1918,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.44970828, y: 0.07700001}
   m_AnchorMax: {x: 0.8408531, y: 0.9145133}
-  m_AnchoredPosition: {x: 0, y: 0.70000076}
+  m_AnchoredPosition: {x: 0, y: 0.6999512}
   m_SizeDelta: {x: 0, y: 1.3999996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580965575
@@ -1964,7 +1986,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35233158, y: 0.5107919}
   m_AnchorMax: {x: 0.64900005, y: 0.9111041}
-  m_AnchoredPosition: {x: -0.49998188, y: 0.5}
+  m_AnchoredPosition: {x: -0.49998474, y: 0.5}
   m_SizeDelta: {x: -0.10000038, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &595143880
@@ -2100,7 +2122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.11400001}
   m_AnchorMax: {x: 1, y: 0.22368784}
-  m_AnchoredPosition: {x: 0.44007003, y: 0.099853516}
+  m_AnchoredPosition: {x: 0.44006348, y: 0.099853516}
   m_SizeDelta: {x: 0, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688497714
@@ -2175,7 +2197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.441, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.05999756, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &784512998
@@ -2386,6 +2408,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &850053937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,6 +2621,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1013752462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2665,6 +2689,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1014471594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2678,6 +2703,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -3221,6 +3247,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1289378976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,54 +3378,69 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
+    - serializedVersion: 3
       time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -3596,7 +3638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5, y: -0.16523}
+  m_AnchoredPosition: {x: 2.5, y: -0.1652298}
   m_SizeDelta: {x: 95.7, y: -0.33047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1518274554
@@ -4089,7 +4131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.043520834, y: 0.10300001}
   m_AnchorMax: {x: 0.95500004, y: 0.89969593}
-  m_AnchoredPosition: {x: -1.5501404, y: 1.2000122}
+  m_AnchoredPosition: {x: -1.5501709, y: 1.1999512}
   m_SizeDelta: {x: 175.1001, y: 224.40002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972441193
@@ -4142,6 +4184,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2016672373
 GameObject:
   m_ObjectHideFlags: 0
