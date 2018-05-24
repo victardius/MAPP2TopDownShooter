@@ -20,6 +20,7 @@ public class EnemyVariables : MonoBehaviour {
     private AudioSource aSource;
     private Animator anim;
     private GameObject player;
+    private bool takingDamage = true;
 
     void Start ()
     {
@@ -58,7 +59,11 @@ public class EnemyVariables : MonoBehaviour {
         {
             vol = Random.Range(volLowRange, volHighRange);
 
-            aSource.PlayOneShot(damageSound, 0.5f);
+            if (takingDamage)
+                aSource.PlayOneShot(damageSound, 0.5f);
+
+            if (takingDamage)
+                StartCoroutine(damageNoiseCooldown());
 
             health -= amount;
             Vector3 dir = source.position - transform.position;
@@ -76,6 +81,13 @@ public class EnemyVariables : MonoBehaviour {
 
         }
 
+    }
+
+    IEnumerator damageNoiseCooldown()
+    {
+        takingDamage = false;
+        yield return new WaitForSeconds(1f);
+        takingDamage = true;
     }
 
     IEnumerator death()
