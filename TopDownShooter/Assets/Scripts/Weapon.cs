@@ -15,8 +15,8 @@ public class Weapon : MonoBehaviour {
     public Sprite[] selectedGun;
 
     public static float bulletDamage;
-    public static int shotgunAmmo = 10;
-    public static int rifleAmmo = 50;
+    public static int shotgunAmmo;
+    public static int rifleAmmo;
     public static int currentAmmo = 1337;
 
     public UnityEngine.UI.Button weaponBtn;
@@ -45,8 +45,10 @@ public class Weapon : MonoBehaviour {
 
 
     void Awake () {
-        
-        bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
+
+        shotgunAmmo = 10;
+        rifleAmmo = 50;
+        bulletDamage = 10;
         source = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("FirePoint");
@@ -179,7 +181,7 @@ public class Weapon : MonoBehaviour {
 
         if (weaponChoice == 1)
         {
-            bulletDamage = PlayerPrefs.GetFloat("pistolDamage", 10f);
+            bulletDamage = 10f;
             //sprite.sprite = handGun;
             weaponBtn.image.sprite = selectedGun[0];
             fireRate = 1.4f;
@@ -189,7 +191,7 @@ public class Weapon : MonoBehaviour {
             
         else if (weaponChoice == 2)
         {
-            bulletDamage = PlayerPrefs.GetFloat("rifleDamage", 6f);
+            bulletDamage = 6f;
             //sprite.sprite = rifle;
             weaponBtn.image.sprite = selectedGun[1];
             fireRate = 3.4f;
@@ -199,7 +201,7 @@ public class Weapon : MonoBehaviour {
             
         else if (weaponChoice == 3)
         {
-            bulletDamage = PlayerPrefs.GetFloat("shotgunDamage", 12f);
+            bulletDamage = 12f;
             //sprite.sprite = shotgun;
             weaponBtn.image.sprite = selectedGun[2];
             fireRate = 0.7f;
