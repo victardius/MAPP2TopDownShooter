@@ -10,6 +10,7 @@ public class MMButton : MonoBehaviour {
     public GameObject optionGrp;
     public GameObject htpGrp;
     public GameObject nextButton;
+    public GameObject ScreenPanel;
     int next = 0;
     int sceneToLoad;
 
@@ -78,6 +79,11 @@ public class MMButton : MonoBehaviour {
         nextButton.SetActive(true);
         next = 0;
         htpGrp.SetActive(false);
+    }
+
+    public void continueTOMM()
+    {
+        ScreenPanel.SetActive(false);
     }
 
 
