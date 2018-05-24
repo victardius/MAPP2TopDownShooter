@@ -12,8 +12,8 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     //public int health;
     public Path path;
     public ForceMode2D fMode;
-    public int damage;
     public float chargeDistance = 6;
+    public float chargeRate = 2;
 
     [HideInInspector]
     public bool pathIsEnded = false;
@@ -110,13 +110,13 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
             {
                 rb.AddForce(dir, fMode);
             }
-            else if (charging)
+            else if (charging && !anim.GetBool("death"))
             {
                 rb.AddForce(chargeDir, fMode);
                 //rb.AddForce(chargeDir, ForceMode2D.Impulse);
             }
 
-            if (distance <= chargeDistance && !charging && !poop)
+            if (distance <= chargeDistance && !charging && !poop && !anim.GetBool("death"))
             {
                 StartCoroutine(charge());
             }
@@ -136,12 +136,12 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
         poop = true;
         chargeDistance = 10;
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(chargeRate);
         //rb.AddForce(dir*3f, ForceMode2D.Impulse);
         charging = true;
         chargeDir = new Vector2(playerTarget.position.x, playerTarget.position.y);
         chargeDir = (chargeDir - transform.position).normalized * 50;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(chargeRate);
         charging = false;
         chargeDistance = 6;
         poop = false;
