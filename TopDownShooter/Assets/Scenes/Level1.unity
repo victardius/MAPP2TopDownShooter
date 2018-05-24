@@ -1978,9 +1978,33 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224195550362231394, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.9000092
+      objectReference: {fileID: 0}
+    - target: {fileID: 224195550362231394, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.550003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836005310533152, guid: 1afc255753b588641b5e0b2882882117, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1882059561153742, guid: 1afc255753b588641b5e0b2882882117, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &103806789 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114634351412360534, guid: 1afc255753b588641b5e0b2882882117,
+    type: 2}
+  m_PrefabInternal: {fileID: 103806788}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &105085573
 Transform:
   m_ObjectHideFlags: 0
@@ -18654,6 +18678,16 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -1.4008789
+      objectReference: {fileID: 0}
+    - target: {fileID: 114376926453289254, guid: c1ed3078a0dd8014081c51c82855849d,
+        type: 2}
+      propertyPath: weaponBtn
+      value: 
+      objectReference: {fileID: 103806789}
+    - target: {fileID: 114319515705708604, guid: c1ed3078a0dd8014081c51c82855849d,
+        type: 2}
+      propertyPath: shield
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1ed3078a0dd8014081c51c82855849d, type: 2}

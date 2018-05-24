@@ -27,7 +27,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
     private Animator anim;
     private bool charging = false;
     private Vector3 dir, chargeDir;
-    private bool poop = false;
+    private bool chargeActivated = false;
 
 
     void Start () {
@@ -116,7 +116,7 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
                 //rb.AddForce(chargeDir, ForceMode2D.Impulse);
             }
 
-            if (distance <= chargeDistance && !charging && !poop && !anim.GetBool("death"))
+            if (distance <= chargeDistance && !charging && !chargeActivated && !anim.GetBool("death"))
             {
                 StartCoroutine(charge());
             }
@@ -133,7 +133,9 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
 
     IEnumerator charge()
     {
-        poop = true;
+        chargeActivated = true;
+
+        anim.SetBool("charge", true);
         chargeDistance = 10;
 
         yield return new WaitForSeconds(chargeRate);
@@ -143,8 +145,9 @@ public class ChargerEnemyBehaviour : MonoBehaviour {
         chargeDir = (chargeDir - transform.position).normalized * 50;
         yield return new WaitForSeconds(chargeRate);
         charging = false;
+        anim.SetBool("charge", false);
         chargeDistance = 6;
-        poop = false;
+        chargeActivated = false;
     }
 
     

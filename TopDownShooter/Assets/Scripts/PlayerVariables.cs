@@ -9,7 +9,7 @@ public class PlayerVariables : MonoBehaviour
 {
     public static PlayerVariables control;
     public int health = 100;
-    public int shield = 3;
+    public int shield = 4;
     public GameObject shieldSprite;
     public Slider healthSlider;
     public Slider shieldSlider;
