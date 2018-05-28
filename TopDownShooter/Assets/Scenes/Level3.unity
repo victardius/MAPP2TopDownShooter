@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
-  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -168,7 +168,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -246,8 +245,8 @@ MonoBehaviour:
   waveAnnouncement: {fileID: 2130543680}
   gameOver: {fileID: 1512754446}
   spawner: {fileID: 1512278541}
-  levelEndPanel: {fileID: 1981636767}
-  completedLevelPanel: {fileID: 465895825}
+  levelEndPanel: {fileID: 0}
+  completedLevelPanel: {fileID: 0}
   pauseScreen: {fileID: 1028508108}
   play: {fileID: 1047163916}
   pausedImage: {fileID: 21300000, guid: 70155928b5103ec4c832d4825fdea345, type: 3}
@@ -331,7 +330,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -431,7 +429,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -531,7 +528,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -629,11 +625,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4955174143344378, guid: 51ecd13dae9039d48b789878e491e866,
     type: 2}
   m_PrefabInternal: {fileID: 1695542830}
---- !u!1 &465895825 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1705130625523880, guid: 1afc255753b588641b5e0b2882882117,
-    type: 2}
-  m_PrefabInternal: {fileID: 808725767}
 --- !u!1 &511531811
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,7 +680,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1126,6 +1116,31 @@ Prefab:
       propertyPath: m_Text
       value: "Good job soldier! \nYou completed your final contract."
       objectReference: {fileID: 0}
+    - target: {fileID: 114938036349830008, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 62308043}
+    - target: {fileID: 114938036349830008, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: levelEnded
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928758522890484, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 62308043}
+    - target: {fileID: 114928758522890484, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: changeLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928758522890484, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
   m_IsPrefabParent: 0
@@ -1236,7 +1251,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1336,7 +1350,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1682,7 +1695,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -1774,11 +1786,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c78ff752abd7a44439de94e592f70c62, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1981636767 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1638126737434986, guid: 1afc255753b588641b5e0b2882882117,
-    type: 2}
-  m_PrefabInternal: {fileID: 808725767}
 --- !u!1 &1984214486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1841,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

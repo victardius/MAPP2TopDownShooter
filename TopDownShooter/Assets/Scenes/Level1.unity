@@ -1218,8 +1218,8 @@ MonoBehaviour:
   waveAnnouncement: {fileID: 2130543680}
   gameOver: {fileID: 1512754446}
   spawner: {fileID: 1512278541}
-  levelEndPanel: {fileID: 465895825}
-  completedLevelPanel: {fileID: 232436363}
+  levelEndPanel: {fileID: 0}
+  completedLevelPanel: {fileID: 0}
   pauseScreen: {fileID: 1028508108}
   play: {fileID: 1047163916}
   pausedImage: {fileID: 21300000, guid: 70155928b5103ec4c832d4825fdea345, type: 3}
@@ -3130,11 +3130,6 @@ Transform:
   m_Father: {fileID: 1869680419}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &232436363 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1705130625523880, guid: 1afc255753b588641b5e0b2882882117,
-    type: 2}
-  m_PrefabInternal: {fileID: 1295144434}
 --- !u!1 &234846492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,11 +5899,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.6
---- !u!1 &465895825 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1638126737434986, guid: 1afc255753b588641b5e0b2882882117,
-    type: 2}
-  m_PrefabInternal: {fileID: 1295144434}
 --- !u!1 &468378667
 GameObject:
   m_ObjectHideFlags: 0
@@ -15528,6 +15518,26 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114938036349830008, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 62308043}
+    - target: {fileID: 114938036349830008, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: levelEnded
+      objectReference: {fileID: 0}
+    - target: {fileID: 114928758522890484, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 62308043}
+    - target: {fileID: 114928758522890484, guid: 1afc255753b588641b5e0b2882882117,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: changeLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
