@@ -55,18 +55,18 @@ public class MMButton : MonoBehaviour {
         //Visar upp ett fönster som säger hur man spelare spelet
         windowFrame.SetActive(true);
         htpGrp.SetActive(true);
-        htpText.text = "Controll your characters movement by using the joystick to the left. Aim your gun with the joystick to the left and your gun will fire as long its held down.";
+        htpText.text = "Controll your characters movement by using the joystick to the left. Aim your gun with the joystick to the right and your gun will fire as long as the joystick is held down. You cant lose health while you still have shield.";
     }
     
     public void nextSlide()
     {
         if (next == 0)
         {
-            htpText.text = "Kill enemies with the help of your gun. Killing an enemy gives you currency that can be used to buy uppgrades and new weapons for your character.";
+            htpText.text = "Killed enemies have a chance to drop a power up. A red healthpack that restores health, a green suringe that inceases movement speed, a purple mark that increases firerate and a crate with more ammo.";
             next++;
         }else if(next == 1)
         {
-            htpText.text = "When you have fully uppgraded your character you can prestige to reset all stats to recive an upgrade in your rank. You will however keep the weapons.";
+            htpText.text = "Your character have three kinds of weapons: a handgun with endless ammo and two weapons with limited ammo. A shotgun with high firepower and a riffle with high fire rate. Swap weapons with the weapon button.";
             next++;
             nextButton.gameObject.SetActive(false);
         }
