@@ -9,7 +9,8 @@ public class MMButton : MonoBehaviour {
     public UnityEngine.UI.Text htpText;
     public GameObject optionGrp;
     public GameObject htpGrp;
-    public GameObject nextButton;
+    public UnityEngine.UI.Button nextButton;
+    public UnityEngine.UI.Button backButton;
     public GameObject ScreenPanel;
     public GameObject checkPanel;
     int next = 0;
@@ -17,6 +18,10 @@ public class MMButton : MonoBehaviour {
     int resetWhat;
     static bool screenTrigger = true;
     public bool soundStatus = true;
+
+    private string[] textList = { "Controll your characters movement by using the joystick to the left. Aim your gun with the joystick to the right and your gun will fire as long as the joystick is held down. You cant lose health while you still have shield.",
+                                    "Killed enemies have a chance to drop a power up. A red healthpack that restores health, a green suringe that inceases movement speed, a purple mark that increases firerate and a crate with more ammo.",
+                                    "Your character have three kinds of weapons: a handgun with endless ammo and two weapons with limited ammo. A shotgun with high firepower and a riffle with high fire rate. Swap weapons with the weapon button." };
 
     public void Awake()
     {
@@ -34,7 +39,8 @@ public class MMButton : MonoBehaviour {
     {
         //gör en animation som ska spelas innan spelaren kommer till nästa scene
         //Ladda in scenen som tar spelaren till spel scenen
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void optionPanel()
@@ -55,22 +61,39 @@ public class MMButton : MonoBehaviour {
         //Visar upp ett fönster som säger hur man spelare spelet
         windowFrame.SetActive(true);
         htpGrp.SetActive(true);
-        htpText.text = "Controll your characters movement by using the joystick to the left. Aim your gun with the joystick to the right and your gun will fire as long as the joystick is held down. You cant lose health while you still have shield.";
+        htpText.text = textList[next];
     }
     
     public void nextSlide()
     {
         if (next == 0)
         {
-            htpText.text = "Killed enemies have a chance to drop a power up. A red healthpack that restores health, a green suringe that inceases movement speed, a purple mark that increases firerate and a crate with more ammo.";
             next++;
+            htpText.text = textList[next];
+            backButton.gameObject.SetActive(true);
         }else if(next == 1)
         {
-            htpText.text = "Your character have three kinds of weapons: a handgun with endless ammo and two weapons with limited ammo. A shotgun with high firepower and a riffle with high fire rate. Swap weapons with the weapon button.";
             next++;
+            htpText.text = textList[next];
             nextButton.gameObject.SetActive(false);
         }
 
+    }
+
+    public void backSlide()
+    {
+        if(next == 1)
+        {
+            next--;
+            htpText.text = textList[next];
+            backButton.gameObject.SetActive(false);
+        }
+        if (next == 2)
+        {
+            next--;
+            htpText.text = textList[next];
+            nextButton.gameObject.SetActive(true);
+        }
     }
 
     public void closeFrame()
@@ -79,7 +102,8 @@ public class MMButton : MonoBehaviour {
         //Stänger fönstret som visar hhur man spelar
         windowFrame.SetActive(false);
         optionGrp.SetActive(false);
-        nextButton.SetActive(true);
+        nextButton.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(false);
         next = 0;
         htpGrp.SetActive(false);
     }
