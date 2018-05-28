@@ -26,9 +26,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 		CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
 		CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
 
+        private Image image;
+        private Color visibleAlpha;
+        private Color invisAlpha;
+        
 
 
-		void OnEnable()
+        void OnEnable()
 		{
 			CreateVirtualAxes();
         }
@@ -36,6 +40,13 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             m_StartPos = transform.position;
+
+            image = this.gameObject.GetComponent<Image>();
+            invisAlpha = image.color;
+            visibleAlpha = image.color;
+            visibleAlpha.a = 255f;
+            invisAlpha.a = 0f;
+            image.color = invisAlpha;
         }
 
 		void UpdateVirtualAxes(Vector3 value)
@@ -77,8 +88,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnDrag(PointerEventData data)
 		{
+            
+
 			Vector3 newPos = Vector3.zero;
-            transform.localScale = new Vector3(0.7f, 0.7f, 0);
 
 			if (m_UseX)
 			{
@@ -100,20 +112,28 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnPointerUp(PointerEventData data)
 		{
+            image.color = invisAlpha;
 			transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
             transform.localScale = new Vector3(1f, 1f, 0);
+            Debug.Log("check on release");
         }
 
 
 		public void OnPointerDown(PointerEventData data)
         {
+            transform.localScale = new Vector3(0.2f, 0.15f, 0);
+            image.color = visibleAlpha;
+            Debug.Log("check on pres");
+            //RectTransform sizeOnPress = this.gameObject.GetComponent<RectTransform>();
+
         }
 
-		void OnDisable()
+        void OnDisable()
 		{
-			// remove the joysticks from the cross platform input
-			if (m_UseX)
+
+            // remove the joysticks from the cross platform input
+            if (m_UseX)
 			{
 				m_HorizontalVirtualAxis.Remove();
             }
