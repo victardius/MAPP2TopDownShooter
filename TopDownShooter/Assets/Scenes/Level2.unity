@@ -1020,8 +1020,8 @@ MonoBehaviour:
   waveAnnouncement: {fileID: 2130543680}
   gameOver: {fileID: 1512754446}
   spawner: {fileID: 1512278541}
-  levelEndPanel: {fileID: 0}
-  completedLevelPanel: {fileID: 0}
+  levelEndPanel: {fileID: 842257233}
+  completedLevelPanel: {fileID: 1860488418}
   pauseScreen: {fileID: 1028508108}
   play: {fileID: 1047163916}
   pausedImage: {fileID: 21300000, guid: 70155928b5103ec4c832d4825fdea345, type: 3}
@@ -6831,7 +6831,7 @@ Prefab:
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
       propertyPath: timeBetweenWaves
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
@@ -6841,7 +6841,7 @@ Prefab:
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
       propertyPath: spawnRate
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114522852415493068, guid: 35a3e667cfd397446a401ebe8a202330,
         type: 2}
@@ -10853,6 +10853,11 @@ Prefab:
 --- !u!224 &842257232 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224227658161399134, guid: cade8594a9c0e4340ac131b8c3f1317f,
+    type: 2}
+  m_PrefabInternal: {fileID: 842257231}
+--- !u!1 &842257233 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1676853187361718, guid: cade8594a9c0e4340ac131b8c3f1317f,
     type: 2}
   m_PrefabInternal: {fileID: 842257231}
 --- !u!1 &867502833
@@ -15677,7 +15682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1222568105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17305,7 +17310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1381965512
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23300,6 +23305,11 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224473622532531896, guid: 868a2ba46359ec7408a1e1e394d47854,
     type: 2}
   m_PrefabInternal: {fileID: 1860488416}
+--- !u!1 &1860488418 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1864153996914610, guid: 868a2ba46359ec7408a1e1e394d47854,
+    type: 2}
+  m_PrefabInternal: {fileID: 1860488416}
 --- !u!1 &1861385851
 GameObject:
   m_ObjectHideFlags: 0
@@ -24732,7 +24742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2000163778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25689,7 +25699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2061381892
 RectTransform:
   m_ObjectHideFlags: 0
