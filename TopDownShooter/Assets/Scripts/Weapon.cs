@@ -41,6 +41,8 @@ public class Weapon : MonoBehaviour {
     private SpriteRenderer sprite;
     private float fireRate = 1.4f;
     private Animator anim;
+    private bool firstShotTimer = true;
+    private bool delayTimeOnShot = true;
 
 
 
@@ -95,15 +97,32 @@ public class Weapon : MonoBehaviour {
             if (Time.time > timeToFire)
             {
                 timeToFire = Time.time + 1 / (fireRate + fireBuff);
-                Shoot();
+                if(delayTimeOnShot)
+                    StartCoroutine(FirstShotDelay());
+                
             }
         }
         else
         {
+            firstShotTimer = true;
+            delayTimeOnShot = true;
             anim.SetBool("shooting", false);
         }
         
 #endif
+    }
+
+    private IEnumerator FirstShotDelay()
+    {
+        delayTimeOnShot = false;
+        if (firstShotTimer)
+        {
+            firstShotTimer = false;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        Shoot();
+        delayTimeOnShot = true;
     }
 
     void Shoot()
@@ -163,12 +182,7 @@ public class Weapon : MonoBehaviour {
             Instantiate(bulletTrailPrefab, firePointPistol.position, firePointPistol.rotation);
             currentAmmo = 1337;
         }
-        /*Debug.DrawLine(firePointPosition, (fireTargetPosition - firePointPosition) * 100);
-        if (hit.collider != null)
-        {
-            Debug.DrawLine(firePointPosition, hit.point, Color.red);
-            Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage");
-        }*/
+       
     }
 
     public void selectWeapon()
@@ -182,7 +196,6 @@ public class Weapon : MonoBehaviour {
         if (weaponChoice == 1)
         {
             bulletDamage = 10f;
-            //sprite.sprite = handGun;
             weaponBtn.image.sprite = selectedGun[0];
             fireRate = 1.4f;
             currentAmmo = 1337;
@@ -192,7 +205,6 @@ public class Weapon : MonoBehaviour {
         else if (weaponChoice == 2)
         {
             bulletDamage = 6f;
-            //sprite.sprite = rifle;
             weaponBtn.image.sprite = selectedGun[1];
             fireRate = 3.4f;
             currentAmmo = rifleAmmo;
@@ -202,7 +214,6 @@ public class Weapon : MonoBehaviour {
         else if (weaponChoice == 3)
         {
             bulletDamage = 12f;
-            //sprite.sprite = shotgun;
             weaponBtn.image.sprite = selectedGun[2];
             fireRate = 0.7f;
             currentAmmo = shotgunAmmo;

@@ -19,6 +19,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public AxisOption axesToUse = AxisOption.Both; // The options for the axes that the still will use
 		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
 		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
+        public GameObject marker;
 
 		Vector3 m_StartPos;
 		bool m_UseX; // Toggle for using the x axis
@@ -27,8 +28,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 		CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
 
         private Image image;
+        private Image childImage;
         private Color visibleAlpha;
         private Color invisAlpha;
+        private Color halfAlpha;
         
 
 
@@ -40,13 +43,16 @@ namespace UnityStandardAssets.CrossPlatformInput
         void Start()
         {
             m_StartPos = transform.position;
-
+            childImage = marker.GetComponent<Image>();
             image = this.gameObject.GetComponent<Image>();
+            halfAlpha = childImage.color;
             invisAlpha = image.color;
             visibleAlpha = image.color;
-            visibleAlpha.a = 255f;
+            visibleAlpha.a = 1f;
             invisAlpha.a = 0f;
+            halfAlpha.a = 0.5f;
             image.color = invisAlpha;
+            childImage.color = invisAlpha;
         }
 
 		void UpdateVirtualAxes(Vector3 value)
@@ -113,6 +119,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public void OnPointerUp(PointerEventData data)
 		{
             image.color = invisAlpha;
+            childImage.color = invisAlpha;
 			transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
             transform.localScale = new Vector3(1f, 1f, 0);
@@ -124,6 +131,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             transform.localScale = new Vector3(0.2f, 0.15f, 0);
             image.color = visibleAlpha;
+            childImage.color = halfAlpha;
             Debug.Log("check on pres");
             //RectTransform sizeOnPress = this.gameObject.GetComponent<RectTransform>();
 
