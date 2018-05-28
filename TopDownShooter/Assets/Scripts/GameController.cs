@@ -47,8 +47,12 @@ public class GameController : MonoBehaviour {
             levelEnded();
 
             if (PlayerPrefs.GetInt("sceneToLoad") > 3)
+            {
                 if (PlayerPrefs.GetInt("Rank", 1) < 6)
                     PlayerPrefs.SetInt("Rank", PlayerPrefs.GetInt("Rank", 1) + 1);
+                PlayerPrefs.SetInt("sceneToLoad", 1);
+
+            }
         }
 
         amountOfEnemies.text = "" + MonsterSpawn.numberOfMonsters;
@@ -75,16 +79,15 @@ public class GameController : MonoBehaviour {
        
     }
 
-    public void changeLevel(int n)
+    public void changeLevel()
     {
         if (player.GetComponent<PlayerVariables>().health < 20)
         {
             player.GetComponent<PlayerVariables>().health = 100;
         }
-        
 
-
-        SceneManager.LoadScene(n);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Additive);
     }
 
     public void pauseContinueGame()
@@ -106,7 +109,7 @@ public class GameController : MonoBehaviour {
 
     public void abandonMission()
     {
-        changeLevel(0);
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator waveControl()

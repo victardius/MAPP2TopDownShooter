@@ -107,7 +107,11 @@ public class EnemyVariables : MonoBehaviour {
         {
             Instantiate(powerUps[2], transform.position, Quaternion.identity);
         }
-        
+        else if (i >= 6 && i < 7)
+        {
+            Instantiate(powerUps[3], transform.position, Quaternion.identity);
+        }
+
         Debug.Log(transform.position);
         MonsterSpawn.numberOfMonsters--;
         GetComponent<CircleCollider2D>().enabled = false;

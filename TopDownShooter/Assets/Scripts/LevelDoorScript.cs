@@ -11,7 +11,7 @@ public class LevelDoorScript : MonoBehaviour {
 
 
     
-	void Start () {
+	void Awake () {
         collider = GetComponentInChildren<BoxCollider2D>();
         openDoor.SetActive(false);
         open = false;
