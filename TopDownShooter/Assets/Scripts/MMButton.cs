@@ -11,11 +11,16 @@ public class MMButton : MonoBehaviour {
     public GameObject htpGrp;
     public GameObject nextButton;
     public GameObject ScreenPanel;
+    public GameObject checkPanel;
     int next = 0;
     int sceneToLoad;
+    int resetWhat;
+    static bool screenTrigger = true;
+    public bool soundStatus = true;
 
     public void Awake()
     {
+        ScreenPanel.SetActive(screenTrigger);
         sceneToLoad = PlayerPrefs.GetInt("sceneToLoad", 1);
         if (sceneToLoad > 3)
         {
@@ -70,6 +75,7 @@ public class MMButton : MonoBehaviour {
 
     public void closeFrame()
     {
+        checkPanel.SetActive(false);
         //Stänger fönstret som visar hhur man spelar
         windowFrame.SetActive(false);
         optionGrp.SetActive(false);
@@ -80,7 +86,41 @@ public class MMButton : MonoBehaviour {
 
     public void continueTOMM()
     {
-        ScreenPanel.SetActive(false);
+        screenTrigger = !screenTrigger;
+        ScreenPanel.SetActive(screenTrigger);
+    }
+
+    public void resetLevels()
+    {
+        checkPanel.SetActive(true);
+        resetWhat = 1;
+    }
+
+    public void resetAll()
+    {
+        checkPanel.SetActive(true);
+        resetWhat = 2;
+    }
+
+    public void resetConfirmed()
+    {
+        if (resetWhat == 1)
+        {
+            PlayerPrefs.SetInt("sceneToLoad", 1);
+            closeFrame();
+        }
+        else if (resetWhat == 2)
+        {
+            PlayerPrefs.SetInt("rank", 1);
+            PlayerPrefs.SetInt("sceneToLoad", 1);
+            GetComponent<PlayerPrestige>().resetRank();
+            closeFrame();
+        }
+    }
+
+    public void soundSet()
+    {
+        soundStatus = !soundStatus;
     }
 
 

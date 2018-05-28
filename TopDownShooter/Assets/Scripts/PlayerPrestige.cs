@@ -53,4 +53,10 @@ public class PlayerPrestige : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void resetRank()
+    {
+        textField.text = "Mercenary";
+        prestige.sprite = rank1;
+    }
 }
