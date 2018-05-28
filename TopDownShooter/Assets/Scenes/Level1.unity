@@ -1218,8 +1218,8 @@ MonoBehaviour:
   waveAnnouncement: {fileID: 2130543680}
   gameOver: {fileID: 1512754446}
   spawner: {fileID: 1512278541}
-  levelEndPanel: {fileID: 0}
-  completedLevelPanel: {fileID: 0}
+  levelEndPanel: {fileID: 1295144436}
+  completedLevelPanel: {fileID: 1295144435}
   pauseScreen: {fileID: 1028508108}
   play: {fileID: 1047163916}
   pausedImage: {fileID: 21300000, guid: 70155928b5103ec4c832d4825fdea345, type: 3}
@@ -15547,6 +15547,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1afc255753b588641b5e0b2882882117, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1295144435 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1097492143933160, guid: 1afc255753b588641b5e0b2882882117,
+    type: 2}
+  m_PrefabInternal: {fileID: 1295144434}
+--- !u!1 &1295144436 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1035329303689522, guid: 1afc255753b588641b5e0b2882882117,
+    type: 2}
+  m_PrefabInternal: {fileID: 1295144434}
 --- !u!1 &1295276833
 GameObject:
   m_ObjectHideFlags: 0
