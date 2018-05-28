@@ -86,8 +86,8 @@ public class GameController : MonoBehaviour {
             player.GetComponent<PlayerVariables>().health = 100;
         }
 
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene("LoadingScreen", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void pauseContinueGame()
