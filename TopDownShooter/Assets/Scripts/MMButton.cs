@@ -27,6 +27,11 @@ public class MMButton : MonoBehaviour {
     {
         ScreenPanel.SetActive(screenTrigger);
         sceneToLoad = PlayerPrefs.GetInt("sceneToLoad", 1);
+        if (sceneToLoad == 0)
+        {
+            PlayerPrefs.SetInt("sceneToLoad", 1);
+            sceneToLoad = 1;
+        }
         if (sceneToLoad > 3)
         {
             sceneToLoad = 1;
