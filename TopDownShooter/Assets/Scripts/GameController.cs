@@ -46,13 +46,16 @@ public class GameController : MonoBehaviour {
             PlayerPrefs.SetInt("sceneToLoad", PlayerPrefs.GetInt("sceneToLoad", 1) + 1);
             levelEnded();
 
-            if (PlayerPrefs.GetInt("sceneToLoad") > 3)
-            {
-                if (PlayerPrefs.GetInt("Rank", 1) < 6)
+           
+                if (PlayerPrefs.GetInt("Rank", 1) <= 6)
+                {
                     PlayerPrefs.SetInt("Rank", PlayerPrefs.GetInt("Rank", 1) + 1);
-                PlayerPrefs.SetInt("sceneToLoad", 1);
+                }
+                if (PlayerPrefs.GetInt("sceneToLoad", 1) > 3)
+                    PlayerPrefs.SetInt("sceneToLoad", 1);
 
-            }
+
+
         }
 
         amountOfEnemies.text = "" + MonsterSpawn.numberOfMonsters;
