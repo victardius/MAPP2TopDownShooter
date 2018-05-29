@@ -6,7 +6,7 @@ public class AmmoPowerUp : MonoBehaviour {
 
     private GameObject player;
     public int ammoUpShotgun = 2;
-    public int ammoUpRifle = 10;
+    public int ammoUpRifle = 20;
 
     private void Start()
     {
@@ -20,6 +20,7 @@ public class AmmoPowerUp : MonoBehaviour {
             Weapon.shotgunAmmo += ammoUpShotgun;
             Weapon.rifleAmmo += ammoUpRifle;
             DestroyObject(this.gameObject);
+            player.GetComponentInChildren<Weapon>().ammoPickup();
         }
     }
 }
