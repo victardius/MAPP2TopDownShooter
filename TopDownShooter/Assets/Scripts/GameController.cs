@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
     public static bool missionFailed = false;
     private int wave;
     private GameObject player;
+    private int nextLevel;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class GameController : MonoBehaviour {
         player = GameObject.Find("hitman1_gun");
 
         //player.transform.position = spawn.transform.position;
-        
+        nextLevel = PlayerPrefs.GetInt("sceneToLoad", 1) + 1;
         Time.timeScale = 1;
         levelEnd.gameObject.SetActive(false);
         waveAnnouncement.gameObject.SetActive(false);
@@ -43,7 +44,7 @@ public class GameController : MonoBehaviour {
         {
             completedLevelPanel.gameObject.SetActive(true);
             levelEnd.gameObject.SetActive(true);
-            PlayerPrefs.SetInt("sceneToLoad", PlayerPrefs.GetInt("sceneToLoad", 1) + 1);
+            PlayerPrefs.SetInt("sceneToLoad", nextLevel);
             levelEnded();
 
             if (PlayerPrefs.GetInt("sceneToLoad", 1) > 3)
