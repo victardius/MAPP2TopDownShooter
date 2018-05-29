@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
 
+    public Sprite normalScreen, lastScreen;
+    public GameObject panel;
+
     private bool loadScene = false;
 
     [SerializeField]
@@ -18,6 +21,11 @@ public class SceneLoader : MonoBehaviour
         loadScene = false;
 
         scene = PlayerPrefs.GetInt("sceneToLoad", 1);
+
+        if (scene != 3)
+            panel.GetComponent<Image>().sprite = normalScreen;
+        else
+            panel.GetComponent<Image>().sprite = lastScreen;
     }
 
 

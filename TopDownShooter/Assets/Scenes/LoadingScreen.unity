@@ -544,5 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d36d7c1b1b56d4e8f0b2d161860ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalScreen: {fileID: 21300000, guid: 4f466b0891a4e7a418e7e08d56437e53, type: 3}
+  lastScreen: {fileID: 21300000, guid: f516ad2c0fc7f334a9df8e27ed925b45, type: 3}
+  panel: {fileID: 881774677}
   scene: 1
   loadingText: {fileID: 1229283461}
