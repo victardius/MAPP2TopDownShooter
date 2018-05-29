@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
     {
         loadScene = false;
 
-        scene = PlayerPrefs.GetInt("sceneToLoad");
+        scene = PlayerPrefs.GetInt("sceneToLoad", 1);
     }
 
 
