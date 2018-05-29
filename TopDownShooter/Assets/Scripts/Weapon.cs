@@ -237,10 +237,16 @@ public class Weapon : MonoBehaviour {
     }
     public IEnumerator firePUHelpCode(float fireRateBuff) {
         fireBuff += fireRateBuff;
-        Debug.Log(fireBuff);
         yield return new WaitForSeconds(6f);
         fireBuff -= fireRateBuff;
-        Debug.Log(fireBuff);
+    }
+
+    public void ammoPickup()
+    {
+        if (weaponChoice == 2)
+            currentAmmo = rifleAmmo;
+        else if (weaponChoice == 3)
+            currentAmmo = shotgunAmmo;
     }
 
     
