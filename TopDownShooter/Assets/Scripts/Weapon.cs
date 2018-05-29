@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour {
     public static int rifleAmmo;
     public static int currentAmmo = 1337;
 
+   
+
     public UnityEngine.UI.Button weaponBtn;
 
     public Transform bulletTrailPrefab;
@@ -43,16 +45,18 @@ public class Weapon : MonoBehaviour {
     private Animator anim;
     private bool firstShotTimer = true;
     private bool delayTimeOnShot = true;
+  
 
 
 
     void Awake () {
 
+        currentAmmo = 1337;
         shotgunAmmo = 10;
-        rifleAmmo = 50;
+        rifleAmmo = 100;
         bulletDamage = 10;
         source = GetComponent<AudioSource>();
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>(); 
         firePoint = transform.Find("FirePoint");
         firePointPistol = transform.Find("FirePointPistol");
         firePointShotgun1 = transform.Find("FirePointShotgun1");
@@ -195,20 +199,23 @@ public class Weapon : MonoBehaviour {
 
         if (weaponChoice == 1)
         {
+            
             bulletDamage = 10f;
             weaponBtn.image.sprite = selectedGun[0];
             fireRate = 1.4f;
             currentAmmo = 1337;
             anim.SetInteger("weaponChoice", weaponChoice);
+            
         }
             
         else if (weaponChoice == 2)
         {
             bulletDamage = 6f;
             weaponBtn.image.sprite = selectedGun[1];
-            fireRate = 3.4f;
+            fireRate = 8f;
             currentAmmo = rifleAmmo;
             anim.SetInteger("weaponChoice", weaponChoice);
+         
         }
             
         else if (weaponChoice == 3)
@@ -218,6 +225,7 @@ public class Weapon : MonoBehaviour {
             fireRate = 0.7f;
             currentAmmo = shotgunAmmo;
             anim.SetInteger("weaponChoice", weaponChoice);
+            
         }
        
 
