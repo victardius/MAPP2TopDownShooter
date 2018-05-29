@@ -210,7 +210,7 @@ public class Weapon : MonoBehaviour {
             
         else if (weaponChoice == 2)
         {
-            bulletDamage = 6f;
+            bulletDamage = 5f;
             weaponBtn.image.sprite = selectedGun[1];
             fireRate = 8f;
             currentAmmo = rifleAmmo;
