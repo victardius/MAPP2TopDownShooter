@@ -27,7 +27,7 @@ public class PlayerPrestige : MonoBehaviour {
                 prestige.sprite = rank2;
                 break;
             case 3:
-                textField.text = "Lutenant";
+                textField.text = "Lieutenant";
                 prestige.sprite = rank3;
                 break;
             case 4:

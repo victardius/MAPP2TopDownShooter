@@ -135,7 +135,7 @@ public class MMButton : MonoBehaviour {
         }
         else if (resetWhat == 2)
         {
-            PlayerPrefs.SetInt("rank", 1);
+            PlayerPrefs.SetInt("Rank", 1);
             PlayerPrefs.SetInt("sceneToLoad", 1);
             GetComponent<PlayerPrestige>().resetRank();
             closeFrame();
