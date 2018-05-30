@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoUpShotgun: 2
-  ammoUpRifle: 10
+  ammoUpRifle: 20
 --- !u!198 &198555720279808974
 ParticleSystem:
   m_ObjectHideFlags: 1

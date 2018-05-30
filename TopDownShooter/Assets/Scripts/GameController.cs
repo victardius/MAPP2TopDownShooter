@@ -133,5 +133,17 @@ public class GameController : MonoBehaviour {
             pauseContinueGame();
         }
     }
+
+    public void soundOnOff()
+    {
+        if (AudioListener.volume == PlayerPrefs.GetFloat("volume"))
+        {
+            AudioListener.volume = 0f;
+        }
+        else
+        {
+            AudioListener.volume = PlayerPrefs.GetFloat("volume");
+        }
+    }
    
 }

@@ -16,8 +16,9 @@ public class MMButton : MonoBehaviour {
     int next = 0;
     int sceneToLoad;
     int resetWhat;
+    private static float volume;
     static bool screenTrigger = true;
-    public bool soundStatus = true;
+    public static bool soundStatus = true;
 
     private string[] textList = { "Controll your characters movement by using the joystick to the left. Aim your gun with the joystick to the right and your gun will fire as long as the joystick is held down. You cant lose health while you still have shield.",
                                     "Killed enemies have a chance to drop a power up. A red healthpack that restores health, a green suringe that inceases movement speed, a purple mark that increases firerate and a crate with more ammo.",
@@ -58,6 +59,9 @@ public class MMButton : MonoBehaviour {
     public void exitGame()
     {
         //stänger av applikationen
+        AudioListener.volume = volume;
+        soundStatus = true;
+        PlayerPrefs.SetFloat("volume", volume);
         Application.Quit();
     }
 
@@ -117,6 +121,8 @@ public class MMButton : MonoBehaviour {
     {
         screenTrigger = !screenTrigger;
         ScreenPanel.SetActive(screenTrigger);
+        volume = AudioListener.volume;
+        PlayerPrefs.SetFloat("volume", volume);
     }
 
     public void resetLevels()
@@ -150,6 +156,15 @@ public class MMButton : MonoBehaviour {
     public void soundSet()
     {
         soundStatus = !soundStatus;
+
+        if (soundStatus)
+        {
+            AudioListener.volume = volume;
+        }
+        else
+        {
+            AudioListener.volume = 0;
+        }
     }
 
 

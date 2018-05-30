@@ -41,7 +41,7 @@ public class PlayerVariables : MonoBehaviour
         source = GetComponent<AudioSource>();
         //playerTarget = transform;
         shieldSprite.SetActive(true);
-
+        
 
     }
 

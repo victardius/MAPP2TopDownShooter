@@ -16,6 +16,7 @@ public class AdrenalinPowerUp : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
             player.GetComponent<PlayerController>().increaseMovement();
+            player.GetComponent<PlayerVariables>().healthPack(10);
             DestroyObject(this.gameObject);
         }
     }

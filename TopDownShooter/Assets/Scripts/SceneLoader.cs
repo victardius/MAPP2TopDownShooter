@@ -35,10 +35,12 @@ public class SceneLoader : MonoBehaviour
     
         if (Input.GetButtonDown("Fire1") && loadScene == false)
         {
-            Debug.Log("test");
             loadScene = true;
-            loadingText.text = "Loading level " + scene + " please stand by!";
-            
+            if (scene != 0)
+                loadingText.text = "Loading level " + scene + " please stand by!";
+            else
+                loadingText.text = "Loading main menu please stand by!";
+
             StartCoroutine(LoadNewScene());
 
         }

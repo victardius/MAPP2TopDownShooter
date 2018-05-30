@@ -17,9 +17,7 @@ public class HealthPack : MonoBehaviour {
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log(player.GetComponent<PlayerVariables>().health);
             player.GetComponent<PlayerVariables>().healthPack(health);
-            Debug.Log(player.GetComponent<PlayerVariables>().health);
             DestroyObject(this.gameObject);
         }
     }
